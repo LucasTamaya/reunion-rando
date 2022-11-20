@@ -1,3 +1,9 @@
+import { Nav } from "./components/common/Nav";
+
 export const App: React.FC = () => {
-  return <div className="text-red-500">caca</div>;
+  return (
+    <>
+      <Nav />
+    </>
+  );
 };
