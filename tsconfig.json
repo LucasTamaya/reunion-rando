@@ -15,12 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "cypress", "@testing-library/cypress"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "tests", "./jest-setup.ts"],
+  "include": ["src", "tests", "./jest-setup.ts", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

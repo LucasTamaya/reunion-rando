@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Nav: React.FC = () => {
   return (
     <header className="bg-main-green py-5 px-16">
@@ -25,9 +27,9 @@ export const Nav: React.FC = () => {
             </a>
           </li>
           <li>
-            <a className="text-lg text-white font-semibold" href="$">
+            <Link className="text-lg text-white font-semibold" to="/connexion">
               Connexion
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
