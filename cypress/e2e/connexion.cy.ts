@@ -20,7 +20,7 @@ describe("Connexion proccess", () => {
     }).should("exist");
   });
 
-  it("should renders 2 error messages if the user tries submit the form with empty fields", () => {
+  it("should renders 2 error messages if the user tries to submit the form with empty fields", () => {
     cy.findByRole("button", {
       name: /connexion/i,
     }).click();
@@ -45,12 +45,20 @@ describe("Connexion proccess", () => {
     cy.findAllByTestId("inputErr")
       .first()
       .should("exist")
-      .and("contain", "Addresse e-mail incorrecte");
+      .and("contain", "E-mail invalide");
 
     cy.findAllByTestId("inputErr")
       .last()
       .should("exist")
       .and("contain", "Le mot de passe doit contenir au moins 5 caractères");
+  });
+
+  it("should redirects the user to InscriptionScreen if he clicks on S'inscrire button", () => {
+    cy.findByRole("link", {
+      name: /s'inscrire/i,
+    }).click();
+
+    cy.location("pathname").should("eq", "/inscription");
   });
 });
 
