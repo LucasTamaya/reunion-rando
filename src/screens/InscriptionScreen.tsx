@@ -4,16 +4,18 @@ import { Formik, Form } from "formik";
 import { Input } from "@/components/common/Input";
 import { inscriptionSchema } from "@/validationSchema";
 import { InputSelect } from "@/components/common/InputSelect";
+import { RegisterValues } from "@/types";
+import { useRegister } from "@/hooks/auth/useRegister";
+import { ClipLoader } from "react-spinners";
 
-interface FormValues {
-  lastname: string;
-  firstname: string;
-  email: string;
-  password: string;
-  role: string;
-}
 export const InscriptionScreen: React.FC = () => {
-  const initialValues: FormValues = {
+  const handleSubmit = ({ ...userData }: RegisterValues) => {
+    mutate(userData);
+  };
+
+  const { mutate, isLoading, isError, isSuccess, error } = useRegister();
+
+  const initialValues: RegisterValues = {
     lastname: "",
     firstname: "",
     email: "",
@@ -21,18 +23,13 @@ export const InscriptionScreen: React.FC = () => {
     role: "",
   };
 
-  const handleSubmit = ({
-    lastname,
-    firstname,
-    email,
-    password,
-    role,
-  }: FormValues) => {
-    console.log(lastname, firstname, role, email, password);
-  };
+  if (isError) {
+    console.log(error);
+  }
+
   return (
-    <div className="h-screen flex flex-col justify-center items-center px-5">
-      <div className="rounded bg-white shadow-xl p-10 sm:p-16">
+    <div className="min-h-screen flex flex-col justify-center items-center p-5">
+      <div className="w-full max-w-xl rounded bg-white shadow-xl p-10 sm:p-16">
         <h1 className="text-lg sm:text-3xl text-gray-700 font-bold mb-5">
           Créez votre compte RunRando
         </h1>
@@ -57,10 +54,14 @@ export const InscriptionScreen: React.FC = () => {
               </InputSelect>
             </div>
             <button
-              className="text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3"
+              className="text-white text-base flex justify-center items-center sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
               type="submit"
             >
-              Créer un compte
+              {isLoading ? (
+                <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
+              ) : (
+                <>Créer un compte</>
+              )}
             </button>
           </Form>
         </Formik>
