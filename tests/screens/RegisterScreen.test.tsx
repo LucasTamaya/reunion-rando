@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { rest } from "msw";
 
-import { InscriptionScreen } from "@/screens/InscriptionScreen";
+import { RegisterScreen } from "@/screens/RegisterScreen";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { renderWithClient } from "@tests/config/mswUtils";
 import { server } from "@tests/config/server";
@@ -9,7 +9,7 @@ import { server } from "@tests/config/server";
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <InscriptionScreen />
+      <RegisterScreen />
     </RouterWrapper>
   );
 };
@@ -51,7 +51,7 @@ beforeEach(() => {
   );
 });
 
-describe("InscriptionScreen", () => {
+describe("RegisterScreen", () => {
   it("should shows a success modal if there are no errors during the request", async () => {
     const successModal = await screen.findByText(/compte crée avec succès/i);
 

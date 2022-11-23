@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 
 import { Input } from "@/components/common/Input";
-import { connexionSchema } from "@/validationSchema";
+import { loginSchema } from "@/validationSchema";
 
 interface FormValues {
   email: string;
   password: string;
 }
-export const ConnexionScreen: React.FC = () => {
+export const LoginScreen: React.FC = () => {
   const initialValues: FormValues = { email: "", password: "" };
 
   const handleSubmit = ({ email, password }: FormValues) => {
@@ -22,7 +22,7 @@ export const ConnexionScreen: React.FC = () => {
         </h1>
         <Formik
           initialValues={initialValues}
-          validationSchema={connexionSchema}
+          validationSchema={loginSchema}
           onSubmit={handleSubmit}
         >
           <Form className="flex flex-col gap-y-7">

@@ -3,13 +3,13 @@ import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
 
 import { Input } from "@/components/common/Input";
-import { inscriptionSchema } from "@/validationSchema";
+import { registerSchema } from "@/validationSchema";
 import { InputSelect } from "@/components/common/InputSelect";
 import { RegisterValues } from "@/types";
 import { useRegister } from "@/hooks/auth/useRegister";
 import { ClipLoader } from "react-spinners";
 
-export const InscriptionScreen: React.FC = () => {
+export const RegisterScreen: React.FC = () => {
   const handleSubmit = ({ ...userData }: RegisterValues) => {
     mutate(userData);
   };
@@ -32,7 +32,7 @@ export const InscriptionScreen: React.FC = () => {
         </h1>
         <Formik
           initialValues={initialValues}
-          validationSchema={inscriptionSchema}
+          validationSchema={registerSchema}
           onSubmit={handleSubmit}
         >
           <Form className="flex flex-col gap-y-7">
