@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 
 import { Nav } from "@/components/common/Nav";
-import { BrowserRouter } from "react-router-dom";
+import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 
 const MockedComponent = () => {
   return (
-    <BrowserRouter>
+    <RouterWrapper>
       <Nav />
-    </BrowserRouter>
+    </RouterWrapper>
   );
 };
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { Toaster } from "react-hot-toast";
 
 import { Input } from "@/components/common/Input";
 import { inscriptionSchema } from "@/validationSchema";
@@ -13,7 +14,7 @@ export const InscriptionScreen: React.FC = () => {
     mutate(userData);
   };
 
-  const { mutate, isLoading, isError, isSuccess, error } = useRegister();
+  const { mutate, isLoading } = useRegister();
 
   const initialValues: RegisterValues = {
     lastname: "",
@@ -22,10 +23,6 @@ export const InscriptionScreen: React.FC = () => {
     password: "",
     role: "",
   };
-
-  if (isError) {
-    console.log(error);
-  }
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center p-5">
@@ -72,6 +69,7 @@ export const InscriptionScreen: React.FC = () => {
           </Link>
         </p>
       </div>
+      <Toaster />
     </div>
   );
 };
