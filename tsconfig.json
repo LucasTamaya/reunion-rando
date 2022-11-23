@@ -18,7 +18,8 @@
     "types": ["vitest/globals", "cypress", "@testing-library/cypress"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"]
     }
   },
   "include": ["src", "tests", "./jest-setup.ts", "cypress"],
