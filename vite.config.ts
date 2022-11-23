@@ -9,10 +9,10 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./jest-setup.ts",
+    setupFiles: "./jestSetup.ts",
     coverage: {
       reporter: ["text", "html"],
-      exclude: ["node_modules/", "./jest-setup.ts"],
+      exclude: ["node_modules/", "./jestSetup.ts"],
     },
   },
   resolve: {

@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { Toaster } from "react-hot-toast";
+import { ClipLoader } from "react-spinners";
 
 import { Input } from "@/components/common/Input";
 import { loginSchema } from "@/validationSchema";
+import { useLogin } from "@/hooks/auth/useLogin";
+import { LoginValues } from "@/types";
 
-interface FormValues {
-  email: string;
-  password: string;
-}
 export const LoginScreen: React.FC = () => {
-  const initialValues: FormValues = { email: "", password: "" };
+  const { mutate, isLoading } = useLogin();
 
-  const handleSubmit = ({ email, password }: FormValues) => {
-    console.log(email, password);
+  const handleSubmit = ({ ...userData }: LoginValues) => {
+    mutate(userData);
   };
+
+  const initialValues: LoginValues = { email: "", password: "" };
   return (
     <div className="h-screen flex flex-col justify-center items-center px-5">
       <div className="rounded bg-white shadow-xl p-10 sm:p-16">
@@ -29,10 +31,14 @@ export const LoginScreen: React.FC = () => {
             <Input label="E-mail" name="email" type="email" />
             <Input label="Mot de passe" name="password" type="password" />
             <button
-              className="text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3"
+              className="text-white text-base sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
               type="submit"
             >
-              Connexion
+              {isLoading ? (
+                <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
+              ) : (
+                <>Connexion</>
+              )}
             </button>
           </Form>
         </Formik>
@@ -43,6 +49,7 @@ export const LoginScreen: React.FC = () => {
           </Link>
         </p>
       </div>
+      <Toaster />
     </div>
   );
 };

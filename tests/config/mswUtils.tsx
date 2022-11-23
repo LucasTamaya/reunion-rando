@@ -8,6 +8,10 @@ export const handlers = [
   rest.post("*/register", (_, res, ctx) => {
     return res(ctx.status(200), ctx.json({ isSuccess: true }));
   }),
+
+  rest.post("*/login", (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ isSuccess: true }));
+  }),
 ];
 
 const createTestQueryClient = () =>

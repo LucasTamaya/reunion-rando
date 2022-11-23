@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { rest } from "msw";
 
-import { RegisterScreen } from "@/screens/RegisterScreen";
+import { LoginScreen } from "@/screens/LoginScreen";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { renderWithClient } from "@tests/config/mswUtils";
 import { server } from "@tests/config/server";
@@ -9,7 +9,7 @@ import { server } from "@tests/config/server";
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <RegisterScreen />
+      <LoginScreen />
     </RouterWrapper>
   );
 };
@@ -17,17 +17,6 @@ const MockedComponent = () => {
 beforeEach(() => {
   // simulates the user filling in the form and sending it
   renderWithClient(<MockedComponent />);
-
-  fireEvent.change(screen.getAllByRole("textbox")[0], {
-    target: { value: "doe" },
-  });
-
-  fireEvent.change(
-    screen.getByRole("textbox", {
-      name: /prénom/i,
-    }),
-    { target: { value: "john" } }
-  );
 
   fireEvent.change(
     screen.getByRole("textbox", {
@@ -40,36 +29,35 @@ beforeEach(() => {
     target: { value: "123456" },
   });
 
-  // select input
-  const select = screen.getByRole("combobox");
-  fireEvent.change(select, { target: { value: "particulier" } });
-
   fireEvent.click(
     screen.getByRole("button", {
-      name: /créer un compte/i,
+      name: /connexion/i,
     })
   );
 });
 
-describe("RegisterScreen", () => {
+describe("LoginScreen", () => {
   it("should shows a success modal if there are no errors during the request", async () => {
-    const successModal = await screen.findByText(/compte crée avec succès/i);
+    const successModal = await screen.findByText(/connexion réussie !/i);
 
     expect(successModal).toBeInTheDocument();
   });
 
-  it("should shows an error modal with a specific error message if the user already exists", async () => {
-    // simulates a 409 error (conflict error)
+  it("should shows an error modal with an error message if the user doesn't exists or if the passwords don't match", async () => {
     server.use(
-      rest.post("*/register", (_, res, ctx) => {
+      rest.post("*/login", (_, res, ctx) => {
         return res(
-          ctx.status(409),
-          ctx.json({ message: "L'utilisateur existe déjà" })
+          ctx.status(200),
+          ctx.json({
+            isError: true,
+          })
         );
       })
     );
 
-    const errorModal = await screen.findByText(/l'utilisateur existe déjà/i);
+    const errorModal = await screen.findByText(
+      /e-mail ou mot de passe incorrect/i
+    );
 
     expect(errorModal).toBeInTheDocument();
   });
@@ -77,7 +65,7 @@ describe("RegisterScreen", () => {
   it("should shows an error modal with a generic error message if there are any other errors", async () => {
     // simulates a 500 error
     server.use(
-      rest.post("*/register", (_, res, ctx) => {
+      rest.post("*/login", (_, res, ctx) => {
         return res(ctx.status(500));
       })
     );

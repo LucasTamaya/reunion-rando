@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
+import { ClipLoader } from "react-spinners";
 
 import { Input } from "@/components/common/Input";
 import { registerSchema } from "@/validationSchema";
 import { InputSelect } from "@/components/common/InputSelect";
 import { RegisterValues } from "@/types";
 import { useRegister } from "@/hooks/auth/useRegister";
-import { ClipLoader } from "react-spinners";
 
 export const RegisterScreen: React.FC = () => {
+  const { mutate, isLoading } = useRegister();
+
   const handleSubmit = ({ ...userData }: RegisterValues) => {
     mutate(userData);
   };
-
-  const { mutate, isLoading } = useRegister();
 
   const initialValues: RegisterValues = {
     lastname: "",
