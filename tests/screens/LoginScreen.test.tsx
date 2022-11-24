@@ -1,7 +1,8 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { fireEvent, screen } from "@testing-library/react";
 import { rest } from "msw";
 
-import { LoginScreen } from "@/screens/LoginScreen";
+import { Login } from "@/screens/Login";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { renderWithClient } from "@tests/config/mswUtils";
 import { server } from "@tests/config/server";
@@ -9,7 +10,7 @@ import { server } from "@tests/config/server";
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <LoginScreen />
+      <Login />
     </RouterWrapper>
   );
 };
@@ -36,7 +37,7 @@ beforeEach(() => {
   );
 });
 
-describe("LoginScreen", () => {
+describe("Login", () => {
   it("should shows a success modal if there are no errors during the request", async () => {
     const successModal = await screen.findByText(/connexion réussie !/i);
 

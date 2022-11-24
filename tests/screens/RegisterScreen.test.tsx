@@ -1,7 +1,8 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { fireEvent, screen } from "@testing-library/react";
 import { rest } from "msw";
 
-import { RegisterScreen } from "@/screens/RegisterScreen";
+import { Register } from "@/screens/Register";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { renderWithClient } from "@tests/config/mswUtils";
 import { server } from "@tests/config/server";
@@ -9,7 +10,7 @@ import { server } from "@tests/config/server";
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <RegisterScreen />
+      <Register />
     </RouterWrapper>
   );
 };
@@ -51,7 +52,7 @@ beforeEach(() => {
   );
 });
 
-describe("RegisterScreen", () => {
+describe("Register", () => {
   it("should shows a success modal if there are no errors during the request", async () => {
     const successModal = await screen.findByText(/compte crée avec succès/i);
 

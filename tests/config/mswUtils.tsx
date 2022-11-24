@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Mock Service Worker => mock api requests
 import { render } from "@testing-library/react";
 import { rest } from "msw";
@@ -6,11 +7,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const handlers = [
   rest.post("*/register", (_, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ isSuccess: true }));
+    return res(ctx.status(200));
   }),
 
   rest.post("*/login", (_, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ isSuccess: true }));
+    return res(ctx.status(200));
   }),
 ];
 
