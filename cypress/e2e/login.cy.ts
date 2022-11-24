@@ -1,4 +1,4 @@
-describe("Connexion proccess", () => {
+describe("Login proccess", () => {
   beforeEach(() => {
     cy.visit("/connexion");
   });
@@ -51,6 +51,37 @@ describe("Connexion proccess", () => {
       .last()
       .should("exist")
       .and("contain", "Le mot de passe doit contenir au moins 5 caractères");
+  });
+
+  it("should redirects the user to DashboardParticulier if the user who logged in is an individual", () => {
+    const mockedReturnResponse = { role: "particulier" };
+
+    cy.userLogin();
+
+    cy.intercept("POST", "http://localhost:4000/login", mockedReturnResponse);
+
+    cy.location("pathname").should("eq", "/dashboard/particulier");
+
+    cy.intercept(
+      "GET",
+      "http://localhost:4000/user/role",
+      mockedReturnResponse
+    );
+  });
+
+  it("should redirects the user to DashboardPrestataire if the user who logged in is an individual", () => {
+    const mockedReturnResponse = { role: "prestatire" };
+
+    cy.userLogin();
+    cy.intercept("POST", "http://localhost:4000/login", mockedReturnResponse);
+
+    cy.location("pathname").should("eq", "/dashboard/prestataire");
+
+    cy.intercept(
+      "GET",
+      "http://localhost:4000/user/role",
+      mockedReturnResponse
+    );
   });
 
   it("should redirects the user to InscriptionScreen if he clicks on S'inscrire button", () => {

@@ -1,4 +1,4 @@
-describe("Connexion proccess", () => {
+describe("Register proccess", () => {
   beforeEach(() => {
     cy.visit("/inscription");
   });
