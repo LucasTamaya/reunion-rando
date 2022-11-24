@@ -8,7 +8,7 @@ import { loginSchema } from "@/validationSchema";
 import { useLogin } from "@/hooks/auth/useLogin";
 import { LoginValues } from "@/types";
 
-export const LoginScreen: React.FC = () => {
+export const Login: React.FC = () => {
   const { mutate, isLoading } = useLogin();
 
   const handleSubmit = ({ ...userData }: LoginValues) => {

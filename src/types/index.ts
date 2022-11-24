@@ -12,5 +12,10 @@ export interface LoginValues {
 }
 
 export interface LoginApiResponse {
-  isError: boolean;
+  isError?: boolean;
+  role?: "particulier" | "prestataire";
+}
+
+export interface UserRoles {
+  role: "particulier" | "prestataire";
 }

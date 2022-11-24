@@ -9,7 +9,7 @@ import { InputSelect } from "@/components/common/InputSelect";
 import { RegisterValues } from "@/types";
 import { useRegister } from "@/hooks/auth/useRegister";
 
-export const RegisterScreen: React.FC = () => {
+export const Register: React.FC = () => {
   const { mutate, isLoading } = useRegister();
 
   const handleSubmit = ({ ...userData }: RegisterValues) => {

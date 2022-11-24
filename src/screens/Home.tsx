@@ -1,6 +1,6 @@
 import { Nav } from "@/components/common/Nav";
 
-export const HomeScreen: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <div>
       <Nav />
