@@ -11,11 +11,9 @@ export interface LoginValues {
   password: string;
 }
 
-export interface LoginApiResponse {
-  isError?: boolean;
-  role?: "particulier" | "prestataire";
-}
+export type UserRoles = "particulier" | "prestataire";
 
-export interface UserRoles {
-  role: "particulier" | "prestataire";
+export interface LoginApiResponse {
+  isError: boolean;
+  role: UserRoles;
 }

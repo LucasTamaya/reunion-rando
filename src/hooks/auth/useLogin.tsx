@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { fetchLogin } from "@/api/auth/login";
-import { LoginApiResponse, LoginValues } from "@/types";
+import { LoginApiResponse, LoginValues, UserRoles } from "@/types";
 
 const handleSuccess = (
   { isError, role }: LoginApiResponse,
@@ -14,16 +14,24 @@ const handleSuccess = (
   }
 
   toast.success("Connexion réussie !");
-  switch (role) {
-    case "particulier":
-      navigate("/dashboard/particulier");
-      break;
-    case "prestataire":
-      navigate("/dashboard/prestataire");
-      break;
-    default:
-      navigate("/login");
-  }
+  localStorage.setItem("role", role);
+  redirectUserAfterTwoSec(role, navigate);
+};
+
+const redirectUserAfterTwoSec = (
+  role: UserRoles,
+  navigate: NavigateFunction
+) => {
+  setTimeout(() => {
+    switch (role) {
+      case "particulier":
+        navigate("/dashboard/particulier");
+        break;
+      case "prestataire":
+        navigate("/dashboard/prestataire");
+        break;
+    }
+  }, 2000);
 };
 
 export const useLogin = () => {
