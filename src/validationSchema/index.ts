@@ -18,3 +18,15 @@ export const registerSchema = Yup.object({
     .oneOf(["particulier", "prestataire"], "Option invalide")
     .required("Requis"),
 }).required();
+
+export const newActivitySchema = Yup.object({
+  title: Yup.string().required("Requis"),
+  location: Yup.string().required("Requis"),
+  price: Yup.number()
+    .required("Requis")
+    .positive("Montant invalide")
+    .integer("Montant invalide")
+    .min(5, "Montant invalide")
+    .max(1000, "Le montant doit être inférieur à 1000"),
+  description: Yup.string().required("Requis"),
+}).required();

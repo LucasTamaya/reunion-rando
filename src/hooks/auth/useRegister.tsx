@@ -16,9 +16,13 @@ const handleError = (err: AxiosError) => {
 
 const handleSuccess = (navigate: NavigateFunction) => {
   toast.success("Compte crée avec succès !");
+  redirectUserAfterTwoSec(navigate);
+};
+
+const redirectUserAfterTwoSec = (navigate: NavigateFunction) => {
   setTimeout(() => {
-    navigate("/login");
-  }, 3000);
+    navigate("/connexion");
+  }, 2000);
 };
 
 export const useRegister = () => {

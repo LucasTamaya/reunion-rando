@@ -11,16 +11,33 @@ export const Nav: React.FC = () => {
           <li className="text-4xl text-white font-semibold">
             <a href="$">ReunionRando</a>
           </li>
-          <li className="text-lg text-white font-semibold">
-            <a href="$">Sorties du moment</a>
-          </li>
-          <li className="text-lg text-white font-semibold">
-            <a href="$">Nos experts du terrain</a>
-          </li>
+          {userRole === "particulier" ? (
+            <>
+              <li className="text-lg text-white font-semibold">
+                <Link to="/activites-du-moment">Activités du moment</Link>
+              </li>
+              <li className="text-lg text-white font-semibold">
+                <a href="$">Nos experts du terrain</a>
+              </li>
 
-          <li className="text-lg text-white font-semibold">
-            <a href="$">Programmer ma sortie</a>
-          </li>
+              <li className="text-lg text-white font-semibold">
+                <a href="$">Programmer ma sortie</a>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="text-lg text-white font-semibold">
+                <Link to="/nouvelle-activite">Ajouter une activité</Link>
+              </li>
+              <li className="text-lg text-white font-semibold">
+                <a href="$">Les demandes de clients</a>
+              </li>
+
+              <li className="text-lg text-white font-semibold">
+                <a href="$">Mes sorties</a>
+              </li>
+            </>
+          )}
 
           <li className="text-lg text-white font-semibold">
             {userRole ? (

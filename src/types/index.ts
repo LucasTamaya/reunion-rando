@@ -17,3 +17,14 @@ export interface LoginApiResponse {
   isError: boolean;
   role: UserRoles;
 }
+
+export interface Hikes {
+  name: string;
+}
+
+export interface NewActivityValues {
+  title: string;
+  location: string;
+  price: number;
+  description: string;
+}

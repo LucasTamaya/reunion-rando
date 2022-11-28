@@ -7,6 +7,8 @@ import { DashboardParticulier } from "./screens/DashboardParticulier";
 import { ProtectedRoutes } from "./components/ProtectedRoutes";
 import { DashboardPrestataire } from "./screens/DashboardPrestataire";
 import { Unauthorized } from "./screens/Unauthorized";
+import { CurrentActivities } from "./screens/CurrentActivities";
+import { AddNewActivity } from "./screens/AddNewActivity";
 
 export const App: React.FC = () => {
   return (
@@ -15,6 +17,7 @@ export const App: React.FC = () => {
       <Route path="/connexion" element={<Login />} />
       <Route path="/inscription" element={<Register />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="/activites-du-moment" element={<CurrentActivities />} />
       <Route element={<ProtectedRoutes allowedRole="particulier" />}>
         <Route
           path="/dashboard/particulier"
@@ -26,6 +29,7 @@ export const App: React.FC = () => {
           path="/dashboard/prestataire"
           element={<DashboardPrestataire />}
         />
+        <Route path="/nouvelle-activite" element={<AddNewActivity />} />
       </Route>
     </Routes>
   );

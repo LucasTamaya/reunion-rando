@@ -13,9 +13,11 @@ const handleSuccess = (
     toast.error("E-mail ou mot de passe incorrect");
   }
 
-  toast.success("Connexion réussie !");
-  localStorage.setItem("role", role);
-  redirectUserAfterTwoSec(role, navigate);
+  if (role) {
+    toast.success("Connexion réussie !");
+    localStorage.setItem("role", role);
+    redirectUserAfterTwoSec(role, navigate);
+  }
 };
 
 const redirectUserAfterTwoSec = (
