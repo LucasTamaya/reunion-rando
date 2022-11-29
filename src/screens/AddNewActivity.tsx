@@ -9,9 +9,11 @@ import { TextArea } from "@/components/common/TextArea";
 import { useHikes } from "@/hooks/hike/useHikes";
 import { NewActivityValues } from "@/types";
 import { newActivitySchema } from "@/validationSchema";
+import { useAddActivity } from "@/hooks/activity/useAddActivity";
 
 export const AddNewActivity: React.FC = () => {
   const { isLoading, data } = useHikes();
+  const { mutate, isLoading: addActivityLoading } = useAddActivity();
 
   const initialValues: NewActivityValues = {
     title: "",
@@ -22,6 +24,7 @@ export const AddNewActivity: React.FC = () => {
 
   const handleSubmit = ({ ...activityData }: NewActivityValues) => {
     console.log(activityData);
+    mutate(activityData);
   };
 
   return (
@@ -65,7 +68,7 @@ export const AddNewActivity: React.FC = () => {
                   className="text-white text-base flex justify-center items-center sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
                   type="submit"
                 >
-                  {isLoading ? (
+                  {addActivityLoading ? (
                     <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
                   ) : (
                     <>Créer l'activité</>

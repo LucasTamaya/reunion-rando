@@ -11,6 +11,17 @@ export const handlers = [
   }),
 
   rest.post("*/login", (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ role: "particulier" }));
+  }),
+
+  rest.get("*/hikes", (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ hikes: [{ name: "Mafate" }, { name: "Cilaos" }] })
+    );
+  }),
+
+  rest.post("*/activity", (_, res, ctx) => {
     return res(ctx.status(200));
   }),
 ];
