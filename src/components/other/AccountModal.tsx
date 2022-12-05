@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const AccountModal: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -22,10 +23,10 @@ export const AccountModal: React.FC = () => {
           >
             <ul className="flex flex-col gap-y-5">
               <li className="text-white">
-                <a href="$">Mes sorties</a>
+                <Link to="/mes-sorties">Mes sorties</Link>
               </li>
               <li className="text-white">
-                <a href="$">Modifier mes informations</a>
+                <Link to="/profile">Modifier mes informations</Link>
               </li>
               <li className="text-white">
                 <a href="$">Déconnexion</a>

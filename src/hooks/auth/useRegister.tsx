@@ -5,6 +5,7 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { fetchRegister } from "@/api/auth/register";
 import { RegisterValues } from "@/types";
+import { redirectUserToLoginScreenAfterTwoSec } from "@/helpers/redirectUserToLoginAfterTwoSec";
 
 const handleError = (err: AxiosError) => {
   if (err.response?.status === 409) {
@@ -16,13 +17,7 @@ const handleError = (err: AxiosError) => {
 
 const handleSuccess = (navigate: NavigateFunction) => {
   toast.success("Compte crée avec succès !");
-  redirectUserAfterTwoSec(navigate);
-};
-
-const redirectUserAfterTwoSec = (navigate: NavigateFunction) => {
-  setTimeout(() => {
-    navigate("/connexion");
-  }, 2000);
+  redirectUserToLoginScreenAfterTwoSec(navigate);
 };
 
 export const useRegister = () => {

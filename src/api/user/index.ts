@@ -1,12 +1,9 @@
 import axios from "axios";
 
 import { SERVER_BASE_URL } from "@/constants";
-import { ProviderUserApiResponse } from "@/types";
+import { ProviderUserApiResponse, UserRoleApiResponse, User } from "@/types";
 import { axiosInstance } from "../config/axios";
 
-interface UserRoleApiResponse {
-  role: "particulier" | "prestataire";
-}
 export const fetchUserRole = async () => {
   const { data } = await axiosInstance.get<UserRoleApiResponse>(
     `${SERVER_BASE_URL}/user/role`
@@ -21,4 +18,14 @@ export const fetchAllProviderUsers = async () => {
   );
 
   return data.providerUsers;
+};
+
+export const fetchUserData = async () => {
+  const userId = localStorage.getItem("userId");
+
+  const { data } = await axiosInstance.get<{ userData: User }>(
+    `${SERVER_BASE_URL}/user/${userId}`
+  );
+
+  return data.userData;
 };

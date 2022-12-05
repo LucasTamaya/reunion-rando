@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AccountModal } from "../AccountModal";
+import { AccountModal } from "../other/AccountModal";
 
 export const Nav: React.FC = () => {
   const userRole = localStorage.getItem("role");

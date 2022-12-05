@@ -4,13 +4,14 @@ import { Home } from "./screens/Home";
 import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
 import { DashboardParticulier } from "./screens/DashboardParticulier";
-import { ProtectedRoutes } from "./components/ProtectedRoutes";
+import { ProtectedRoutes } from "./components/other/ProtectedRoutes";
 import { DashboardPrestataire } from "./screens/DashboardPrestataire";
 import { Unauthorized } from "./screens/Unauthorized";
 import { CurrentActivities } from "./screens/CurrentActivities";
 import { AddNewActivity } from "./screens/AddNewActivity";
 import { ActivityDetails } from "./components/activity/ActivityDetails";
 import { ExpertsField } from "./screens/ExpertsField";
+import { UserProfile } from "./components/user/UserProfile";
 
 export const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ export const App: React.FC = () => {
       <Route path="/activites-du-moment" element={<CurrentActivities />} />
       <Route path="/activites/:id" element={<ActivityDetails />} />
       <Route path="/nos-experts-du-terrain" element={<ExpertsField />} />
+      <Route path="/profile" element={<UserProfile />} />
       <Route element={<ProtectedRoutes allowedRole="particulier" />}>
         <Route
           path="/dashboard/particulier"

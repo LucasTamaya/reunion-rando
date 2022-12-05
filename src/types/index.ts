@@ -31,6 +31,10 @@ export interface NewActivityValues {
   file: string | File;
 }
 
+export interface UserRoleApiResponse {
+  role: "particulier" | "prestataire";
+}
+
 interface CreatedBy {
   lastname: string;
   firstname: string;
@@ -76,7 +80,7 @@ export interface CloudinaryResponse {
   original_filename: string;
 }
 
-export interface ProviderUser {
+export interface User {
   id: string;
   lastname: string;
   firstname: string;
@@ -85,5 +89,5 @@ export interface ProviderUser {
 }
 
 export interface ProviderUserApiResponse {
-  providerUsers: ProviderUser[];
+  providerUsers: User[];
 }

@@ -17,11 +17,11 @@ const handleSuccess = (
     toast.success("Connexion réussie !");
     localStorage.setItem("role", role);
     localStorage.setItem("userId", id);
-    redirectUserAfterTwoSec(role, navigate);
+    redirectUserToDashboardAfterTwoSec(role, navigate);
   }
 };
 
-const redirectUserAfterTwoSec = (
+const redirectUserToDashboardAfterTwoSec = (
   role: UserRoles,
   navigate: NavigateFunction
 ) => {
