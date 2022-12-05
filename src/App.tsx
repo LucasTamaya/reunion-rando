@@ -9,6 +9,7 @@ import { DashboardPrestataire } from "./screens/DashboardPrestataire";
 import { Unauthorized } from "./screens/Unauthorized";
 import { CurrentActivities } from "./screens/CurrentActivities";
 import { AddNewActivity } from "./screens/AddNewActivity";
+import { ActivityDetails } from "./components/activity/ActivityDetails";
 
 export const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ export const App: React.FC = () => {
       <Route path="/inscription" element={<Register />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="/activites-du-moment" element={<CurrentActivities />} />
+      <Route path="/activites/:id" element={<ActivityDetails />} />
       <Route element={<ProtectedRoutes allowedRole="particulier" />}>
         <Route
           path="/dashboard/particulier"

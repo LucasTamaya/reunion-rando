@@ -18,7 +18,7 @@ export const AccountModal: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute right-0 top-16 w-72 rounded p-7 bg-[#3e363f]"
+            className="absolute right-0 top-16 w-72 rounded p-7 bg-main-grey"
           >
             <ul className="flex flex-col gap-y-5">
               <li className="text-white">

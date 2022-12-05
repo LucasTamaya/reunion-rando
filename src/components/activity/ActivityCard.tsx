@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Activity } from "@/types";
 
 export const ActivityCard: React.FC<Activity> = ({
@@ -14,7 +16,19 @@ export const ActivityCard: React.FC<Activity> = ({
   const avatar = `url("${createdBy.avatar}")`;
 
   return (
-    <div data-testid="activityCard">
+    <Link
+      data-testid="activityCard"
+      to={`/activites/${id}`}
+      state={{
+        title,
+        location,
+        image_url,
+        price,
+        description,
+        createdBy,
+        userId,
+      }}
+    >
       <div
         className="relative cursor-pointer h-72 rounded bg-cover bg-center"
         style={{ backgroundImage: hikeBackground }}
@@ -28,6 +42,6 @@ export const ActivityCard: React.FC<Activity> = ({
         </div>
       </div>
       <h3 className="text-xl font-semibold mt-3">{title}</h3>
-    </div>
+    </Link>
   );
 };
