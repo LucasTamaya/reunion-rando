@@ -6,7 +6,7 @@ import { fetchLogin } from "@/api/auth/login";
 import { LoginApiResponse, LoginValues, UserRoles } from "@/types";
 
 const handleSuccess = (
-  { isError, role }: LoginApiResponse,
+  { isError, role, id }: LoginApiResponse,
   navigate: NavigateFunction
 ) => {
   if (isError) {
@@ -16,6 +16,7 @@ const handleSuccess = (
   if (role) {
     toast.success("Connexion réussie !");
     localStorage.setItem("role", role);
+    localStorage.setItem("userId", id);
     redirectUserAfterTwoSec(role, navigate);
   }
 };

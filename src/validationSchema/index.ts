@@ -29,4 +29,5 @@ export const newActivitySchema = Yup.object({
     .min(5, "Montant invalide")
     .max(1000, "Le montant doit être inférieur à 1000"),
   description: Yup.string().required("Requis"),
+  file: Yup.mixed().notRequired(),
 }).required();

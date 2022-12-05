@@ -16,6 +16,7 @@ export type UserRoles = "particulier" | "prestataire";
 export interface LoginApiResponse {
   isError: boolean;
   role: UserRoles;
+  id: string;
 }
 
 export interface Hikes {
@@ -27,4 +28,42 @@ export interface NewActivityValues {
   location: string;
   price: number;
   description: string;
+  file: string | File;
+}
+
+export interface Activity {
+  createdBy: { lastname: string; firstname: string; avatar: string };
+  description: string;
+  id: string;
+  location: string;
+  price: number;
+  title: string;
+  userId: string;
+}
+
+export interface Activities {
+  activities: Activity[];
+}
+
+export interface CloudinaryResponse {
+  asset_id: string;
+  public_id: string;
+  version: number;
+  version_id: string;
+  signature: string;
+  width: number;
+  height: number;
+  format: string;
+  resource_type: string;
+  created_at: string;
+  tags: any[];
+  bytes: number;
+  type: string;
+  etag: string;
+  placeholder: boolean;
+  url: string;
+  secure_url: string;
+  folder: string;
+  access_mode: string;
+  original_filename: string;
 }

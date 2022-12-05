@@ -22,6 +22,7 @@ export const handlers = [
   }),
 
   rest.post("*/activity", (_, res, ctx) => {
+    console.log("in the post req");
     return res(ctx.status(200));
   }),
 ];

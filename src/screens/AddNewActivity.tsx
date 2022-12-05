@@ -10,6 +10,7 @@ import { useHikes } from "@/hooks/hike/useHikes";
 import { NewActivityValues } from "@/types";
 import { newActivitySchema } from "@/validationSchema";
 import { useAddActivity } from "@/hooks/activity/useAddActivity";
+import { InputFile } from "@/components/common/InputFile";
 
 export const AddNewActivity: React.FC = () => {
   const { isLoading, data } = useHikes();
@@ -19,12 +20,28 @@ export const AddNewActivity: React.FC = () => {
     title: "",
     location: "",
     description: "",
+    file: "",
     price: 0,
   };
 
+  const createFormData = (activityData: NewActivityValues) => {
+    const { title, location, file, price, description } = activityData;
+    const userId = localStorage.getItem("userId")!;
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("location", location);
+    formData.append("file", file);
+    formData.append("price", price.toString());
+    formData.append("description", description);
+    formData.append("userId", userId);
+
+    return formData;
+  };
+
   const handleSubmit = ({ ...activityData }: NewActivityValues) => {
-    console.log(activityData);
-    mutate(activityData);
+    const formData = createFormData(activityData);
+    mutate(formData);
   };
 
   return (
@@ -62,6 +79,7 @@ export const AddNewActivity: React.FC = () => {
                     ))}
                   </InputSelect>
                 </div>
+                <InputFile label="Photo de la randonnée" />
                 <Input label="Prix" name="price" type="number" />
                 <TextArea label="Description" name="description" />
                 <button

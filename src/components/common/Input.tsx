@@ -4,11 +4,11 @@ interface Props {
   label: string;
   name: string;
   type: string;
+  accept?: string;
 }
 
 export const Input: React.FC<Props> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-
   return (
     <div>
       <label
@@ -23,7 +23,7 @@ export const Input: React.FC<Props> = ({ label, ...props }) => {
         {...field}
         {...props}
       />
-      {/* show form error */}
+      {/* show input error */}
       {meta.touched && meta.error ? (
         <p data-testid="inputErr" className="text-red-500">
           {meta.error}
