@@ -17,7 +17,7 @@ export const Nav: React.FC = () => {
                 <Link to="/activites-du-moment">Activités du moment</Link>
               </li>
               <li className="text-lg text-white font-semibold">
-                <a href="$">Nos experts du terrain</a>
+                <Link to="/nos-experts-du-terrain">Nos experts du terrain</Link>
               </li>
 
               <li className="text-lg text-white font-semibold">

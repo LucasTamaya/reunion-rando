@@ -1,4 +1,4 @@
-import { useUserRole } from "@/hooks/auth/useUserRole";
+import { useUserRole } from "@/hooks/user/useUserRole";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 type AllowedRoles = "particulier" | "prestataire";

@@ -31,8 +31,15 @@ export interface NewActivityValues {
   file: string | File;
 }
 
+interface CreatedBy {
+  lastname: string;
+  firstname: string;
+  email: string;
+  avatar: string;
+}
+
 export interface Activity {
-  createdBy: { lastname: string; firstname: string; avatar: string };
+  createdBy: CreatedBy;
   description: string;
   id: string;
   location: string;
@@ -67,4 +74,16 @@ export interface CloudinaryResponse {
   folder: string;
   access_mode: string;
   original_filename: string;
+}
+
+export interface ProviderUser {
+  id: string;
+  lastname: string;
+  firstname: string;
+  email: string;
+  avatar: string;
+}
+
+export interface ProviderUserApiResponse {
+  providerUsers: ProviderUser[];
 }
