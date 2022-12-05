@@ -1,20 +1,57 @@
+import { ClipLoader } from "react-spinners";
+import { Toaster } from "react-hot-toast";
+
+import { ActivityCard } from "@/components/activity/ActivityCard";
 import { Nav } from "@/components/common/Nav";
+import { useActivities } from "@/hooks/activity/useActivities";
 
 export const CurrentActivities: React.FC = () => {
+  const { isLoading, data } = useActivities();
+
+  if (data) {
+    console.log(data);
+  }
+
   return (
     <>
       <Nav />
       <h1 className="text-6xl text-main-green text-center font-semibold my-16">
         Activités du moment
       </h1>
-      <div className="w-full max-w-7xl h-screen grid grid-cols-3 mx-auto">
-        <div className="relative cursor-pointer rounded bg-cover bg-center bg-[url('https://imgs.search.brave.com/UOSeJjaoJZ_huliFLKYe3mOXmOqnmUM8uNBQUJnHUcw/rs:fit:1200:720:1/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS96/Qm5uS19sZl9XUS9t/YXhyZXNkZWZhdWx0/LmpwZw')] h-72">
-          <div className="absolute bottom-0 w-full flex items-center justify-between p-3 rounded-b bg-[#3e363f]">
-            <h2 className="text-white text-2xl font-semibold">Mafate</h2>
-            <div className="w-10 h-10 rounded-full bg-white"></div>
-          </div>
+      {isLoading ? (
+        <div className="w-full flex justify-center items-center">
+          <ClipLoader size={25} speedMultiplier={0.9} color="#128B2D" />
         </div>
+      ) : null}
+      <div className="w-full max-w-7xl h-screen grid grid-cols-3 mx-auto">
+        {data
+          ? data.map(
+              ({
+                title,
+                location,
+                image_url,
+                price,
+                description,
+                createdBy,
+                userId,
+                id,
+              }) => (
+                <ActivityCard
+                  key={id}
+                  title={title}
+                  location={location}
+                  image_url={image_url}
+                  price={price}
+                  description={description}
+                  createdBy={createdBy}
+                  userId={userId}
+                  id={id}
+                />
+              )
+            )
+          : null}
       </div>
+      <Toaster />
     </>
   );
 };

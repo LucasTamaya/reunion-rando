@@ -9,7 +9,7 @@ export const Nav: React.FC = () => {
       <nav>
         <ul className="flex items-center justify-between">
           <li className="text-4xl text-white font-semibold">
-            <a href="$">ReunionRando</a>
+            <Link to="/">ReunionRando</Link>
           </li>
           {userRole === "particulier" ? (
             <>

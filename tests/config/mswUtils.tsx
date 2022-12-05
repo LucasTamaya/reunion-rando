@@ -5,6 +5,8 @@ import { rest } from "msw";
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import { mockedActivitiesData } from "@tests/mocks/data";
+
 export const handlers = [
   rest.post("*/register", (_, res, ctx) => {
     return res(ctx.status(200));
@@ -22,8 +24,11 @@ export const handlers = [
   }),
 
   rest.post("*/activity", (_, res, ctx) => {
-    console.log("in the post req");
     return res(ctx.status(200));
+  }),
+
+  rest.get("*/activities", (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockedActivitiesData));
   }),
 ];
 

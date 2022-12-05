@@ -39,6 +39,7 @@ export interface Activity {
   price: number;
   title: string;
   userId: string;
+  image_url: string;
 }
 
 export interface Activities {
