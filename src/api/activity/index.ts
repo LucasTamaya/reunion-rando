@@ -9,12 +9,21 @@ export const fetchAddActivity = async (activityData: FormData) => {
     `${SERVER_BASE_URL}/activity`,
     activityData
   );
-
   return data;
 };
 
 export const fetchAllActivities = async () => {
   const { data } = await axios.get<Activities>(`${SERVER_BASE_URL}/activities`);
+  return data.activities;
+};
 
+export const fetchAllProviderActivities = async () => {
+  const userId = localStorage.getItem("userId");
+
+  const { data } = await axiosInstance.get<Activities>(
+    `${SERVER_BASE_URL}/activities/${userId}`
+  );
+
+  console.log(data);
   return data.activities;
 };

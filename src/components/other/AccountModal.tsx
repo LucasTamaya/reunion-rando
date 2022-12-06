@@ -1,20 +1,26 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AccountModal: React.FC = () => {
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   return (
     <div className="relative">
       <span
         className="cursor-pointer"
-        onClick={() => setShowModal((prev) => !prev)}
+        onClick={() => setShowAccountModal((prev) => !prev)}
       >
         Mon compte
       </span>
       <AnimatePresence>
-        {showModal ? (
+        {showAccountModal ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -28,8 +34,8 @@ export const AccountModal: React.FC = () => {
               <li className="text-white">
                 <Link to="/profile">Modifier mes informations</Link>
               </li>
-              <li className="text-white">
-                <a href="$">Déconnexion</a>
+              <li className="text-white cursor-pointer" onClick={handleLogout}>
+                Déconnexion
               </li>
             </ul>
           </motion.div>

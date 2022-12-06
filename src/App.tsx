@@ -12,6 +12,7 @@ import { AddNewActivity } from "./screens/AddNewActivity";
 import { ActivityDetails } from "./components/activity/ActivityDetails";
 import { ExpertsField } from "./screens/ExpertsField";
 import { UserProfile } from "./components/user/UserProfile";
+import { ManageActivities } from "./screens/ManageActivities";
 
 export const App: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ export const App: React.FC = () => {
           element={<DashboardPrestataire />}
         />
         <Route path="/nouvelle-activite" element={<AddNewActivity />} />
+        <Route path="/gerer-mes-activites" element={<ManageActivities />} />
       </Route>
     </Routes>
   );

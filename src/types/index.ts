@@ -54,7 +54,7 @@ export interface Activity {
 }
 
 export interface Activities {
-  activities: Activity[];
+  activities: Activity[] | [];
 }
 
 export interface CloudinaryResponse {

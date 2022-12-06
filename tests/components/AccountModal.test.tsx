@@ -27,9 +27,9 @@ describe("AccountModal", () => {
     const text = screen.getByText(/mon compte/i);
     fireEvent.click(text);
 
-    const modalLinks = screen.getAllByRole("link");
+    const modalContent = screen.getAllByRole("listitem");
 
-    expect(modalLinks).toHaveLength(3);
+    expect(modalContent).toHaveLength(3);
   });
 
   it("should hides the modal when the user clicks on 'Mon compte' twice", () => {

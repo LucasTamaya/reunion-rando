@@ -8,10 +8,6 @@ import { useActivities } from "@/hooks/activity/useActivities";
 export const CurrentActivities: React.FC = () => {
   const { isLoading, data } = useActivities();
 
-  if (data) {
-    console.log(data);
-  }
-
   return (
     <>
       <Nav />
@@ -23,34 +19,13 @@ export const CurrentActivities: React.FC = () => {
           <ClipLoader size={25} speedMultiplier={0.9} color="#128B2D" />
         </div>
       ) : null}
-      <div className="w-full max-w-7xl h-screen grid grid-cols-3 mx-auto">
-        {data
-          ? data.map(
-              ({
-                title,
-                location,
-                image_url,
-                price,
-                description,
-                createdBy,
-                userId,
-                id,
-              }) => (
-                <ActivityCard
-                  key={id}
-                  title={title}
-                  location={location}
-                  image_url={image_url}
-                  price={price}
-                  description={description}
-                  createdBy={createdBy}
-                  userId={userId}
-                  id={id}
-                />
-              )
-            )
-          : null}
-      </div>
+      {data ? (
+        <div className="w-full max-w-7xl h-screen grid grid-cols-3 mx-auto">
+          {data.map(({ ...props }) => (
+            <ActivityCard key={props.id} {...props} />
+          ))}
+        </div>
+      ) : null}
       <Toaster />
     </>
   );

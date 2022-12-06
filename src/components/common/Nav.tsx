@@ -30,11 +30,10 @@ export const Nav: React.FC = () => {
                 <Link to="/nouvelle-activite">Ajouter une activité</Link>
               </li>
               <li className="text-lg text-white font-semibold">
-                <a href="$">Les demandes de clients</a>
+                <Link to="/gerer-mes-activites">Gérer mes activités</Link>
               </li>
-
               <li className="text-lg text-white font-semibold">
-                <a href="$">Mes sorties</a>
+                <a href="$">Les demandes de clients</a>
               </li>
             </>
           )}
