@@ -41,7 +41,7 @@ export const ActivityDetails: React.FC = () => {
             Localisation
           </h2>
           <p className="text-lg mb-10">{location}</p>
-          <button className="w-full  text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
+          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
             <a
               href={`mailto:${createdBy.email}`}
               className="block w-full h-full"

@@ -3,11 +3,7 @@ import { ClipLoader } from "react-spinners";
 import { UpdateActivityCard } from "@/components/activity/UpdateActivityCard";
 import { Nav } from "@/components/common/Nav";
 import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
-
-// listing des activités (creation route api + hook) OK
-// recuperation de data OK
-// UI avec les activités OK
-// ajout d'icones pour modifier / supprimer l'activité
+import { Link } from "react-router-dom";
 
 export const ManageActivities: React.FC = () => {
   const { isLoading, data } = useProviderActivities();
@@ -24,10 +20,23 @@ export const ManageActivities: React.FC = () => {
         </div>
       ) : null}
 
-      {data ? (
+      {data && data.length === 0 ? (
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-center text-main-grey text-2xl mb-10">
+            Vous n'avez pas encore créé d'activités
+          </h2>
+          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
+            <Link to="/nouvelle-activite" className="block w-full h-full">
+              Créer une activité
+            </Link>
+          </button>
+        </div>
+      ) : null}
+
+      {data && data.length > 0 ? (
         <div className="w-full max-w-7xl h-screen grid grid-cols-3 gap-10 mx-auto">
           {data.map(({ ...props }) => (
-            <UpdateActivityCard {...props} />
+            <UpdateActivityCard key={props.id} {...props} />
           ))}
         </div>
       ) : null}
