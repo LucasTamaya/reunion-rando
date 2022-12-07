@@ -4,6 +4,8 @@ import { Toaster } from "react-hot-toast";
 
 import { Activity } from "@/types";
 import { useDeleteActivity } from "@/hooks/activity/useDeleteActivity";
+import { DeleteModal } from "./DeleteModal";
+import { useState } from "react";
 
 export const UpdateActivityCard: React.FC<Activity> = ({
   title,
@@ -16,6 +18,7 @@ export const UpdateActivityCard: React.FC<Activity> = ({
   userId,
 }) => {
   const { mutate, isLoading } = useDeleteActivity();
+  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
   const handleDelete = () => {
     mutate(id);
@@ -34,11 +37,19 @@ export const UpdateActivityCard: React.FC<Activity> = ({
             size={25}
             color="#EF4444"
             className="cursor-pointer"
-            onClick={handleDelete}
+            onClick={() => setShowDeleteModal(true)}
           />
           <MdEdit size={25} color="#3e363f" className="cursor-pointer" />
         </div>
       </div>
+      {showDeleteModal ? (
+        <DeleteModal
+          handleCancel={setShowDeleteModal}
+          handleDelete={handleDelete}
+          isLoading={isLoading}
+        />
+      ) : null}
+
       <Toaster />
     </div>
   );
