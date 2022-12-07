@@ -13,6 +13,7 @@ import { ActivityDetails } from "./components/activity/ActivityDetails";
 import { ExpertsField } from "./screens/ExpertsField";
 import { UserProfile } from "./components/user/UserProfile";
 import { ManageActivities } from "./screens/ManageActivities";
+import { UpdateActivity } from "./screens/UpdateActivity";
 
 export const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
         />
         <Route path="/nouvelle-activite" element={<AddNewActivity />} />
         <Route path="/gerer-mes-activites" element={<ManageActivities />} />
+        <Route path="/modification-activite/:id" element={<UpdateActivity />} />
       </Route>
     </Routes>
   );

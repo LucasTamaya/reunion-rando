@@ -1,6 +1,6 @@
 import { ClipLoader } from "react-spinners";
 
-import { UpdateActivityCard } from "@/components/activity/UpdateActivityCard";
+import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
 import { Nav } from "@/components/common/Nav";
 import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
 import { Link } from "react-router-dom";
@@ -36,7 +36,7 @@ export const ManageActivities: React.FC = () => {
       {data && data.length > 0 ? (
         <div className="w-full max-w-7xl h-screen grid grid-cols-3 gap-10 mx-auto">
           {data.map(({ ...props }) => (
-            <UpdateActivityCard key={props.id} {...props} />
+            <ManageActivityCard key={props.id} {...props} />
           ))}
         </div>
       ) : null}

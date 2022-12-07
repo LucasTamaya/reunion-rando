@@ -10,7 +10,6 @@ export const ActivityCard: React.FC<Activity> = ({
   description,
   createdBy,
   id,
-  userId,
 }) => {
   const hikeBackground = `url("${image_url}")`;
   const avatar = `url("${createdBy.avatar}")`;
@@ -26,7 +25,6 @@ export const ActivityCard: React.FC<Activity> = ({
         price,
         description,
         createdBy,
-        userId,
       }}
     >
       <div

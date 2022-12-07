@@ -1,21 +1,22 @@
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { Activity } from "@/types";
 import { useDeleteActivity } from "@/hooks/activity/useDeleteActivity";
 import { DeleteModal } from "./DeleteModal";
-import { useState } from "react";
 
-export const UpdateActivityCard: React.FC<Activity> = ({
+export const ManageActivityCard: React.FC<Activity> = ({
   title,
   location,
   image_url,
   price,
   description,
-  createdBy,
   id,
-  userId,
+  // createdBy,
+  // userId,
 }) => {
   const { mutate, isLoading } = useDeleteActivity();
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
@@ -39,7 +40,12 @@ export const UpdateActivityCard: React.FC<Activity> = ({
             className="cursor-pointer"
             onClick={() => setShowDeleteModal(true)}
           />
-          <MdEdit size={25} color="#3e363f" className="cursor-pointer" />
+          <Link
+            to={`/modification-activite/${id}`}
+            state={{ title, location, image_url, price, description, id }}
+          >
+            <MdEdit size={25} color="#3e363f" className="cursor-pointer" />
+          </Link>
         </div>
       </div>
       {showDeleteModal ? (
@@ -49,7 +55,6 @@ export const UpdateActivityCard: React.FC<Activity> = ({
           isLoading={isLoading}
         />
       ) : null}
-
       <Toaster />
     </div>
   );

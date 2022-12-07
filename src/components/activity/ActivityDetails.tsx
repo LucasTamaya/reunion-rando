@@ -4,18 +4,8 @@ import { Nav } from "../common/Nav";
 
 export const ActivityDetails: React.FC = () => {
   const loc = useLocation();
-  const { title, location, image_url, price, description, createdBy, userId } =
+  const { title, location, image_url, price, description, createdBy } =
     loc.state;
-
-  console.log(
-    title,
-    location,
-    image_url,
-    price,
-    description,
-    createdBy,
-    userId
-  );
 
   return (
     <>

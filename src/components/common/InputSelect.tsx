@@ -2,21 +2,19 @@ import { useField } from "formik";
 import { ReactNode } from "react";
 
 interface Props {
-  label: string;
   name: string;
   children: ReactNode;
 }
 
-export const InputSelect: React.FC<Props> = ({ label, children, ...props }) => {
-  const [field, meta] = useField(props);
+export const InputSelect: React.FC<Props> = ({ children, name }) => {
+  const [field, meta] = useField(name);
 
   return (
     <div>
       <select
         className="w-full rounded border outline-none text-sm sm:text-base p-2 sm:p-3"
-        id={props.name}
+        id={name}
         {...field}
-        {...props}
       >
         {children}
       </select>
