@@ -7,6 +7,6 @@ export const useHikes = () => {
   return useQuery({
     queryKey: ["hikes"],
     queryFn: () => fetchAllHikes(),
-    onError: () => toast.error("Une erreur est survenue"),
+    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
   });
 };

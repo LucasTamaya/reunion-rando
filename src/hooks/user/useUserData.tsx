@@ -3,11 +3,11 @@ import toast from "react-hot-toast";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { fetchUserData } from "@/api/user";
-import { redirectUserToLoginScreenAfterTwoSec } from "@/helpers/redirectUserToLoginAfterTwoSec";
+import { redirectUserAfterTwoSec } from "@/helpers/redirectUserAfterTwoSec";
 
 const handleError = (navigate: NavigateFunction) => {
   toast.error("Une erreur est survenue");
-  redirectUserToLoginScreenAfterTwoSec(navigate);
+  redirectUserAfterTwoSec(navigate, "/connexion");
 };
 
 export const useUserData = () => {

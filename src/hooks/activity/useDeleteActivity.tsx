@@ -29,7 +29,7 @@ export const useDeleteActivity = () => {
 
   return useMutation({
     mutationFn: (activityId: string) => fetchDeleteActivity(activityId),
-    onError: () => toast.error("Une erreur est survenue"),
+    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
     onSuccess: (activityId) => handleSuccess(activityId, queryClient),
   });
 };

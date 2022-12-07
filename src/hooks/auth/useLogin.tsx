@@ -42,7 +42,7 @@ export const useLogin = () => {
 
   return useMutation({
     mutationFn: (userData: LoginValues) => fetchLogin(userData),
-    onError: () => toast.error("Une erreur est survenue"),
+    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
     onSuccess: (data) => handleSuccess(data, navigate),
   });
 };

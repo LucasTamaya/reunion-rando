@@ -83,7 +83,9 @@ describe("Register", () => {
       })
     );
 
-    const errorModal = await screen.findByText(/une erreur est survenue/i);
+    const errorModal = await screen.findByText(
+      /une erreur est survenue, veuillez réessayer/i
+    );
 
     expect(errorModal).toBeInTheDocument();
   });

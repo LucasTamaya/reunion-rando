@@ -7,7 +7,7 @@ export const useActivities = () => {
   return useQuery({
     queryKey: ["activities"],
     queryFn: () => fetchAllActivities(),
-    onError: () => toast.error("Une erreur est survenue"),
+    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
     refetchOnWindowFocus: false,
   });
 };

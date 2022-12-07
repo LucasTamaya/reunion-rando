@@ -5,19 +5,19 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { fetchRegister } from "@/api/auth/register";
 import { RegisterValues } from "@/types";
-import { redirectUserToLoginScreenAfterTwoSec } from "@/helpers/redirectUserToLoginAfterTwoSec";
+import { redirectUserAfterTwoSec } from "@/helpers/redirectUserAfterTwoSec";
 
 const handleError = (err: AxiosError) => {
   if (err.response?.status === 409) {
     toast.error("L'utilisateur existe déjà");
   } else {
-    toast.error("Une erreur est survenue");
+    toast.error("Une erreur est survenue, veuillez réessayer");
   }
 };
 
 const handleSuccess = (navigate: NavigateFunction) => {
   toast.success("Compte crée avec succès !");
-  redirectUserToLoginScreenAfterTwoSec(navigate);
+  redirectUserAfterTwoSec(navigate, "/connexion");
 };
 
 export const useRegister = () => {

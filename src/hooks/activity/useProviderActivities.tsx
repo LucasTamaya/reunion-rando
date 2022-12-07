@@ -7,7 +7,7 @@ export const useProviderActivities = () => {
   return useQuery({
     queryKey: ["providerActivities"],
     queryFn: () => fetchAllProviderActivities(),
-    onError: () => toast.error("Une erreur est survenue"),
+    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
     refetchOnWindowFocus: false,
   });
 };
