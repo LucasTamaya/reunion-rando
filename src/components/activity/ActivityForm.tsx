@@ -78,8 +78,8 @@ export const ActivityForm: React.FC<Props> = ({
       ) : null}
 
       {data ? (
-        <div className="flex flex-col justify-center items-center px-5 mt-10">
-          <div className="rounded bg-white shadow-xl p-10 sm:p-16">
+        <div className="flex flex-col justify-center items-center px-5 my-10">
+          <div className="rounded bg-white max-w-2xl shadow-xl p-10 sm:p-16">
             <h1 className="text-lg sm:text-3xl text-gray-700 font-bold mb-5">
               {formTitle}
             </h1>

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AccountModal } from "../other/AccountModal";
 
 export const Nav: React.FC = () => {
+  const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
   const userRole = localStorage.getItem("role");
 
   return (
@@ -38,13 +40,19 @@ export const Nav: React.FC = () => {
             </>
           )}
 
-          <li className="text-lg text-white font-semibold">
-            {userRole ? (
-              <AccountModal />
-            ) : (
+          {userRole ? (
+            <li
+              className="text-lg text-white font-semibold cursor-pointer"
+              onClick={() => setShowAccountModal((prev) => !prev)}
+            >
+              Mon compte
+              {showAccountModal ? <AccountModal /> : null}
+            </li>
+          ) : (
+            <li className="text-lg text-white font-semibold">
               <Link to="/connexion">Connexion</Link>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
