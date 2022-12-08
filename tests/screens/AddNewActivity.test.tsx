@@ -17,7 +17,7 @@ const MockedComponent = () => {
 };
 
 beforeEach(async () => {
-  const mockedFile = new File(["hello"], "hello.png", { type: "image/png" });
+  // const mockedFile = new File(["hello"], "hello.png", { type: "image/png" });
 
   // simulates the user filling in the form and sending it
   renderWithClient(<MockedComponent />);
@@ -61,7 +61,7 @@ beforeEach(async () => {
 });
 
 describe("AddNewActivity Screen", () => {
-  it.only("should shows a success modal if there are no errors during the request", async () => {
+  it("should shows a success modal if there are no errors during the request", async () => {
     const successModal = await screen.findByText(/activité crée avec succès/i);
 
     expect(successModal).toBeInTheDocument();
