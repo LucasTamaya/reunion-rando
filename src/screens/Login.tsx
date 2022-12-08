@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
 
-import { Input } from "@/components/common/Input";
+import { Input } from "@/components/common/input/Input";
 import { loginSchema } from "@/validationSchema";
 import { useLogin } from "@/hooks/auth/useLogin";
 import { LoginValues } from "@/types";

@@ -1,4 +1,4 @@
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 import { ActivityForm } from "@/components/activity/ActivityForm";
 import { useAddActivity } from "@/hooks/activity/useAddActivity";
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 
 const MockedComponent = () => {

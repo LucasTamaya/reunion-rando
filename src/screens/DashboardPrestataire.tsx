@@ -1,4 +1,4 @@
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 
 export const DashboardPrestataire: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import { ClipLoader } from "react-spinners";
 
 import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
 import { Link } from "react-router-dom";
 

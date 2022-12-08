@@ -1,6 +1,6 @@
 import { ClipLoader } from "react-spinners";
 
-import { Nav } from "../common/Nav";
+import { Nav } from "../common/nav/Nav";
 import { useUserData } from "../../hooks/user/useUserData";
 
 export const UserProfile: React.FC = () => {

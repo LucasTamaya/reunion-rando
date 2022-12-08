@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { Nav } from "../common/Nav";
+import { Nav } from "../common/nav/Nav";
 
 export const ActivityDetails: React.FC = () => {
   const loc = useLocation();

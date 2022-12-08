@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AccountModal } from "../other/AccountModal";
+
+import { AccountModal } from "../../other/AccountModal";
 
 export const Nav: React.FC = () => {
   const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
@@ -13,20 +14,8 @@ export const Nav: React.FC = () => {
           <li className="text-4xl text-white font-semibold">
             <Link to="/">ReunionRando</Link>
           </li>
-          {userRole === "particulier" ? (
-            <>
-              <li className="text-lg text-white font-semibold">
-                <Link to="/activites-du-moment">Activités du moment</Link>
-              </li>
-              <li className="text-lg text-white font-semibold">
-                <Link to="/nos-experts-du-terrain">Nos experts du terrain</Link>
-              </li>
 
-              <li className="text-lg text-white font-semibold">
-                <a href="$">Programmer ma sortie</a>
-              </li>
-            </>
-          ) : (
+          {userRole === "prestataire" ? (
             <>
               <li className="text-lg text-white font-semibold">
                 <Link to="/nouvelle-activite">Ajouter une activité</Link>
@@ -38,6 +27,18 @@ export const Nav: React.FC = () => {
                 <a href="$">Les demandes de clients</a>
               </li>
             </>
+          ) : (
+            <>
+              <li className="text-lg text-white font-semibold">
+                <Link to="/activites-du-moment">Activités du moment</Link>
+              </li>
+              <li className="text-lg text-white font-semibold">
+                <Link to="/nos-experts-du-terrain">Nos experts du terrain</Link>
+              </li>
+              <li className="text-lg text-white font-semibold">
+                <Link to="/programmer-ma-sortie">Programmer ma sortie</Link>
+              </li>
+            </>
           )}
 
           {userRole ? (
@@ -46,7 +47,6 @@ export const Nav: React.FC = () => {
               onClick={() => setShowAccountModal((prev) => !prev)}
             >
               Mon compte
-              {showAccountModal ? <AccountModal /> : null}
             </li>
           ) : (
             <li className="text-lg text-white font-semibold">
@@ -55,6 +55,7 @@ export const Nav: React.FC = () => {
           )}
         </ul>
       </nav>
+      {showAccountModal ? <AccountModal /> : null}
     </header>
   );
 };

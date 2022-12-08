@@ -2,7 +2,7 @@ import { ClipLoader } from "react-spinners";
 import { Toaster } from "react-hot-toast";
 
 import { ActivityCard } from "@/components/activity/ActivityCard";
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 import { useActivities } from "@/hooks/activity/useActivities";
 
 export const CurrentActivities: React.FC = () => {

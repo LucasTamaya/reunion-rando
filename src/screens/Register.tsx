@@ -3,9 +3,9 @@ import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
 
-import { Input } from "@/components/common/Input";
+import { Input } from "@/components/common/input/Input";
 import { registerSchema } from "@/validationSchema";
-import { InputSelect } from "@/components/common/InputSelect";
+import { InputSelect } from "@/components/common/input/InputSelect";
 import { RegisterValues } from "@/types";
 import { useRegister } from "@/hooks/auth/useRegister";
 

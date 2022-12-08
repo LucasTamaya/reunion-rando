@@ -1,6 +1,6 @@
 import { ClipLoader } from "react-spinners";
 
-import { Nav } from "@/components/common/Nav";
+import { Nav } from "@/components/common/nav/Nav";
 import { useProviderUsers } from "@/hooks/user/useProviderUsers";
 import { UserProviderCard } from "@/components/user/provider/UserProviderCard";
 

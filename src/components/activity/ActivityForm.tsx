@@ -3,13 +3,13 @@ import { ClipLoader } from "react-spinners";
 import { Toaster } from "react-hot-toast";
 import { UseMutateFunction } from "@tanstack/react-query";
 
-import { Input } from "@/components/common/Input";
-import { InputSelect } from "@/components/common/InputSelect";
-import { TextArea } from "@/components/common/TextArea";
+import { Input } from "@/components/common/input/Input";
+import { InputSelect } from "@/components/common/input/InputSelect";
+import { TextArea } from "@/components/common/input/TextArea";
 import { useHikes } from "@/hooks/hike/useHikes";
 import { NewActivityValues } from "@/types";
 import { newActivitySchema } from "@/validationSchema";
-import { InputFile } from "@/components/common/InputFile";
+import { InputFile } from "@/components/common/input/InputFile";
 
 interface Props {
   formTitle: string;

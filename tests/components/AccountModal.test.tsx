@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fireEvent, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 import { AccountModal } from "@/components/other/AccountModal";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
