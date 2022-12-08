@@ -1,5 +1,4 @@
-import { MdDelete } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
+import { MdDelete, MdEdit } from "react-icons/md";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -15,8 +14,6 @@ export const ManageActivityCard: React.FC<Activity> = ({
   price,
   description,
   id,
-  // createdBy,
-  // userId,
 }) => {
   const { mutate, isLoading } = useDeleteActivity();
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
@@ -27,24 +24,30 @@ export const ManageActivityCard: React.FC<Activity> = ({
 
   return (
     <div>
-      <img src={image_url} alt="activité" className="rounded-tl" />
+      <img src={image_url} alt="activité" className="rounded-tl rounded-tr" />
       <div className="flex items-center justify-between p-5 border border-t-0 rounded-bl rounded-br shadow-lg">
         <div>
-          <h2 className="text-xl text-main-grey font-semibold">{title}</h2>
-          <p className="text-main-green font-semibold">{price}&euro;</p>
+          <h2 className="text-lg sm:text-xl text-main-grey font-semibold">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-base text-main-green font-semibold">
+            {price}&euro;
+          </p>
         </div>
         <div className="flex items-center gap-x-4">
           <MdDelete
-            size={25}
             color="#EF4444"
-            className="cursor-pointer"
+            className="text-xl sm:text-2xl cursor-pointer"
             onClick={() => setShowDeleteModal(true)}
           />
           <Link
             to={`/modification-activite/${id}`}
             state={{ title, location, image_url, price, description, id }}
           >
-            <MdEdit size={25} color="#3e363f" className="cursor-pointer" />
+            <MdEdit
+              color="#3e363f"
+              className="text-xl sm:text-2xl cursor-pointer"
+            />
           </Link>
         </div>
       </div>

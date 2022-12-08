@@ -11,7 +11,7 @@ export const ManageActivities: React.FC = () => {
   return (
     <div>
       <Nav />
-      <h1 className="text-6xl text-main-green text-center font-semibold my-16">
+      <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Gérer mes activités
       </h1>
       {isLoading ? (
@@ -21,8 +21,8 @@ export const ManageActivities: React.FC = () => {
       ) : null}
 
       {data && data.length === 0 ? (
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-center text-main-grey text-2xl mb-10">
+        <div className="max-w-xl mx-auto px-5">
+          <h2 className="text-center text-main-grey text-lg sm:text-2xl mb-10">
             Vous n'avez pas encore créé d'activités
           </h2>
           <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
@@ -34,7 +34,7 @@ export const ManageActivities: React.FC = () => {
       ) : null}
 
       {data && data.length > 0 ? (
-        <div className="w-full max-w-7xl h-screen grid grid-cols-3 gap-10 mx-auto">
+        <div className="w-full max-w-7xl h-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto px-5">
           {data.map(({ ...props }) => (
             <ManageActivityCard key={props.id} {...props} />
           ))}
