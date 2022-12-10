@@ -1,9 +1,9 @@
 import { ClipLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
 import { Nav } from "@/components/common/nav/Nav";
 import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
-import { Link } from "react-router-dom";
 
 export const ManageActivities: React.FC = () => {
   const { isLoading, data } = useProviderActivities();

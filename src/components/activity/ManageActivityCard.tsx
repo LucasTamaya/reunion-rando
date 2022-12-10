@@ -10,16 +10,17 @@ import { DeleteModal } from "./DeleteModal";
 export const ManageActivityCard: React.FC<Activity> = ({
   title,
   location,
-  image_url,
   price,
   description,
+  image_url,
+  cloudinary_public_id,
   id,
 }) => {
   const { mutate, isLoading } = useDeleteActivity();
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
   const handleDelete = () => {
-    mutate(id);
+    mutate({ activityId: id, cloudinaryPublicId: cloudinary_public_id });
   };
 
   return (

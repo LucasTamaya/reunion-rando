@@ -8,6 +8,11 @@ import toast from "react-hot-toast";
 import { fetchDeleteActivity } from "@/api/activity";
 import { Activity } from "@/types";
 
+interface DeleteActivityVariables {
+  activityId: string;
+  cloudinaryPublicId: string;
+}
+
 const handleSuccess = (activityId: string, queryClient: QueryClient) => {
   toast.success("Activité supprimée avec succès !");
   refreshData(activityId, queryClient);
@@ -28,7 +33,8 @@ export const useDeleteActivity = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (activityId: string) => fetchDeleteActivity(activityId),
+    mutationFn: ({ activityId, cloudinaryPublicId }: DeleteActivityVariables) =>
+      fetchDeleteActivity(activityId, cloudinaryPublicId),
     onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
     onSuccess: (activityId) => handleSuccess(activityId, queryClient),
   });

@@ -27,9 +27,13 @@ export const fetchAllProviderActivities = async () => {
   return data.activities;
 };
 
-export const fetchDeleteActivity = async (activityId: string) => {
+export const fetchDeleteActivity = async (
+  activityId: string,
+  cloudinaryPublicId: string
+) => {
   const { data } = await axiosInstance.delete<{ activityId: string }>(
-    `${SERVER_BASE_URL}/activity/${activityId}`
+    `${SERVER_BASE_URL}/activity/${activityId}`,
+    { data: { cloudinaryPublicId } }
   );
   return data.activityId;
 };

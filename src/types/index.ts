@@ -51,6 +51,7 @@ export interface Activity {
   title: string;
   userId: string;
   image_url: string;
+  cloudinary_public_id: string;
 }
 
 export interface Activities {
