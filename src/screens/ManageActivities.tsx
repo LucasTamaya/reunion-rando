@@ -1,5 +1,6 @@
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
 import { Nav } from "@/components/common/nav/Nav";
@@ -43,6 +44,7 @@ export const ManageActivities: React.FC = () => {
           ))}
         </div>
       ) : null}
+      <Toaster />
     </div>
   );
 };

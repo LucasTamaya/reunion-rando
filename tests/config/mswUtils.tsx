@@ -5,7 +5,10 @@ import { rest } from "msw";
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { mockedActivitiesData } from "@tests/mocks/data";
+import {
+  mockedActivitiesData,
+  mockedProviderActivitiesData,
+} from "@tests/mocks/data";
 
 export const handlers = [
   rest.post("*/register", (_, res, ctx) => {
@@ -29,6 +32,10 @@ export const handlers = [
 
   rest.get("*/activities", (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockedActivitiesData));
+  }),
+
+  rest.get("*/activities/1234", (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockedProviderActivitiesData));
   }),
 ];
 
