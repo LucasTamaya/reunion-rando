@@ -25,8 +25,11 @@ export const ManageActivities: React.FC = () => {
           <h2 className="text-center text-main-grey text-lg sm:text-2xl mb-10">
             Vous n'avez pas encore créé d'activités
           </h2>
-          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
-            <Link to="/nouvelle-activite" className="block w-full h-full">
+          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded">
+            <Link
+              to="/nouvelle-activite"
+              className="block w-full h-full p-2 sm:p-3"
+            >
               Créer une activité
             </Link>
           </button>
