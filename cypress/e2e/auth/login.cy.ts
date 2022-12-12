@@ -54,23 +54,21 @@ describe("Login proccess", () => {
   });
 
   it("should redirects the user to DashboardParticulier if the user who logged in is an individual", () => {
-    const mockedReturnResponse = { role: "particulier" };
-
     cy.userLogin();
-
-    cy.intercept("POST", "http://localhost:4000/login", mockedReturnResponse);
+    cy.intercept("POST", "http://localhost:4000/login", {
+      role: "particulier",
+    });
 
     cy.location("pathname").should("eq", "/dashboard/particulier");
 
-    cy.intercept(
-      "GET",
-      "http://localhost:4000/user/role",
-      mockedReturnResponse
-    );
+    cy.intercept("GET", "http://localhost:4000/user/role", {
+      statusCode: 200,
+      body: { role: "prestataire" },
+    });
   });
 
   it("should redirects the user to DashboardPrestataire if the user who logged in is an individual", () => {
-    const mockedReturnResponse = { role: "prestatire" };
+    const mockedReturnResponse = { role: "prestataire" };
 
     cy.userLogin();
     cy.intercept("POST", "http://localhost:4000/login", mockedReturnResponse);

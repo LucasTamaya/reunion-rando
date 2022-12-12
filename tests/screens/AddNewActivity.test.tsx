@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import { rest } from "msw";
+import userEvent from "@testing-library/user-event";
 
 import { renderWithClient } from "@tests/config/mswUtils";
 import { AddNewActivity } from "@/screens/AddNewActivity";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { server } from "@tests/config/server";
-import userEvent from "@testing-library/user-event";
 
 const MockedComponent = () => {
   return (
@@ -17,8 +17,6 @@ const MockedComponent = () => {
 };
 
 beforeEach(async () => {
-  // const mockedFile = new File(["hello"], "hello.png", { type: "image/png" });
-
   // simulates the user filling in the form and sending it
   renderWithClient(<MockedComponent />);
 
@@ -32,12 +30,6 @@ beforeEach(async () => {
   fireEvent.change(await screen.findByRole("combobox"), {
     target: { value: "Mafate" },
   });
-
-  // const inputFile = await screen.findByLabelText(/photo de la randonnée/i);
-
-  // await waitFor(() => {
-  //   userEvent.upload(inputFile, mockedFile);
-  // });
 
   fireEvent.change(
     await screen.findByRole("spinbutton", {
@@ -62,7 +54,9 @@ beforeEach(async () => {
 
 describe("AddNewActivity Screen", () => {
   it("should shows a success modal if there are no errors during the request", async () => {
-    const successModal = await screen.findByText(/activité crée avec succès/i);
+    const successModal = await screen.findByText(
+      /activité crée avec succès !/i
+    );
 
     expect(successModal).toBeInTheDocument();
   });

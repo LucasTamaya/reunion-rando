@@ -8,8 +8,7 @@ export const InputFile: React.FC<{ label: string }> = ({ label }) => {
     "image/png",
   ];
 
-  const { setFieldValue, getFieldMeta } = useFormikContext();
-  const { touched, error } = getFieldMeta("photo_src");
+  const { setFieldValue } = useFormikContext();
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -29,17 +28,12 @@ export const InputFile: React.FC<{ label: string }> = ({ label }) => {
       </label>
       <input
         className="w-full rounded border text-sm sm:text-base outline-none p-2 sm:p-3"
+        id={label}
         type="file"
         name="file"
         accept="image/jpg, image/jpeg, image/png"
         onChange={handleChange}
       />
-      {/* show input error */}
-      {touched && error ? (
-        <p data-testid="inputErr" className="text-red-500">
-          {error}
-        </p>
-      ) : null}
     </div>
   );
 };
