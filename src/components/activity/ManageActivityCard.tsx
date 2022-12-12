@@ -40,6 +40,7 @@ export const ManageActivityCard: React.FC<Activity> = ({
             color="#EF4444"
             className="text-xl sm:text-2xl cursor-pointer"
             onClick={() => setShowDeleteModal(true)}
+            data-testid="trashcanIcon"
           />
           <Link
             to={`/modification-activite/${id}`}
@@ -48,6 +49,7 @@ export const ManageActivityCard: React.FC<Activity> = ({
             <MdEdit
               color="#3e363f"
               className="text-xl sm:text-2xl cursor-pointer"
+              data-testid="editIcon"
             />
           </Link>
         </div>
