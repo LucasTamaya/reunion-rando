@@ -29,7 +29,12 @@ export const DeleteModal: React.FC<Props> = ({
             onClick={handleDelete}
           >
             {isLoading ? (
-              <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
+              <ClipLoader
+                size={25}
+                speedMultiplier={0.9}
+                color="#fff"
+                data-testid="loader"
+              />
             ) : (
               <>Supprimer</>
             )}

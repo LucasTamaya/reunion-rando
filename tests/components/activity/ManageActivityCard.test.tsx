@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
+import { fireEvent, screen } from "@testing-library/react";
 
 import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
-import { fireEvent, screen } from "@testing-library/react";
 import { RouterWrapper } from "@tests/helpers/RouterWrapper";
 import { renderWithClient } from "@tests/config/mswUtils";
 
