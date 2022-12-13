@@ -19,6 +19,9 @@ export const ManageActivityCard: React.FC<Activity> = ({
   const { mutate, isLoading } = useDeleteActivity();
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
+  /**
+   * Delete the activity from the DB with the activityId and delete the image from cloudinary with the cloudinary_public_id
+   */
   const handleDelete = () => {
     mutate({ activityId: id, cloudinaryPublicId: cloudinary_public_id });
   };

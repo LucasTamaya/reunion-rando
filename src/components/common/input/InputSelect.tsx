@@ -1,6 +1,8 @@
 import { useField } from "formik";
 import { ReactNode } from "react";
 
+import { InputErrorMessage } from "./InputErrorMessage";
+
 interface Props {
   name: string;
   children: ReactNode;
@@ -19,9 +21,7 @@ export const InputSelect: React.FC<Props> = ({ children, name }) => {
         {children}
       </select>
       {meta.touched && meta.error ? (
-        <p data-testid="inputErr" className="text-red-500">
-          {meta.error}
-        </p>
+        <InputErrorMessage error={meta.error} />
       ) : null}
     </div>
   );

@@ -25,6 +25,9 @@ interface Props {
   activityDescription?: string;
 }
 
+/**
+ * Form used to add or update an activity
+ */
 export const ActivityForm: React.FC<Props> = ({
   formTitle,
   buttonText,
@@ -47,12 +50,13 @@ export const ActivityForm: React.FC<Props> = ({
     price: activityPrice ?? 0,
   };
 
-  const createFormData = (activityData: NewActivityValues) => {
+  const createActivityFormData = (activityData: NewActivityValues) => {
     const { title, location, file, price, description } = activityData;
     const userId = localStorage.getItem("userId")!;
     const formData = new FormData();
 
     if (activityId) formData.append("activityId", activityId);
+
     formData.append("title", title);
     formData.append("location", location);
     formData.append("file", file);
@@ -64,7 +68,7 @@ export const ActivityForm: React.FC<Props> = ({
   };
 
   const handleSubmit = ({ ...activityData }: NewActivityValues) => {
-    const formData = createFormData(activityData);
+    const formData = createActivityFormData(activityData);
     mutate(formData);
   };
 
@@ -102,7 +106,7 @@ export const ActivityForm: React.FC<Props> = ({
                     ))}
                   </InputSelect>
                 </div>
-                <InputFile label="Photo de la randonnée" />
+                <InputFile name="file" label="Photo de la randonnée" />
                 {activityImageUrl ? (
                   <img
                     src={activityImageUrl}

@@ -1,5 +1,7 @@
 import { useField } from "formik";
 
+import { InputErrorMessage } from "./InputErrorMessage";
+
 interface Props {
   label: string;
   name: string;
@@ -26,9 +28,7 @@ export const Input: React.FC<Props> = ({ label, ...props }) => {
       />
       {/* show input error */}
       {meta.touched && meta.error ? (
-        <p data-testid="inputErr" className="text-red-500">
-          {meta.error}
-        </p>
+        <InputErrorMessage error={meta.error} />
       ) : null}
     </div>
   );

@@ -1,20 +1,20 @@
 import { useFormikContext } from "formik";
 
-export const InputFile: React.FC<{ label: string }> = ({ label }) => {
-  const SUPPORTED_FORMATS = [
-    "image/jpg",
-    "image/jpeg",
-    "image/gif",
-    "image/png",
-  ];
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
 
+export const InputFile: React.FC<{ name: string; label: string }> = ({
+  name,
+  label,
+}) => {
   const { setFieldValue } = useFormikContext();
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+    // Destructure the first file from the files array
+    const [file] = e.target.files!;
 
-    if (files && SUPPORTED_FORMATS.includes(files[0].type)) {
-      setFieldValue("file", files[0]);
+    // Check if the file exists and its type is in the SUPPORTED_FORMATS array
+    if (file && SUPPORTED_FORMATS.includes(file.type)) {
+      setFieldValue(name, file);
     }
   };
 
