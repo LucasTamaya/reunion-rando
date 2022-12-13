@@ -1,69 +1,80 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { fireEvent, screen } from "@testing-library/react";
-import { rest } from "msw";
+import * as ReactRouter from "react-router-dom";
 
 import { renderWithClient } from "@tests/config/mswUtils";
-import { AddNewActivity } from "@/screens/AddNewActivity";
-import { RouterWrapper } from "@tests/helpers/RouterWrapper";
+import { UpdateActivity } from "@/screens/UpdateActivity";
 import { server } from "@tests/config/server";
+import { rest } from "msw";
 
-const MockedComponent = () => {
-  return (
-    <RouterWrapper>
-      <AddNewActivity />
-    </RouterWrapper>
-  );
-};
+vi.mock("react-router-dom", () => ({
+  useLocation: vi.fn(),
+  useNavigate: vi.fn(),
+}));
 
+vi.spyOn(ReactRouter, "useLocation").mockReturnValue({
+  state: {
+    title: "Randonnée à Mafate",
+    location: "Mafate",
+    image_url: "mafate.jpg",
+    price: "40",
+    description: "Superbe randonnée à Mafate",
+    id: "1",
+  },
+  pathname: "/modification-activite/",
+  key: "key",
+  hash: "",
+  search: "",
+});
+
+// simulates the user updating the activity
 beforeEach(async () => {
-  // simulates the user filling in the form and sending it
-  renderWithClient(<MockedComponent />);
+  renderWithClient(<UpdateActivity />);
 
   fireEvent.change(
     await screen.findByRole("textbox", {
       name: /titre/i,
     }),
-    { target: { value: "Marche à Mafate" } }
+    { target: { value: "Rando Cilaos" } }
   );
 
   fireEvent.change(await screen.findByRole("combobox"), {
-    target: { value: "Mafate" },
+    target: { value: "Cilaos" },
   });
 
   fireEvent.change(
     await screen.findByRole("spinbutton", {
       name: /prix/i,
     }),
-    { target: { value: 100 } }
+    { target: { value: 50 } }
   );
 
   fireEvent.change(
     await screen.findByRole("textbox", {
       name: /description/i,
     }),
-    { target: { value: "Une super marche à Mafate" } }
+    { target: { value: "Une super marche à Cilaos" } }
   );
 
   fireEvent.click(
     await screen.findByRole("button", {
-      name: /créer l'activité/i,
+      name: /valider les modifications/i,
     })
   );
 });
 
-describe("AddNewActivity Screen", () => {
+describe("UpdateActivity Screen", () => {
   it("should shows a success message if there are no errors during the request", async () => {
     const successMessage = await screen.findByText(
-      /activité crée avec succès !/i
+      /activité modifiée avec succès !/i
     );
 
     expect(successMessage).toBeInTheDocument();
   });
-
   it("should shows an error message if there are any errors", async () => {
     // simulates a 500 error
     server.use(
-      rest.post("*/activity", (_, res, ctx) => {
+      rest.patch("*/activity/1", (_, res, ctx) => {
         return res(ctx.status(500));
       })
     );

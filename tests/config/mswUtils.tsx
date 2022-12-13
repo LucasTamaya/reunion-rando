@@ -37,6 +37,10 @@ export const handlers = [
   rest.get("*/activities/1234", (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockedProviderActivitiesData));
   }),
+
+  rest.patch("*/activity/1", (_, res, ctx) => {
+    return res(ctx.status(200));
+  }),
 ];
 
 const createTestQueryClient = () =>
