@@ -20,12 +20,12 @@ export const LogoutModal: React.FC<Props> = ({
         <div className="flex flex-col sm:flex-row justify-between items-center gap-y-3 sm:gap-y-0 gap-x-5">
           <Button
             text="Annuler"
-            color="grey"
+            variant="secondary"
             handleClick={() => handleCancel(false)}
           />
           <Button
             text="Me déconnecter"
-            color="green"
+            variant="primary"
             isLoading={isLoading}
             handleClick={handleLogout}
           />

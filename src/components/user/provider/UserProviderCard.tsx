@@ -26,7 +26,7 @@ export const UserProviderCard: React.FC<Props> = ({
       </div>
       <p>{email}</p>
       <a href={`mailto:${email}`} className="w-full">
-        <Button text="Contacter" color="green" />
+        <Button text="Contacter" variant="primary" />
       </a>
     </div>
   );

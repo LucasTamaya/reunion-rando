@@ -28,7 +28,7 @@ export const ManageActivities: React.FC = () => {
             Vous n'avez pas encore créé d'activités
           </h2>
           <Link to="/nouvelle-activite">
-            <Button text="Créer une activité" color="green" />
+            <Button text="Créer une activité" variant="primary" />
           </Link>
         </div>
       ) : null}

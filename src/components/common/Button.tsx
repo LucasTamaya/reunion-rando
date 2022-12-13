@@ -3,14 +3,14 @@ import classnames from "classnames";
 
 interface Props {
   text: string;
-  color: "green" | "grey";
+  variant: "primary" | "secondary";
   isLoading?: boolean;
   handleClick?: () => any;
 }
 
 export const Button: React.FC<Props> = ({
   text,
-  color,
+  variant,
   isLoading,
   handleClick,
 }) => {
@@ -19,8 +19,8 @@ export const Button: React.FC<Props> = ({
     "w-full text-white text-sm sm:text-lg",
     "flex justify-center items-center font-semibold rounded h-10 sm:h-14",
     {
-      "bg-main-green": color === "green",
-      "bg-main-grey": color === "grey",
+      "bg-main-green": variant === "primary",
+      "bg-main-grey": variant === "secondary",
     }
   );
 

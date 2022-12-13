@@ -11,13 +11,14 @@ export const ActivityCard: React.FC<Activity> = ({
   createdBy,
   id,
 }) => {
-  const hikeBackground = `url("${image_url}")`;
-  const avatar = `url("${createdBy.avatar}")`;
+  const ACTIVITY_DETAILS_URL = `/activites/${id}`;
+  const HIKE_BG_URL = `url("${image_url}")`;
+  const AVATAR_URL = `url("${createdBy.avatar}")`;
 
   return (
     <Link
       data-testid="activityCard"
-      to={`/activites/${id}`}
+      to={ACTIVITY_DETAILS_URL}
       state={{
         title,
         location,
@@ -29,13 +30,13 @@ export const ActivityCard: React.FC<Activity> = ({
     >
       <div
         className="relative cursor-pointer h-72 rounded bg-cover bg-center"
-        style={{ backgroundImage: hikeBackground }}
+        style={{ backgroundImage: HIKE_BG_URL }}
       >
-        <div className="absolute bottom-0 w-full flex items-center justify-between p-3 rounded-b bg-[#3e363f]">
+        <div className="absolute bottom-0 w-full flex items-center justify-between p-3 rounded-b bg-main-grey">
           <h2 className="text-white text-2xl font-semibold">{location}</h2>
           <div
             className="w-10 h-10 rounded-full bg-white"
-            style={{ backgroundImage: avatar }}
+            style={{ backgroundImage: AVATAR_URL }}
           ></div>
         </div>
       </div>

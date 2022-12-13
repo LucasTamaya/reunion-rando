@@ -49,18 +49,16 @@ export const ActivityForm: React.FC<Props> = ({
 
   const createFormData = (activityData: NewActivityValues) => {
     const { title, location, file, price, description } = activityData;
-    console.log(file);
-
     const userId = localStorage.getItem("userId")!;
     const formData = new FormData();
 
+    if (activityId) formData.append("activityId", activityId);
     formData.append("title", title);
     formData.append("location", location);
     formData.append("file", file);
     formData.append("price", price.toString());
     formData.append("description", description);
     formData.append("userId", userId);
-    if (activityId) formData.append("activityId", activityId);
 
     return formData;
   };
@@ -116,7 +114,7 @@ export const ActivityForm: React.FC<Props> = ({
                 <TextArea label="Description" name="description" />
                 <Button
                   text={buttonText}
-                  color="green"
+                  variant="primary"
                   isLoading={mutationLoading}
                 />
               </Form>

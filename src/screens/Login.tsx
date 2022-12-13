@@ -30,7 +30,7 @@ export const Login: React.FC = () => {
           <Form className="flex flex-col gap-y-7">
             <Input label="E-mail" name="email" type="email" />
             <Input label="Mot de passe" name="password" type="password" />
-            <Button text="Connexion" color="green" isLoading={isLoading} />
+            <Button text="Connexion" variant="primary" isLoading={isLoading} />
           </Form>
         </Formik>
         <p className="text-sm sm:text-base mt-5">

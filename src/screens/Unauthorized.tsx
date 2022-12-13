@@ -8,7 +8,7 @@ export const Unauthorized: React.FC = () => {
         Vous ne disposez pas des droits nécessaires
       </h1>
       <Link to="/" className="w-full">
-        <Button text="Revenir à l'accueil" color="green" />
+        <Button text="Revenir à l'accueil" variant="primary" />
       </Link>
     </div>
   );

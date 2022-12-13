@@ -52,7 +52,7 @@ export const Register: React.FC = () => {
             </div>
             <Button
               text="Créer un compte"
-              color="green"
+              variant="primary"
               isLoading={isLoading}
             />
           </Form>
