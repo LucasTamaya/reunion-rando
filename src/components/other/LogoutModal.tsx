@@ -1,4 +1,4 @@
-import { ClipLoader } from "react-spinners";
+import { Button } from "../common/Button";
 
 interface Props {
   handleCancel: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,22 +18,17 @@ export const LogoutModal: React.FC<Props> = ({
           Êtes-vous sûr de vouloir vous déconnecter ?
         </h2>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-y-3 sm:gap-y-0 gap-x-5">
-          <button
-            className="text-white text-base sm:text-lg w-full font-semibold bg-main-grey rounded h-10 sm:h-14"
-            onClick={() => handleCancel(false)}
-          >
-            Annuler
-          </button>
-          <button
-            className="text-white text-base sm:text-lg w-full font-semibold bg-main-green rounded h-10 sm:h-14"
-            onClick={handleLogout}
-          >
-            {isLoading ? (
-              <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
-            ) : (
-              <>Me déconnecter</>
-            )}
-          </button>
+          <Button
+            text="Annuler"
+            color="grey"
+            handleClick={() => handleCancel(false)}
+          />
+          <Button
+            text="Me déconnecter"
+            color="green"
+            isLoading={isLoading}
+            handleClick={handleLogout}
+          />
         </div>
       </div>
     </div>

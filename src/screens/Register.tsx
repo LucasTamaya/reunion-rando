@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
-import { ClipLoader } from "react-spinners";
 
 import { Input } from "@/components/common/input/Input";
 import { registerSchema } from "@/validationSchema";
 import { InputSelect } from "@/components/common/input/InputSelect";
 import { RegisterValues } from "@/types";
 import { useRegister } from "@/hooks/auth/useRegister";
+import { Button } from "@/components/common/Button";
 
 export const Register: React.FC = () => {
   const { mutate, isLoading } = useRegister();
@@ -44,22 +44,17 @@ export const Register: React.FC = () => {
               <span className="block font-semibold text-sm sm:text-base mb-3">
                 Je suis un:
               </span>
-              <InputSelect label="role" name="role">
+              <InputSelect name="role">
                 <option value="">Sélectionner une option</option>
                 <option value="particulier">Particulier</option>
                 <option value="prestataire">Prestataire</option>
               </InputSelect>
             </div>
-            <button
-              className="text-white text-base flex justify-center items-center sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
-              type="submit"
-            >
-              {isLoading ? (
-                <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
-              ) : (
-                <>Créer un compte</>
-              )}
-            </button>
+            <Button
+              text="Créer un compte"
+              color="green"
+              isLoading={isLoading}
+            />
           </Form>
         </Formik>
         <p className="text-sm sm:text-base mt-5">

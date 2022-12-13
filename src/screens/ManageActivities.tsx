@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
 import { Nav } from "@/components/common/nav/Nav";
 import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
+import { Button } from "@/components/common/Button";
 
 export const ManageActivities: React.FC = () => {
   const { isLoading, data } = useProviderActivities();
@@ -26,14 +27,9 @@ export const ManageActivities: React.FC = () => {
           <h2 className="text-center text-main-grey text-lg sm:text-2xl mb-10">
             Vous n'avez pas encore créé d'activités
           </h2>
-          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded">
-            <Link
-              to="/nouvelle-activite"
-              className="block w-full h-full p-2 sm:p-3"
-            >
-              Créer une activité
-            </Link>
-          </button>
+          <Link to="/nouvelle-activite">
+            <Button text="Créer une activité" color="green" />
+          </Link>
         </div>
       ) : null}
 

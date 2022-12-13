@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Toaster } from "react-hot-toast";
-import { ClipLoader } from "react-spinners";
 
 import { Input } from "@/components/common/input/Input";
 import { loginSchema } from "@/validationSchema";
 import { useLogin } from "@/hooks/auth/useLogin";
 import { LoginValues } from "@/types";
+import { Button } from "@/components/common/Button";
 
 export const Login: React.FC = () => {
   const { mutate, isLoading } = useLogin();
@@ -30,16 +30,7 @@ export const Login: React.FC = () => {
           <Form className="flex flex-col gap-y-7">
             <Input label="E-mail" name="email" type="email" />
             <Input label="Mot de passe" name="password" type="password" />
-            <button
-              className="text-white text-base sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
-              type="submit"
-            >
-              {isLoading ? (
-                <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
-              ) : (
-                <>Connexion</>
-              )}
-            </button>
+            <Button text="Connexion" color="green" isLoading={isLoading} />
           </Form>
         </Formik>
         <p className="text-sm sm:text-base mt-5">

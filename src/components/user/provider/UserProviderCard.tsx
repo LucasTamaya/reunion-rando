@@ -1,3 +1,5 @@
+import { Button } from "@/components/common/Button";
+
 interface Props {
   avatar: string;
   lastname: string;
@@ -23,11 +25,9 @@ export const UserProviderCard: React.FC<Props> = ({
         <p>{firstname}</p>
       </div>
       <p>{email}</p>
-      <button className="w-full  text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
-        <a href={`mailto:${email}`} className="block w-full h-full">
-          Contacter
-        </a>
-      </button>
+      <a href={`mailto:${email}`} className="w-full">
+        <Button text="Contacter" color="green" />
+      </a>
     </div>
   );
 };

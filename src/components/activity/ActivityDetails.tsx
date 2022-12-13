@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { Nav } from "../common/nav/Nav";
+import { Button } from "../common/Button";
 
 export const ActivityDetails: React.FC = () => {
   const loc = useLocation();
@@ -31,14 +32,9 @@ export const ActivityDetails: React.FC = () => {
             Localisation
           </h2>
           <p className="text-lg mb-10">{location}</p>
-          <button className="w-full text-white text-base sm:text-lg font-semibold bg-main-green rounded p-2 sm:p-3">
-            <a
-              href={`mailto:${createdBy.email}`}
-              className="block w-full h-full"
-            >
-              Contacter le prestataire
-            </a>
-          </button>
+          <a href={`mailto:${createdBy.email}`} className="w-full">
+            <Button text="Contacter le prestataire" color="green" />
+          </a>
         </div>
       </div>
     </>

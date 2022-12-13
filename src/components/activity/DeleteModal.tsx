@@ -1,8 +1,8 @@
-import { ClipLoader } from "react-spinners";
+import { Button } from "../common/Button";
 
 interface Props {
   handleCancel: React.Dispatch<React.SetStateAction<boolean>>;
-  handleDelete: () => void;
+  handleDelete: () => any;
   isLoading: boolean;
 }
 
@@ -18,27 +18,17 @@ export const DeleteModal: React.FC<Props> = ({
           Êtes-vous sûr de vouloir supprimer cette activité ?
         </h2>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-y-3 sm:gap-y-0 gap-x-5">
-          <button
-            className="text-white text-base sm:text-lg w-full font-semibold bg-main-grey rounded h-10 sm:h-14"
-            onClick={() => handleCancel(false)}
-          >
-            Annuler
-          </button>
-          <button
-            className="text-white text-base sm:text-lg w-full font-semibold bg-main-green rounded h-10 sm:h-14"
-            onClick={handleDelete}
-          >
-            {isLoading ? (
-              <ClipLoader
-                size={25}
-                speedMultiplier={0.9}
-                color="#fff"
-                data-testid="loader"
-              />
-            ) : (
-              <>Supprimer</>
-            )}
-          </button>
+          <Button
+            text="Annuler"
+            color="grey"
+            handleClick={() => handleCancel(false)}
+          />
+          <Button
+            text="Supprimer"
+            color="green"
+            isLoading={isLoading}
+            handleClick={handleDelete}
+          />
         </div>
       </div>
     </div>

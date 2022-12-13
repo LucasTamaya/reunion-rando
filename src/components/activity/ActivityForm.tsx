@@ -10,6 +10,7 @@ import { useHikes } from "@/hooks/hike/useHikes";
 import { NewActivityValues } from "@/types";
 import { newActivitySchema } from "@/validationSchema";
 import { InputFile } from "@/components/common/input/InputFile";
+import { Button } from "../common/Button";
 
 interface Props {
   formTitle: string;
@@ -113,16 +114,11 @@ export const ActivityForm: React.FC<Props> = ({
                 ) : null}
                 <Input label="Prix" name="price" type="number" />
                 <TextArea label="Description" name="description" />
-                <button
-                  className="text-white text-base flex justify-center items-center sm:text-lg font-semibold bg-main-green rounded h-10 sm:h-14"
-                  type="submit"
-                >
-                  {mutationLoading ? (
-                    <ClipLoader size={25} speedMultiplier={0.9} color="#fff" />
-                  ) : (
-                    <>{buttonText}</>
-                  )}
-                </button>
+                <Button
+                  text={buttonText}
+                  color="green"
+                  isLoading={mutationLoading}
+                />
               </Form>
             </Formik>
           </div>
