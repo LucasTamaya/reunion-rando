@@ -10,9 +10,9 @@ import { IndividualUserNavLinks } from "./links/IndividualUserNavLinks";
 const HamburgerMenuIcon: React.FC = () => {
   return (
     <>
-      <span className="block h-0.5 w-8 bg-white"></span>
-      <span className="block h-0.5 w-8 bg-white"></span>
-      <span className="block h-0.5 w-8 bg-white"></span>
+      <span className="block h-0.5 w-8 bg-main-green"></span>
+      <span className="block h-0.5 w-8 bg-main-green"></span>
+      <span className="block h-0.5 w-8 bg-main-green"></span>
     </>
   );
 };
@@ -20,7 +20,7 @@ const HamburgerMenuIcon: React.FC = () => {
 const CrossIcon: React.FC = () => {
   return (
     <svg
-      className="h-8 w-8 text-white"
+      className="h-8 w-8 text-main-green"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -46,8 +46,11 @@ export const SmallScreenNav: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-between bg-main-green py-5 px-10">
-      <Link className="text-2xl sm:text-4xl text-white font-semibold" to="/">
+    <div className="flex items-center justify-between bg-white shadow-md p-10">
+      <Link
+        className="text-2xl sm:text-4xl text-main-green font-semibold"
+        to="/"
+      >
         ReunionRando
       </Link>
       <nav>
@@ -61,7 +64,7 @@ export const SmallScreenNav: React.FC = () => {
           <div
             className={
               showNav
-                ? "absolute top-0 left-0 w-full h-screen bg-main-green z-10 flex flex-col justify-evenly items-center"
+                ? "absolute top-0 left-0 w-full h-screen bg-white z-10 flex flex-col justify-evenly items-center"
                 : "hidden"
             }
           >
