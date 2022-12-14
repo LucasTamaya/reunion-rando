@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-// Mock Service Worker => mock api requests
 import { render } from "@testing-library/react";
 import { rest } from "msw";
 import * as React from "react";
@@ -8,8 +6,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   mockedActivitiesData,
   mockedProviderActivitiesData,
+  mockedUserProfileData,
 } from "@tests/mocks/data";
 
+// List of api requests used by the app
+// We mock their response value to be able to test our app without
+// calling our real API
 export const handlers = [
   rest.post("*/register", (_, res, ctx) => {
     return res(ctx.status(200));
@@ -39,6 +41,14 @@ export const handlers = [
   }),
 
   rest.patch("*/activity/1", (_, res, ctx) => {
+    return res(ctx.status(200));
+  }),
+
+  rest.get("*/user/2", (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockedUserProfileData));
+  }),
+
+  rest.patch("*/user/2", (_, res, ctx) => {
     return res(ctx.status(200));
   }),
 ];

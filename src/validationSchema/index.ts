@@ -31,3 +31,10 @@ export const newActivitySchema = Yup.object({
   description: Yup.string().required("Requis"),
   file: Yup.mixed().notRequired(),
 }).required();
+
+export const updateUserDataSchema = Yup.object({
+  lastname: Yup.string().required("Requis"),
+  firstname: Yup.string().required("Requis"),
+  email: Yup.string().email("E-mail invalide").required("Requis"),
+  avatar: Yup.mixed().notRequired(),
+}).required();

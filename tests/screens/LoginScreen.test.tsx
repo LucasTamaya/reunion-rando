@@ -15,8 +15,8 @@ const MockedComponent = () => {
   );
 };
 
+// simulates the user filling out the form and sending it
 beforeEach(() => {
-  // simulates the user filling in the form and sending it
   renderWithClient(<MockedComponent />);
 
   fireEvent.change(
@@ -71,7 +71,9 @@ describe("Login", () => {
       })
     );
 
-    const errorModal = await screen.findByText(/une erreur est survenue, veuillez réessayer/i);
+    const errorModal = await screen.findByText(
+      /une erreur est survenue, veuillez réessayer/i
+    );
 
     expect(errorModal).toBeInTheDocument();
   });

@@ -35,7 +35,7 @@ export interface UserRoleApiResponse {
   role: "particulier" | "prestataire";
 }
 
-interface CreatedBy {
+interface UserData {
   lastname: string;
   firstname: string;
   email: string;
@@ -43,7 +43,7 @@ interface CreatedBy {
 }
 
 export interface Activity {
-  createdBy: CreatedBy;
+  createdBy: UserData;
   description: string;
   id: string;
   location: string;
@@ -91,4 +91,12 @@ export interface User {
 
 export interface ProviderUserApiResponse {
   providerUsers: User[];
+}
+
+export interface UpdateUserDataValues extends UserData {
+  file?: string | File;
+}
+
+export interface UserProfileDataValues extends UserData {
+  id: string;
 }

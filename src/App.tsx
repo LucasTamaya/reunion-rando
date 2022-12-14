@@ -11,7 +11,7 @@ import { CurrentActivities } from "./screens/CurrentActivities";
 import { AddNewActivity } from "./screens/AddNewActivity";
 import { ActivityDetails } from "./components/activity/ActivityDetails";
 import { ExpertsField } from "./screens/ExpertsField";
-import { UserProfile } from "./components/user/UserProfile";
+import { UserProfile } from "./screens/UserProfile";
 import { ManageActivities } from "./screens/ManageActivities";
 import { UpdateActivity } from "./screens/UpdateActivity";
 

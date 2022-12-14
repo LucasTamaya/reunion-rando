@@ -1,11 +1,11 @@
 import { describe, it, expect, vi } from "vitest";
 import { fireEvent, screen } from "@testing-library/react";
+import { rest } from "msw";
 import * as ReactRouter from "react-router-dom";
 
 import { renderWithClient } from "@tests/config/mswUtils";
 import { UpdateActivity } from "@/screens/UpdateActivity";
 import { server } from "@tests/config/server";
-import { rest } from "msw";
 
 vi.mock("react-router-dom", () => ({
   useLocation: vi.fn(),
@@ -27,7 +27,7 @@ vi.spyOn(ReactRouter, "useLocation").mockReturnValue({
   search: "",
 });
 
-// simulates the user updating the activity
+// Simulates the user updating the activity
 beforeEach(async () => {
   renderWithClient(<UpdateActivity />);
 
@@ -71,6 +71,7 @@ describe("UpdateActivity Screen", () => {
 
     expect(successMessage).toBeInTheDocument();
   });
+
   it("should shows an error message if there are any errors", async () => {
     // simulates a 500 error
     server.use(

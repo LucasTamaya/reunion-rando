@@ -16,7 +16,7 @@ const MockedComponent = () => {
 };
 
 beforeEach(() => {
-  // mock localStorage item to match msw handler
+  // Set the userId item in the localStorage to match the msw api route
   localStorage.setItem("userId", "1234");
 });
 

@@ -1,3 +1,5 @@
+import { UserProfileDataValues } from "../../src/types/index";
+
 export const mockedActivitiesData = {
   activities: [
     {
@@ -50,4 +52,14 @@ export const mockedProviderActivitiesData = {
       cloudinary_public_id: "1",
     },
   ],
+};
+
+export const mockedUserProfileData: { userData: UserProfileDataValues } = {
+  userData: {
+    lastname: "Doe",
+    firstname: "John",
+    email: "john.doe@gmail.com",
+    avatar: "http://new_avatar.jpg",
+    id: "2",
+  },
 };

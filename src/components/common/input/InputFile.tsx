@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import { MdOutlineDriveFolderUpload } from "react-icons/md";
 
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
 
@@ -21,17 +22,18 @@ export const InputFile: React.FC<{ name: string; label: string }> = ({
   return (
     <div>
       <label
-        className="block font-semibold text-sm sm:text-base mb-3"
+        className="flex items-center justify-between font-semibold border rounded text-sm sm:text-base outline-none cursor-pointer p-2 sm:p-3"
         htmlFor={label}
       >
         {label}
+        <MdOutlineDriveFolderUpload size={25} />
       </label>
       <input
-        className="w-full rounded border text-sm sm:text-base outline-none p-2 sm:p-3"
-        id={label}
         type="file"
-        name="file"
         accept="image/jpg, image/jpeg, image/png"
+        hidden
+        id={label}
+        name={name}
         onChange={handleChange}
       />
     </div>

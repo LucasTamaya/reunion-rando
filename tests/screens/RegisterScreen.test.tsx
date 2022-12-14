@@ -19,7 +19,7 @@ beforeEach(() => {
   // simulates the user filling in the form and sending it
   renderWithClient(<MockedComponent />);
 
-  fireEvent.change(screen.getAllByRole("textbox")[0], {
+  fireEvent.change(screen.getByTestId("lastname"), {
     target: { value: "doe" },
   });
 

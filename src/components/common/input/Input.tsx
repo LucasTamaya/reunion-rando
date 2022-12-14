@@ -23,6 +23,7 @@ export const Input: React.FC<Props> = ({ label, ...props }) => {
       <input
         className="w-full rounded border text-sm sm:text-base outline-none p-2 sm:p-3"
         id={props.name}
+        data-testid={props.name}
         {...field}
         {...props}
       />
