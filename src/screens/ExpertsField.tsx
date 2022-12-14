@@ -13,6 +13,7 @@ export const ExpertsField: React.FC = () => {
       <h1 className="text-6xl text-main-green text-center font-semibold my-16">
         Nos experts du terrain
       </h1>
+
       {isLoading ? (
         <div className="w-full flex justify-center items-center">
           <ClipLoader size={25} speedMultiplier={0.9} color="#128B2D" />
@@ -20,7 +21,7 @@ export const ExpertsField: React.FC = () => {
       ) : null}
 
       {data ? (
-        <div className="max-w-7xl mx-auto grid grid-cols-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-4 gap-10">
           {data.map(({ ...props }) => (
             <UserProviderCard {...props} key={props.id} />
           ))}

@@ -1,13 +1,9 @@
+import { BsPersonCircle } from "react-icons/bs";
+
 import { Button } from "@/components/common/Button";
+import { UserData } from "@/types/index";
 
-interface Props {
-  avatar: string;
-  lastname: string;
-  firstname: string;
-  email: string;
-}
-
-export const UserProviderCard: React.FC<Props> = ({
+export const UserProviderCard: React.FC<UserData> = ({
   avatar,
   lastname,
   firstname,
@@ -16,11 +12,19 @@ export const UserProviderCard: React.FC<Props> = ({
   return (
     <div className="flex flex-col justify-center items-center gap-y-2 p-4 rounded border shadow-md">
       {avatar ? (
-        <img src={avatar} alt="avatar prestataire" />
+        <img
+          src={avatar}
+          alt="avatar prestataire"
+          className="rounded-full"
+          width={120}
+          height={120}
+        />
       ) : (
-        <div className="w-24 h-24 rounded-full bg-blue-500"></div>
+        <>
+          <BsPersonCircle size={120} color="grey" />
+        </>
       )}
-      <div className="flex">
+      <div className="flex mt-2">
         <p className="mr-1">{lastname}</p>
         <p>{firstname}</p>
       </div>

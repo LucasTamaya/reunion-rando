@@ -35,7 +35,7 @@ export interface UserRoleApiResponse {
   role: "particulier" | "prestataire";
 }
 
-interface UserData {
+export interface UserData {
   lastname: string;
   firstname: string;
   email: string;
