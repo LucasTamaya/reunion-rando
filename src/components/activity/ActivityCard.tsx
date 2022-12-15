@@ -34,6 +34,7 @@ export const ActivityCard: React.FC<Activity> = ({
       <div
         className="relative cursor-pointer h-72 rounded-tl rounded-tr bg-cover bg-center mb-3"
         style={{ backgroundImage: HIKE_BG_URL }}
+        data-testid="hikeBackground"
       ></div>
       <div className="p-3">
         <h2 className="text-black text-2xl font-semibold">{location}</h2>
@@ -42,9 +43,14 @@ export const ActivityCard: React.FC<Activity> = ({
           <div
             className="w-24 h-24 rounded-full bg-cover"
             style={{ backgroundImage: AVATAR_URL }}
+            data-testid="avatar"
           ></div>
         ) : (
-          <BsPersonCircle size={96} color="grey" />
+          <BsPersonCircle
+            size={96}
+            color="grey"
+            data-testid="emptyAvatarIcon"
+          />
         )}
       </div>
     </Link>
