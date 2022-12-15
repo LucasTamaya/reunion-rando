@@ -20,7 +20,7 @@ export const CurrentActivities: React.FC = () => {
         </div>
       ) : null}
       {data ? (
-        <div className="w-full max-w-7xl h-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto px-5">
+        <div className="w-full h-fit max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto px-5 pb-5">
           {data.map(({ ...props }) => (
             <ActivityCard key={props.id} {...props} />
           ))}
