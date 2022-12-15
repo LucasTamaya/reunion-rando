@@ -1,12 +1,12 @@
-import { useMutation } from "@tanstack/react-query";
-import toast from "react-hot-toast";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useMutation } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-import { fetchLogout } from "@/api/auth/logout";
+import { fetchLogout } from '@/api/auth/logout';
 
 const handleSuccess = (navigate: NavigateFunction) => {
   localStorage.clear();
-  navigate("/");
+  navigate('/');
 };
 
 export const useLogout = () => {
@@ -14,7 +14,7 @@ export const useLogout = () => {
 
   return useMutation({
     mutationFn: () => fetchLogout(),
-    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
+    onError: () => toast.error('Une erreur est survenue, veuillez réessayer'),
     onSuccess: () => handleSuccess(navigate),
   });
 };

@@ -1,7 +1,7 @@
-import { BsPersonCircle } from "react-icons/bs";
+import { BsPersonCircle } from 'react-icons/bs';
 
-import { Button } from "@/components/common/Button";
-import { UserData } from "@/types/index";
+import { Button } from '@/components/common/Button';
+import { UserData } from '@/types/index';
 
 export const UserProviderCard: React.FC<UserData> = ({
   avatar,

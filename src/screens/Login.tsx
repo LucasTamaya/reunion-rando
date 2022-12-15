@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import { Formik, Form } from "formik";
-import { Toaster } from "react-hot-toast";
+import { Link } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import { Toaster } from 'react-hot-toast';
 
-import { Input } from "@/components/common/input/Input";
-import { loginSchema } from "@/validationSchema";
-import { useLogin } from "@/hooks/auth/useLogin";
-import { LoginValues } from "@/types";
-import { Button } from "@/components/common/Button";
+import { Input } from '@/components/common/input/Input';
+import { loginSchema } from '@/validationSchema';
+import { useLogin } from '@/hooks/auth/useLogin';
+import { LoginValues } from '@/types';
+import { Button } from '@/components/common/Button';
 
 export const Login: React.FC = () => {
   const { mutate, isLoading } = useLogin();
@@ -15,7 +15,7 @@ export const Login: React.FC = () => {
     mutate(userData);
   };
 
-  const initialValues: LoginValues = { email: "", password: "" };
+  const initialValues: LoginValues = { email: '', password: '' };
   return (
     <div className="h-screen flex flex-col justify-center items-center px-5">
       <div className="rounded bg-white shadow-xl p-10 sm:p-16">
@@ -34,7 +34,7 @@ export const Login: React.FC = () => {
           </Form>
         </Formik>
         <p className="text-sm sm:text-base mt-5">
-          Vous n'avez pas de compte ?{" "}
+          Vous n'avez pas de compte ?{' '}
           <Link className="text-main-green underline" to="/inscription">
             S'inscrire
           </Link>

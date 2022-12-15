@@ -1,16 +1,16 @@
-import { ClipLoader } from "react-spinners";
-import { BsPersonCircle } from "react-icons/bs";
-import { Toaster } from "react-hot-toast";
+import { ClipLoader } from 'react-spinners';
+import { BsPersonCircle } from 'react-icons/bs';
+import { Toaster } from 'react-hot-toast';
 
-import { Nav } from "../components/common/nav/Nav";
-import { useUserData } from "../hooks/user/useUserData";
-import { Formik, Form } from "formik";
-import { Button } from "@/components/common/Button";
-import { Input } from "@/components/common/input/Input";
-import { updateUserDataSchema } from "../validationSchema/index";
-import { UpdateUserDataValues } from "@/types";
-import { useUpdateUserData } from "@/hooks/user/useUpdateUserData";
-import { InputFile } from "@/components/common/input/InputFile";
+import { Nav } from '../components/common/nav/Nav';
+import { useUserData } from '../hooks/user/useUserData';
+import { Formik, Form } from 'formik';
+import { Button } from '@/components/common/Button';
+import { Input } from '@/components/common/input/Input';
+import { updateUserDataSchema } from '../validationSchema/index';
+import { UpdateUserDataValues } from '@/types';
+import { useUpdateUserData } from '@/hooks/user/useUpdateUserData';
+import { InputFile } from '@/components/common/input/InputFile';
 
 export const UserProfile: React.FC = () => {
   // Hook to get user data
@@ -20,20 +20,20 @@ export const UserProfile: React.FC = () => {
   const { mutate, isLoading: mutateLoading } = useUpdateUserData();
 
   const initialValues: UpdateUserDataValues = {
-    lastname: data?.lastname ?? "",
-    firstname: data?.firstname ?? "",
-    email: data?.email ?? "",
-    avatar: data?.avatar ?? "",
+    lastname: data?.lastname ?? '',
+    firstname: data?.firstname ?? '',
+    email: data?.email ?? '',
+    avatar: data?.avatar ?? '',
   };
 
   const createUserFormData = (userData: UpdateUserDataValues) => {
     const { lastname, firstname, email, avatar } = userData;
     const formData = new FormData();
 
-    formData.append("lastname", lastname);
-    formData.append("firstname", firstname);
-    formData.append("email", email);
-    formData.append("avatar", avatar);
+    formData.append('lastname', lastname);
+    formData.append('firstname', firstname);
+    formData.append('email', email);
+    formData.append('avatar', avatar);
 
     return formData;
   };
@@ -84,7 +84,7 @@ export const UserProfile: React.FC = () => {
               <Input label="Prénom" name="firstname" type="text" />
               <Input label="E-mail" name="email" type="text" />
               <Button
-                text={"Mettre à jour mes informations"}
+                text={'Mettre à jour mes informations'}
                 variant="primary"
                 isLoading={mutateLoading}
               />

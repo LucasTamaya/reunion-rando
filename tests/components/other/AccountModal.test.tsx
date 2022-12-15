@@ -1,9 +1,9 @@
-import { describe, it, expect } from "vitest";
-import { screen } from "@testing-library/react";
+import { describe, it, expect } from 'vitest';
+import { screen } from '@testing-library/react';
 
-import { AccountModal } from "@/components/other/AccountModal";
-import { RouterWrapper } from "@tests/helpers/RouterWrapper";
-import { renderWithClient } from "@tests/config/mswUtils";
+import { AccountModal } from '@/components/other/AccountModal';
+import { RouterWrapper } from '@tests/helpers/RouterWrapper';
+import { renderWithClient } from '@tests/config/mswUtils';
 
 const MockedComponent = () => {
   return (
@@ -13,11 +13,11 @@ const MockedComponent = () => {
   );
 };
 
-describe("AccountModal", () => {
-  it("should renders 3 <li>", () => {
+describe('AccountModal', () => {
+  it('should renders 3 <li>', () => {
     renderWithClient(<MockedComponent />);
 
-    const modalContent = screen.getAllByRole("listitem");
+    const modalContent = screen.getAllByRole('listitem');
 
     expect(modalContent).toHaveLength(3);
   });

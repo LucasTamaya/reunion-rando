@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import "@testing-library/cypress/add-commands";
-import "cypress-file-upload";
+import '@testing-library/cypress/add-commands';
+import 'cypress-file-upload';
 
 declare global {
   namespace Cypress {
@@ -10,12 +10,12 @@ declare global {
   }
 }
 
-Cypress.Commands.add("userLogin", () => {
-  cy.findByRole("textbox", {
+Cypress.Commands.add('userLogin', () => {
+  cy.findByRole('textbox', {
     name: /e-mail/i,
-  }).type("john.doe@orange.fr");
-  cy.findByLabelText(/mot de passe/i).type("123456");
-  cy.findByRole("button", {
+  }).type('john.doe@orange.fr');
+  cy.findByLabelText(/mot de passe/i).type('123456');
+  cy.findByRole('button', {
     name: /connexion/i,
   }).click();
 });

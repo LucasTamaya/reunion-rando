@@ -1,9 +1,9 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 
-import { useUserRole } from "@/hooks/user/useUserRole";
+import { useUserRole } from '@/hooks/user/useUserRole';
 
-type AllowedRoles = "particulier" | "prestataire";
+type AllowedRoles = 'particulier' | 'prestataire';
 
 export const ProtectedRoutes: React.FC<{ allowedRole: AllowedRoles }> = ({
   allowedRole,

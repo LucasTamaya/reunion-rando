@@ -1,6 +1,6 @@
-import { Nav } from "@/components/common/nav/Nav";
-import { ActivityForm } from "@/components/activity/ActivityForm";
-import { useAddActivity } from "@/hooks/activity/useAddActivity";
+import { Nav } from '@/components/common/nav/Nav';
+import { ActivityForm } from '@/components/activity/ActivityForm';
+import { useAddActivity } from '@/hooks/activity/useAddActivity';
 
 export const AddNewActivity: React.FC = () => {
   const { mutate, isLoading } = useAddActivity();

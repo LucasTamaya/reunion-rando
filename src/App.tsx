@@ -1,19 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
-import { Home } from "./screens/Home";
-import { Login } from "./screens/Login";
-import { Register } from "./screens/Register";
-import { DashboardParticulier } from "./screens/DashboardParticulier";
-import { ProtectedRoutes } from "./components/other/ProtectedRoutes";
-import { DashboardPrestataire } from "./screens/DashboardPrestataire";
-import { Unauthorized } from "./screens/Unauthorized";
-import { CurrentActivities } from "./screens/CurrentActivities";
-import { AddNewActivity } from "./screens/AddNewActivity";
-import { ActivityDetails } from "./components/activity/ActivityDetails";
-import { ExpertsField } from "./screens/ExpertsField";
-import { UserProfile } from "./screens/UserProfile";
-import { ManageActivities } from "./screens/ManageActivities";
-import { UpdateActivity } from "./screens/UpdateActivity";
+import { Home } from './screens/Home';
+import { Login } from './screens/Login';
+import { Register } from './screens/Register';
+import { DashboardParticulier } from './screens/DashboardParticulier';
+import { ProtectedRoutes } from './components/other/ProtectedRoutes';
+import { DashboardPrestataire } from './screens/DashboardPrestataire';
+import { Unauthorized } from './screens/Unauthorized';
+import { CurrentActivities } from './screens/CurrentActivities';
+import { AddNewActivity } from './screens/AddNewActivity';
+import { ActivityDetails } from './components/activity/ActivityDetails';
+import { ExpertsField } from './screens/ExpertsField';
+import { UserProfile } from './screens/UserProfile';
+import { ManageActivities } from './screens/ManageActivities';
+import { UpdateActivity } from './screens/UpdateActivity';
 
 export const App: React.FC = () => {
   return (

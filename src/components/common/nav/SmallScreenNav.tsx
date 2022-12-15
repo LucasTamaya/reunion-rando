@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { LogoutModal } from "@/components/other/LogoutModal";
-import { useLogout } from "@/hooks/auth/useLogout";
-import { CommonNavLinks } from "./links/CommonNavLinks";
-import { ProviderUserNavLinks } from "./links/ProviderUserNavLinks";
-import { IndividualUserNavLinks } from "./links/IndividualUserNavLinks";
+import { LogoutModal } from '@/components/other/LogoutModal';
+import { useLogout } from '@/hooks/auth/useLogout';
+import { CommonNavLinks } from './links/CommonNavLinks';
+import { ProviderUserNavLinks } from './links/ProviderUserNavLinks';
+import { IndividualUserNavLinks } from './links/IndividualUserNavLinks';
 
 const HamburgerMenuIcon: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ export const SmallScreenNav: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(false);
   const { mutate, isLoading } = useLogout();
-  const userRole = localStorage.getItem("role");
+  const userRole = localStorage.getItem('role');
 
   const handleLogout = () => {
     mutate();
@@ -64,8 +64,8 @@ export const SmallScreenNav: React.FC = () => {
           <div
             className={
               showNav
-                ? "absolute top-0 left-0 w-full h-screen bg-white z-10 flex flex-col justify-evenly items-center"
-                : "hidden"
+                ? 'absolute top-0 left-0 w-full h-screen bg-white z-10 flex flex-col justify-evenly items-center'
+                : 'hidden'
             }
           >
             <div
@@ -75,7 +75,7 @@ export const SmallScreenNav: React.FC = () => {
               <CrossIcon />
             </div>
             <ul className="flex flex-col items-center justify-between gap-y-10 min-h-[250px]">
-              {userRole === "prestataire" ? (
+              {userRole === 'prestataire' ? (
                 <ProviderUserNavLinks />
               ) : (
                 <IndividualUserNavLinks />

@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { AccountModal } from "../../other/AccountModal";
-import { IndividualUserNavLinks } from "./links/IndividualUserNavLinks";
-import { ProviderUserNavLinks } from "./links/ProviderUserNavLinks";
+import { AccountModal } from '../../other/AccountModal';
+import { IndividualUserNavLinks } from './links/IndividualUserNavLinks';
+import { ProviderUserNavLinks } from './links/ProviderUserNavLinks';
 
 export const BigScreenNav: React.FC = () => {
   const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
-  const userRole = localStorage.getItem("role");
+  const userRole = localStorage.getItem('role');
 
   return (
     <header className="bg-white shadow-md py-8">
@@ -16,7 +16,7 @@ export const BigScreenNav: React.FC = () => {
           ReunionRando
         </Link>
         <ul className="flex items-center gap-x-10">
-          {userRole === "prestataire" ? (
+          {userRole === 'prestataire' ? (
             <ProviderUserNavLinks />
           ) : (
             <IndividualUserNavLinks />

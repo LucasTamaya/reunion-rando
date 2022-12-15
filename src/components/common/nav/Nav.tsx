@@ -1,11 +1,11 @@
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from 'react-responsive';
 
-import { SmallScreenNav } from "./SmallScreenNav";
-import { BigScreenNav } from "./BigScreenNav";
+import { SmallScreenNav } from './SmallScreenNav';
+import { BigScreenNav } from './BigScreenNav';
 
 export const Nav: React.FC = () => {
-  const isSmallScreen = useMediaQuery({ query: "(max-width: 1224px)" });
-  const isBigScreen = useMediaQuery({ query: "(min-width: 1224px)" });
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1224px)' });
 
   return (
     <>

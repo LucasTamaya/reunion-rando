@@ -1,11 +1,11 @@
-import { MdDelete, MdEdit } from "react-icons/md";
-import { Toaster } from "react-hot-toast";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { MdDelete, MdEdit } from 'react-icons/md';
+import { Toaster } from 'react-hot-toast';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Activity } from "@/types";
-import { useDeleteActivity } from "@/hooks/activity/useDeleteActivity";
-import { DeleteModal } from "./DeleteModal";
+import { Activity } from '@/types';
+import { useDeleteActivity } from '@/hooks/activity/useDeleteActivity';
+import { DeleteModal } from './DeleteModal';
 
 export const ManageActivityCard: React.FC<Activity> = ({
   title,

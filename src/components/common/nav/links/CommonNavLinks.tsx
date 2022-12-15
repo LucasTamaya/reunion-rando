@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export const CommonNavLinks: React.FC<{
   setShowLogoutModal: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setShowLogoutModal }) => {
-  const userRole = localStorage.getItem("role");
+  const userRole = localStorage.getItem('role');
 
   return (
     <>

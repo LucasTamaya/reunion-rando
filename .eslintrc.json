@@ -3,7 +3,6 @@
   "rules": {
     "eqeqeq": "error",
     "semi": "warn",
-    "quotes": "warn",
     "no-unused-vars": "warn",
     "array-callback-return": "off"
   }

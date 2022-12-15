@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import toast from "react-hot-toast";
+import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
-import { fetchAllProviderActivities } from "@/api/activity";
+import { fetchAllProviderActivities } from '@/api/activity';
 
 export const useProviderActivities = () => {
   return useQuery({
-    queryKey: ["providerActivities"],
+    queryKey: ['providerActivities'],
     queryFn: () => fetchAllProviderActivities(),
-    onError: () => toast.error("Une erreur est survenue, veuillez réessayer"),
+    onError: () => toast.error('Une erreur est survenue, veuillez réessayer'),
     refetchOnWindowFocus: false,
   });
 };

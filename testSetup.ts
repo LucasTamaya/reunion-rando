@@ -1,7 +1,7 @@
-import "@testing-library/jest-dom";
-import { beforeAll, afterEach, afterAll } from "vitest";
+import '@testing-library/jest-dom';
+import { beforeAll, afterEach, afterAll } from 'vitest';
 
-import { server } from "./tests/config/server";
+import { server } from './tests/config/server';
 
 beforeAll(() => server.listen());
 
@@ -9,7 +9,7 @@ afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
 
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation((query) => ({
     matches: false,

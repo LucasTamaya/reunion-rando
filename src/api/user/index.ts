@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { SERVER_BASE_URL } from "@/constants";
-import { ProviderUserApiResponse, UserRoleApiResponse, User } from "@/types";
-import { axiosInstance } from "../config/axios";
+import { SERVER_BASE_URL } from '@/constants';
+import { ProviderUserApiResponse, UserRoleApiResponse, User } from '@/types';
+import { axiosInstance } from '../config/axios';
 
 export const fetchUserRole = async () => {
   const { data } = await axiosInstance.get<UserRoleApiResponse>(
@@ -19,7 +19,7 @@ export const fetchAllProviderUsers = async () => {
 };
 
 export const fetchUserData = async () => {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem('userId');
 
   const { data } = await axiosInstance.get<{ userData: User }>(
     `${SERVER_BASE_URL}/user/${userId}`
@@ -28,7 +28,7 @@ export const fetchUserData = async () => {
 };
 
 export const fetchUpdateUserData = async (userData: FormData) => {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem('userId');
 
   const { data } = await axiosInstance.patch(
     `${SERVER_BASE_URL}/user/${userId}`,

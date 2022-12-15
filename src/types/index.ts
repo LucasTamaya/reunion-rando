@@ -11,7 +11,7 @@ export interface LoginValues {
   password: string;
 }
 
-export type UserRoles = "particulier" | "prestataire";
+export type UserRoles = 'particulier' | 'prestataire';
 
 export interface LoginApiResponse {
   isError: boolean;
@@ -32,7 +32,7 @@ export interface NewActivityValues {
 }
 
 export interface UserRoleApiResponse {
-  role: "particulier" | "prestataire";
+  role: 'particulier' | 'prestataire';
 }
 
 export interface UserData {

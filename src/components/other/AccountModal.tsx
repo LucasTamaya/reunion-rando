@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-import { useLogout } from "@/hooks/auth/useLogout";
-import { LogoutModal } from "./LogoutModal";
+import { useLogout } from '@/hooks/auth/useLogout';
+import { LogoutModal } from './LogoutModal';
 
 export const AccountModal: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);

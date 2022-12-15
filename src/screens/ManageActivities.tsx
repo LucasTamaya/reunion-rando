@@ -1,11 +1,11 @@
-import { ClipLoader } from "react-spinners";
-import { Link } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import { ClipLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
-import { ManageActivityCard } from "@/components/activity/ManageActivityCard";
-import { Nav } from "@/components/common/nav/Nav";
-import { useProviderActivities } from "@/hooks/activity/useProviderActivities";
-import { Button } from "@/components/common/Button";
+import { ManageActivityCard } from '@/components/activity/ManageActivityCard';
+import { Nav } from '@/components/common/nav/Nav';
+import { useProviderActivities } from '@/hooks/activity/useProviderActivities';
+import { Button } from '@/components/common/Button';
 
 export const ManageActivities: React.FC = () => {
   const { isLoading, data } = useProviderActivities();

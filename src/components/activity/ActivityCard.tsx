@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { BsPersonCircle } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+import { BsPersonCircle } from 'react-icons/bs';
 
-import { Activity } from "@/types";
+import { Activity } from '@/types';
 
 export const ActivityCard: React.FC<Activity> = ({
   title,
@@ -15,7 +15,7 @@ export const ActivityCard: React.FC<Activity> = ({
   const { avatar } = createdBy;
   const ACTIVITY_DETAILS_URL = `/activites/${id}`;
   const HIKE_BG_URL = `url("${image_url}")`;
-  const AVATAR_URL = avatar ? `url("${createdBy.avatar}")` : "";
+  const AVATAR_URL = avatar ? `url("${createdBy.avatar}")` : '';
 
   return (
     <Link

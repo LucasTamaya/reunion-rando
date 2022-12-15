@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { SERVER_BASE_URL } from "@/constants";
-import { Activities } from "@/types";
-import { axiosInstance } from "../config/axios";
+import { SERVER_BASE_URL } from '@/constants';
+import { Activities } from '@/types';
+import { axiosInstance } from '../config/axios';
 
 export const fetchAddActivity = async (activityData: FormData) => {
   const { data } = await axiosInstance.post(
@@ -18,7 +18,7 @@ export const fetchAllActivities = async () => {
 };
 
 export const fetchAllProviderActivities = async () => {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem('userId');
 
   const { data } = await axiosInstance.get<Activities>(
     `${SERVER_BASE_URL}/activities/${userId}`
@@ -39,11 +39,11 @@ export const fetchDeleteActivity = async (
 };
 
 export const fetchUpdateActivity = async (activityData: FormData) => {
-  const activityId = activityData.get("activityId");
+  const activityId = activityData.get('activityId');
   // before we make the request, we delete the activityId value from the FormData
   // because we dont' need it when updating the activity
   // we just need it to make the request
-  activityData.delete("activityId");
+  activityData.delete('activityId');
 
   const { data } = await axiosInstance.patch(
     `${SERVER_BASE_URL}/activity/${activityId}`,

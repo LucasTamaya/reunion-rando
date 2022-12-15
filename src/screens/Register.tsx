@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
-import { Formik, Form } from "formik";
-import { Toaster } from "react-hot-toast";
+import { Link } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import { Toaster } from 'react-hot-toast';
 
-import { Input } from "@/components/common/input/Input";
-import { registerSchema } from "@/validationSchema";
-import { InputSelect } from "@/components/common/input/InputSelect";
-import { RegisterValues } from "@/types";
-import { useRegister } from "@/hooks/auth/useRegister";
-import { Button } from "@/components/common/Button";
+import { Input } from '@/components/common/input/Input';
+import { registerSchema } from '@/validationSchema';
+import { InputSelect } from '@/components/common/input/InputSelect';
+import { RegisterValues } from '@/types';
+import { useRegister } from '@/hooks/auth/useRegister';
+import { Button } from '@/components/common/Button';
 
 export const Register: React.FC = () => {
   const { mutate, isLoading } = useRegister();
@@ -17,11 +17,11 @@ export const Register: React.FC = () => {
   };
 
   const initialValues: RegisterValues = {
-    lastname: "",
-    firstname: "",
-    email: "",
-    password: "",
-    role: "",
+    lastname: '',
+    firstname: '',
+    email: '',
+    password: '',
+    role: '',
   };
 
   return (
@@ -58,7 +58,7 @@ export const Register: React.FC = () => {
           </Form>
         </Formik>
         <p className="text-sm sm:text-base mt-5">
-          Vous avez un compte ?{" "}
+          Vous avez un compte ?{' '}
           <Link className="text-main-green underline" to="/connexion">
             Connexion
           </Link>

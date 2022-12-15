@@ -1,4 +1,4 @@
-import { Button } from "../common/Button";
+import { Button } from '../common/Button';
 
 interface Props {
   handleCancel: React.Dispatch<React.SetStateAction<boolean>>;

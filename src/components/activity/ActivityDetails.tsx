@@ -1,9 +1,9 @@
-import { useLocation } from "react-router-dom";
-import { BsPersonCircle } from "react-icons/bs";
+import { useLocation } from 'react-router-dom';
+import { BsPersonCircle } from 'react-icons/bs';
 
-import { Nav } from "../common/nav/Nav";
-import { Button } from "../common/Button";
-import { Activity } from "@/types";
+import { Nav } from '../common/nav/Nav';
+import { Button } from '../common/Button';
+import { Activity } from '@/types';
 
 export const ActivityDetails: React.FC = () => {
   // Retrieve and destructure the activity details from the location state
@@ -17,7 +17,7 @@ export const ActivityDetails: React.FC = () => {
     location: hikeLocation,
   }: Activity = location.state;
   const { lastname, firstname, email, avatar } = createdBy;
-  const AVATAR_URL = avatar ? `url("${avatar}")` : "";
+  const AVATAR_URL = avatar ? `url("${avatar}")` : '';
 
   return (
     <>

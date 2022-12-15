@@ -1,9 +1,9 @@
-import { ClipLoader } from "react-spinners";
-import classnames from "classnames";
+import { ClipLoader } from 'react-spinners';
+import classnames from 'classnames';
 
 interface Props {
   text: string;
-  variant: "primary" | "secondary";
+  variant: 'primary' | 'secondary';
   isLoading?: boolean;
   handleClick?: () => any;
 }
@@ -16,11 +16,11 @@ export const Button: React.FC<Props> = ({
 }) => {
   // Define the class names for the button based on the color prop
   const className = classnames(
-    "w-full text-white text-sm sm:text-lg",
-    "flex justify-center items-center font-semibold rounded h-10 sm:h-14",
+    'w-full text-white text-sm sm:text-lg',
+    'flex justify-center items-center font-semibold rounded h-10 sm:h-14',
     {
-      "bg-main-green": variant === "primary",
-      "bg-main-grey": variant === "secondary",
+      'bg-main-green': variant === 'primary',
+      'bg-main-grey': variant === 'secondary',
     }
   );
 

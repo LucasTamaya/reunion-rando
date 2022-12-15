@@ -1,7 +1,7 @@
-import { useFormikContext } from "formik";
-import { MdOutlineDriveFolderUpload } from "react-icons/md";
+import { useFormikContext } from 'formik';
+import { MdOutlineDriveFolderUpload } from 'react-icons/md';
 
-const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
+const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
 
 export const InputFile: React.FC<{ name: string; label: string }> = ({
   name,

@@ -1,8 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
-import { ActivityForm } from "@/components/activity/ActivityForm";
-import { Nav } from "@/components/common/nav/Nav";
-import { useUpdateActivity } from "@/hooks/activity/useUpdateActivity";
+import { ActivityForm } from '@/components/activity/ActivityForm';
+import { Nav } from '@/components/common/nav/Nav';
+import { useUpdateActivity } from '@/hooks/activity/useUpdateActivity';
 
 export const UpdateActivity: React.FC = () => {
   const loc = useLocation();

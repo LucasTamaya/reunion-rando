@@ -1,6 +1,6 @@
-import { SERVER_BASE_URL } from "@/constants/index";
-import { Hikes } from "@/types";
-import { axiosInstance } from "../config/axios";
+import { SERVER_BASE_URL } from '@/constants/index';
+import { Hikes } from '@/types';
+import { axiosInstance } from '../config/axios';
 
 interface HikesApiResponse {
   hikes: Hikes[];

@@ -1,16 +1,16 @@
-import { Form, Formik } from "formik";
-import { ClipLoader } from "react-spinners";
-import { Toaster } from "react-hot-toast";
-import { UseMutateFunction } from "@tanstack/react-query";
+import { Form, Formik } from 'formik';
+import { ClipLoader } from 'react-spinners';
+import { Toaster } from 'react-hot-toast';
+import { UseMutateFunction } from '@tanstack/react-query';
 
-import { Input } from "@/components/common/input/Input";
-import { InputSelect } from "@/components/common/input/InputSelect";
-import { TextArea } from "@/components/common/input/TextArea";
-import { useHikes } from "@/hooks/hike/useHikes";
-import { NewActivityValues } from "@/types";
-import { newActivitySchema } from "@/validationSchema";
-import { InputFile } from "@/components/common/input/InputFile";
-import { Button } from "../common/Button";
+import { Input } from '@/components/common/input/Input';
+import { InputSelect } from '@/components/common/input/InputSelect';
+import { TextArea } from '@/components/common/input/TextArea';
+import { useHikes } from '@/hooks/hike/useHikes';
+import { NewActivityValues } from '@/types';
+import { newActivitySchema } from '@/validationSchema';
+import { InputFile } from '@/components/common/input/InputFile';
+import { Button } from '../common/Button';
 
 interface Props {
   formTitle: string;
@@ -43,26 +43,26 @@ export const ActivityForm: React.FC<Props> = ({
   const { isLoading: hikesLoading, data } = useHikes();
 
   const initialValues: NewActivityValues = {
-    title: activityTitle ?? "",
-    location: activityLocation ?? "",
-    description: activityDescription ?? "",
-    file: activityImageUrl ?? "",
+    title: activityTitle ?? '',
+    location: activityLocation ?? '',
+    description: activityDescription ?? '',
+    file: activityImageUrl ?? '',
     price: activityPrice ?? 0,
   };
 
   const createActivityFormData = (activityData: NewActivityValues) => {
     const { title, location, file, price, description } = activityData;
-    const userId = localStorage.getItem("userId")!;
+    const userId = localStorage.getItem('userId')!;
     const formData = new FormData();
 
-    if (activityId) formData.append("activityId", activityId);
+    if (activityId) formData.append('activityId', activityId);
 
-    formData.append("title", title);
-    formData.append("location", location);
-    formData.append("file", file);
-    formData.append("price", price.toString());
-    formData.append("description", description);
-    formData.append("userId", userId);
+    formData.append('title', title);
+    formData.append('location', location);
+    formData.append('file', file);
+    formData.append('price', price.toString());
+    formData.append('description', description);
+    formData.append('userId', userId);
 
     return formData;
   };

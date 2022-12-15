@@ -1,5 +1,5 @@
-import { Nav } from "@/components/common/nav/Nav";
-import { HomeCard } from "@/components/home/HomeCard";
+import { Nav } from '@/components/common/nav/Nav';
+import { HomeCard } from '@/components/home/HomeCard';
 
 export const Home: React.FC = () => {
   return (
