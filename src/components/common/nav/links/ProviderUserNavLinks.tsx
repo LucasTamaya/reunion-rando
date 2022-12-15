@@ -10,7 +10,7 @@ export const ProviderUserNavLinks: React.FC = () => {
         <Link to="/gerer-mes-activites">Gérer mes activités</Link>
       </li>
       <li className="text-lg text-gray-700 font-semibold">
-        <a href="$">Les demandes de clients</a>
+        <Link to="/demandes-clients">Les demandes de clients</Link>
       </li>
     </>
   );
