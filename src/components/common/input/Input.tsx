@@ -6,10 +6,13 @@ interface Props {
   label: string;
   name: string;
   type: string;
-  accept?: string;
 }
 
 export const Input: React.FC<Props> = ({ label, ...props }) => {
+  // Hook useField to manage form state and validation
+  // field: contains the value and the onChange handler for the input element
+  // meta: contains metadata about the field, such as whether it has been touched,
+  // whether it has an error, and the error message.
   const [field, meta] = useField(props);
 
   return (
@@ -27,7 +30,6 @@ export const Input: React.FC<Props> = ({ label, ...props }) => {
         {...field}
         {...props}
       />
-      {/* show input error */}
       {meta.touched && meta.error ? (
         <InputErrorMessage error={meta.error} />
       ) : null}

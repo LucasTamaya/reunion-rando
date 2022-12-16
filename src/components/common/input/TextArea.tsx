@@ -23,7 +23,6 @@ export const TextArea: React.FC<Props> = ({ label, name }) => {
         id={name}
         {...field}
       ></textarea>
-      {/* show form error */}
       {meta.touched && meta.error ? (
         <InputErrorMessage error={meta.error} />
       ) : null}
