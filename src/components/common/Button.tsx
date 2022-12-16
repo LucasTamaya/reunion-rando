@@ -14,7 +14,7 @@ export const Button: React.FC<Props> = ({
   isLoading,
   handleClick,
 }) => {
-  // Define the class names for the button based on the color prop
+  // Define the classname for the button based on the variant prop
   const className = classnames(
     'w-full text-white text-sm sm:text-lg',
     'flex justify-center items-center font-semibold rounded h-10 sm:h-14',
