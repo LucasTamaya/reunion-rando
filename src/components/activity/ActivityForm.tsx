@@ -40,6 +40,7 @@ export const ActivityForm: React.FC<Props> = ({
   activityPrice,
   activityDescription,
 }) => {
+  // Get all hikes for select option input
   const { isLoading: hikesLoading, data } = useHikes();
 
   const initialValues: NewActivityValues = {

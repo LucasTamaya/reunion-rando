@@ -31,6 +31,7 @@ export const InputFile: React.FC<{ name: string; label: string }> = ({
       <input
         type="file"
         accept="image/jpg, image/jpeg, image/png"
+        data-testid="hiddenInputFile"
         hidden
         id={label}
         name={name}
