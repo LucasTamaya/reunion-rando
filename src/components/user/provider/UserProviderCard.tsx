@@ -20,7 +20,7 @@ export const UserProviderCard: React.FC<UserData> = ({
           height={120}
         />
       ) : (
-        <BsPersonCircle size={120} color="grey" />
+        <BsPersonCircle size={120} color="grey" data-testid="emptyAvatarIcon" />
       )}
       <div className="flex mt-2">
         <p className="mr-1">{lastname}</p>
