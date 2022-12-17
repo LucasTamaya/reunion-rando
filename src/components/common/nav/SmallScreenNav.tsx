@@ -27,6 +27,7 @@ const CrossIcon: React.FC = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      data-testid="crossIcon"
     >
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
@@ -46,12 +47,12 @@ export const SmallScreenNav: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-between bg-white shadow-md p-10">
-      <Link
-        className="text-2xl sm:text-4xl text-main-green font-semibold"
-        to="/"
-      >
-        ReunionRando
+    <div
+      className="flex items-center justify-between bg-white shadow-md p-5"
+      data-testid="smallScreenNav"
+    >
+      <Link to="/">
+        <img src="/images/logo.png" alt="logo" width={70} height={70} />
       </Link>
       <nav>
         <section className="flex">

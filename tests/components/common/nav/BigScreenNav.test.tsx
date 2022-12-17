@@ -13,38 +13,19 @@ const MockedComponent = () => {
 };
 
 describe('BigScreenNav component', () => {
-  it('should renders 5 links if the user is not connected', () => {
+  it('should render the logo image correctly', () => {
     render(<MockedComponent />);
 
-    const linkOne = screen.getByRole('link', {
-      name: /reunionrando/i,
-    });
-    const linkTwo = screen.getByRole('link', {
-      name: /activités du moment/i,
-    });
-    const linkThree = screen.getByRole('link', {
-      name: /nos experts du terrain/i,
-    });
-    const linkFour = screen.getByRole('link', {
-      name: /programmer ma sortie/i,
-    });
-    const linkFive = screen.getByRole('link', {
-      name: /connexion/i,
-    });
-
-    expect(linkOne).toBeInTheDocument();
-    expect(linkTwo).toBeInTheDocument();
-    expect(linkThree).toBeInTheDocument();
-    expect(linkFour).toBeInTheDocument();
-    expect(linkFive).toBeInTheDocument();
+    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/images/logo.png');
   });
 
-  it('should renders 4 links if the user is connected as an individual', () => {
+  it('should render the individual user navigation links', () => {
+    render(<MockedComponent />);
     localStorage.setItem('role', 'particulier');
-    render(<MockedComponent />);
 
     const linkOne = screen.getByRole('link', {
-      name: /reunionrando/i,
+      name: /logo/i,
     });
     const linkTwo = screen.getByRole('link', {
       name: /activités du moment/i,
@@ -62,12 +43,12 @@ describe('BigScreenNav component', () => {
     expect(linkFour).toBeInTheDocument();
   });
 
-  it('should renders 4 links if the user is connected as a provider', () => {
+  it('should render the provider user navigation links', () => {
     localStorage.setItem('role', 'prestataire');
     render(<MockedComponent />);
 
     const linkOne = screen.getByRole('link', {
-      name: /reunionrando/i,
+      name: /logo/i,
     });
     const linkTwo = screen.getByRole('link', {
       name: /ajouter une activité/i,
@@ -85,21 +66,20 @@ describe('BigScreenNav component', () => {
     expect(linkFour).toBeInTheDocument();
   });
 
-  it("should renders a text that contains 'Mon compte' if the user is connected as an individual", () => {
-    localStorage.setItem('role', 'particulier');
+  it('should render the login link when the user is not logged in', () => {
+    //  clear the localStorage to make sure the user is not logged in
+    localStorage.clear();
     render(<MockedComponent />);
 
-    const text = screen.getByText(/mon compte/i);
+    const loginLink = screen.getByRole('link', { name: /connexion/i });
 
-    expect(text).toBeInTheDocument();
+    expect(loginLink).toBeInTheDocument();
   });
 
-  it("should renders a text that contains 'Mon compte' if the user is connected as a provider", () => {
+  it('should render the "Mon compte" link when the user is logged in', () => {
     localStorage.setItem('role', 'prestataire');
     render(<MockedComponent />);
 
-    const text = screen.getByText(/mon compte/i);
-
-    expect(text).toBeInTheDocument();
+    expect(screen.getByText(/mon compte/i)).toBeInTheDocument();
   });
 });

@@ -14,97 +14,63 @@ const MockedComponent = () => {
 };
 
 describe('SmallScreenNav component', () => {
-  it('should renders 4 links if the user is not connected', () => {
+  it('should render the logo image correctly', () => {
     renderWithClient(<MockedComponent />);
 
-    const linkOne = screen.getByRole('link', {
-      name: /activités du moment/i,
-    });
-    const linkTwo = screen.getByRole('link', {
-      name: /nos experts du terrain/i,
-    });
-    const linkThree = screen.getByRole('link', {
-      name: /programmer ma sortie/i,
-    });
-    const linkFour = screen.getByRole('link', {
-      name: /connexion/i,
-    });
-
-    expect(linkOne).toBeInTheDocument();
-    expect(linkTwo).toBeInTheDocument();
-    expect(linkThree).toBeInTheDocument();
-    expect(linkFour).toBeInTheDocument();
+    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/images/logo.png');
   });
 
-  it('should renders 6 links if the user is connected as an individual', () => {
+  it('should render the individual user navigation links', () => {
     localStorage.setItem('role', 'particulier');
     renderWithClient(<MockedComponent />);
 
     const linkOne = screen.getByRole('link', {
-      name: /activités du moment/i,
+      name: /logo/i,
     });
     const linkTwo = screen.getByRole('link', {
-      name: /nos experts du terrain/i,
+      name: /activités du moment/i,
     });
     const linkThree = screen.getByRole('link', {
-      name: /programmer ma sortie/i,
+      name: /nos experts du terrain/i,
     });
     const linkFour = screen.getByRole('link', {
-      name: /mes sorties/i,
-    });
-    const linkFive = screen.getByRole('link', {
-      name: /modifier mes informations/i,
+      name: /programmer ma sortie/i,
     });
 
     expect(linkOne).toBeInTheDocument();
     expect(linkTwo).toBeInTheDocument();
     expect(linkThree).toBeInTheDocument();
     expect(linkFour).toBeInTheDocument();
-    expect(linkFive).toBeInTheDocument();
   });
 
-  it('should renders 5 links if the user is connected as a provider', () => {
+  it('should render the provider user navigation links', () => {
     localStorage.setItem('role', 'prestataire');
     renderWithClient(<MockedComponent />);
 
     const linkOne = screen.getByRole('link', {
+      name: /logo/i,
+    });
+    const linkTwo = screen.getByRole('link', {
       name: /ajouter une activité/i,
     });
-    const linkTwo = screen.getByRole('link', {
+    const linkThree = screen.getByRole('link', {
       name: /gérer mes activités/i,
     });
-    const linkThree = screen.getByRole('link', {
-      name: /les demandes de clients/i,
-    });
     const linkFour = screen.getByRole('link', {
-      name: /mes sorties/i,
-    });
-    const linkFive = screen.getByRole('link', {
-      name: /modifier mes informations/i,
+      name: /les demandes de clients/i,
     });
 
     expect(linkOne).toBeInTheDocument();
     expect(linkTwo).toBeInTheDocument();
     expect(linkThree).toBeInTheDocument();
     expect(linkFour).toBeInTheDocument();
-    expect(linkFive).toBeInTheDocument();
   });
 
-  it("should renders a text that contains 'Déconnexion' if the user is connected as an individual", () => {
+  it('should render a "Déconnexion" link if the user is logged in', () => {
     localStorage.setItem('role', 'particulier');
     renderWithClient(<MockedComponent />);
 
-    const text = screen.getByText(/déconnexion/i);
-
-    expect(text).toBeInTheDocument();
-  });
-
-  it("should renders a text that contains 'Déconnexion' if the user is connected as a provider", () => {
-    localStorage.setItem('role', 'prestataire');
-    renderWithClient(<MockedComponent />);
-
-    const text = screen.getByText(/déconnexion/i);
-
-    expect(text).toBeInTheDocument();
+    expect(screen.getByText(/déconnexion/i)).toBeInTheDocument();
   });
 });

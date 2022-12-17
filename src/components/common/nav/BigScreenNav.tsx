@@ -12,8 +12,8 @@ export const BigScreenNav: React.FC = () => {
   return (
     <header className="bg-white shadow-md py-8">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="text-4xl text-main-green font-semibold">
-          ReunionRando
+        <Link to="/">
+          <img src="/images/logo.png" alt="logo" width={100} height={100} />
         </Link>
         <ul className="flex items-center gap-x-10">
           {userRole === 'prestataire' ? (
