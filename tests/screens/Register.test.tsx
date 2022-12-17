@@ -53,6 +53,13 @@ beforeEach(() => {
 });
 
 describe('Register', () => {
+  it('should render the logo image with a link to navigate to the Home screen', () => {
+    const imageLogoWithALink = screen.getByRole('link', { name: /logo/i });
+
+    expect(imageLogoWithALink).toBeInTheDocument();
+    expect(imageLogoWithALink).toHaveAttribute('href', '/');
+  });
+
   it('should shows a success modal if there are no errors during the request', async () => {
     const successModal = await screen.findByText(/compte crée avec succès/i);
 

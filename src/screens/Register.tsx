@@ -26,6 +26,13 @@ export const Register: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center p-5">
+      <Link to="/">
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          className="w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] mb-10"
+        />
+      </Link>
       <div className="w-full max-w-xl rounded bg-white shadow-xl p-10 sm:p-16">
         <h1 className="text-lg sm:text-3xl text-gray-700 font-bold mb-5">
           Créez votre compte RunRando

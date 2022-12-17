@@ -22,7 +22,7 @@ export const Login: React.FC = () => {
         <img
           src="/images/logo.png"
           alt="logo"
-          className="absolute top-5 sm:top-10 left-5 sm:left-20 w-[70px] h-[70px] sm:w-[100px] sm:h-[100px]"
+          className="w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] mb-10"
         />
       </Link>
       <div className="rounded bg-white shadow-xl p-10 sm:p-16">

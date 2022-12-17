@@ -38,25 +38,7 @@ beforeEach(() => {
 });
 
 describe('Login', () => {
-  it('should render the login form correctly', () => {
-    const title = screen.getByRole('heading', {
-      name: /connectez-vous à votre compte/i,
-    });
-    const emailInput = screen.getByRole('textbox', {
-      name: /e-mail/i,
-    });
-    const passwordInput = screen.getByLabelText(/mot de passe/i);
-    const button = screen.getByRole('button', {
-      name: /connexion/i,
-    });
-
-    expect(title).toBeInTheDocument();
-    expect(emailInput).toBeInTheDocument();
-    expect(passwordInput).toBeInTheDocument();
-    expect(button).toBeInTheDocument();
-  });
-
-  it.only('should render the logo image with a link to navigate to the Home screen', () => {
+  it('should render the logo image with a link to navigate to the Home screen', () => {
     const imageLogoWithALink = screen.getByRole('link', { name: /logo/i });
 
     expect(imageLogoWithALink).toBeInTheDocument();
