@@ -18,6 +18,13 @@ export const Login: React.FC = () => {
   const initialValues: LoginValues = { email: '', password: '' };
   return (
     <div className="h-screen flex flex-col justify-center items-center px-5">
+      <Link to="/">
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          className="absolute top-5 sm:top-10 left-5 sm:left-20 w-[70px] h-[70px] sm:w-[100px] sm:h-[100px]"
+        />
+      </Link>
       <div className="rounded bg-white shadow-xl p-10 sm:p-16">
         <h1 className="text-lg sm:text-3xl text-gray-700 font-bold mb-5">
           Connectez-vous à votre compte

@@ -38,13 +38,38 @@ beforeEach(() => {
 });
 
 describe('Login', () => {
-  it('should shows a success modal if there are no errors during the request', async () => {
+  it('should render the login form correctly', () => {
+    const title = screen.getByRole('heading', {
+      name: /connectez-vous à votre compte/i,
+    });
+    const emailInput = screen.getByRole('textbox', {
+      name: /e-mail/i,
+    });
+    const passwordInput = screen.getByLabelText(/mot de passe/i);
+    const button = screen.getByRole('button', {
+      name: /connexion/i,
+    });
+
+    expect(title).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+    expect(button).toBeInTheDocument();
+  });
+
+  it.only('should render the logo image with a link to navigate to the Home screen', () => {
+    const imageLogoWithALink = screen.getByRole('link', { name: /logo/i });
+
+    expect(imageLogoWithALink).toBeInTheDocument();
+    expect(imageLogoWithALink).toHaveAttribute('href', '/');
+  });
+
+  it('should show a success modal if there are no errors during the request', async () => {
     const successModal = await screen.findByText(/connexion réussie !/i);
 
     expect(successModal).toBeInTheDocument();
   });
 
-  it("should shows an error modal with an error message if the user doesn't exists or if the passwords don't match", async () => {
+  it("should show an error modal with an error message if the user doesn't exists or if the passwords don't match", async () => {
     server.use(
       rest.post('*/login', (_, res, ctx) => {
         return res(
@@ -63,7 +88,7 @@ describe('Login', () => {
     expect(errorModal).toBeInTheDocument();
   });
 
-  it('should shows an error modal with a generic error message if there are any other errors', async () => {
+  it('should show an error modal with a generic error message if there are any other errors', async () => {
     // simulates a 500 error
     server.use(
       rest.post('*/login', (_, res, ctx) => {
