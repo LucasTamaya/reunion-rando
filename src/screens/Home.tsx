@@ -1,9 +1,15 @@
 import { Nav } from '@/components/common/nav/Nav';
 import { HomeCard } from '@/components/home/HomeCard';
+import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const Home: React.FC = () => {
   return (
     <>
+      <HelmetSeo
+        title="RunRando | Accueil"
+        description="Découvrez les meilleurs itinéraires de randonnée à la Réunion en compagnie de guides expérimentés."
+        path="/"
+      />
       <Nav />
       <div className="max-w-7xl mx-auto px-10">
         <div className="mt-20 md:mt-44">
