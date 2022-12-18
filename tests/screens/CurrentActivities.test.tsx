@@ -6,11 +6,14 @@ import { rest } from 'msw';
 import { CurrentActivities } from '@/screens/CurrentActivities';
 import { renderWithClient } from '../config/mswUtils';
 import { RouterWrapper } from '@tests/helpers/RouterWrapper';
+import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
 
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <CurrentActivities />
+      <HelmetSeoWrapper>
+        <CurrentActivities />
+      </HelmetSeoWrapper>
     </RouterWrapper>
   );
 };

@@ -4,12 +4,18 @@ import { Toaster } from 'react-hot-toast';
 import { ActivityCard } from '@/components/activity/ActivityCard';
 import { Nav } from '@/components/common/nav/Nav';
 import { useActivities } from '@/hooks/activity/useActivities';
+import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const CurrentActivities: React.FC = () => {
   const { isLoading, data } = useActivities();
 
   return (
     <>
+      <HelmetSeo
+        title="RunRando - Activités du moment"
+        description="Découvrez les activités du moment et réservez votre prochaine sortie en quelques clics !"
+        path=""
+      />
       <Nav />
       <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Activités du moment
