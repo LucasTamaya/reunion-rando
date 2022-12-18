@@ -47,7 +47,15 @@ export const ManageActivityCard: React.FC<Activity> = ({
           />
           <Link
             to={`/modification-activite/${id}`}
-            state={{ title, location, image_url, price, description, id }}
+            state={{
+              title,
+              location,
+              image_url,
+              price,
+              description,
+              id,
+              cloudinary_public_id,
+            }}
           >
             <MdEdit
               color="#3e363f"

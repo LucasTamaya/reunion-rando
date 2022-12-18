@@ -23,6 +23,7 @@ interface Props {
   activityImageUrl?: string;
   activityPrice?: number;
   activityDescription?: string;
+  activityCloudinaryPublicId?: string;
 }
 
 /**
@@ -39,6 +40,7 @@ export const ActivityForm: React.FC<Props> = ({
   activityImageUrl,
   activityPrice,
   activityDescription,
+  activityCloudinaryPublicId,
 }) => {
   // Get all hikes for select option input
   const { isLoading: hikesLoading, data } = useHikes();
@@ -49,10 +51,12 @@ export const ActivityForm: React.FC<Props> = ({
     description: activityDescription ?? '',
     file: activityImageUrl ?? '',
     price: activityPrice ?? 0,
+    cloudinaryPublicId: activityCloudinaryPublicId ?? '',
   };
 
   const createActivityFormData = (activityData: NewActivityValues) => {
-    const { title, location, file, price, description } = activityData;
+    const { title, location, description, file, price, cloudinaryPublicId } =
+      activityData;
     const userId = localStorage.getItem('userId')!;
     const formData = new FormData();
 
@@ -60,9 +64,10 @@ export const ActivityForm: React.FC<Props> = ({
 
     formData.append('title', title);
     formData.append('location', location);
+    formData.append('description', description);
     formData.append('file', file);
     formData.append('price', price.toString());
-    formData.append('description', description);
+    formData.append('cloudinaryPublicId', cloudinaryPublicId);
     formData.append('userId', userId);
 
     return formData;

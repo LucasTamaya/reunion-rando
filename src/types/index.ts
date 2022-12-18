@@ -29,6 +29,7 @@ export interface NewActivityValues {
   price: number;
   description: string;
   file: string | File;
+  cloudinaryPublicId: string;
 }
 
 export interface UserRoleApiResponse {

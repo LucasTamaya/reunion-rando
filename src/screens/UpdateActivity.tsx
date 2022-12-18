@@ -5,8 +5,26 @@ import { Nav } from '@/components/common/nav/Nav';
 import { useUpdateActivity } from '@/hooks/activity/useUpdateActivity';
 
 export const UpdateActivity: React.FC = () => {
-  const loc = useLocation();
-  const { title, location, image_url, price, description, id } = loc.state;
+  interface UpdateActivityValues {
+    title: string;
+    location: string;
+    image_url: string;
+    price: number;
+    description: string;
+    id: string;
+    cloudinary_public_id: string;
+  }
+
+  const location = useLocation();
+  const {
+    title,
+    location: activityLocation,
+    image_url,
+    price,
+    description,
+    id,
+    cloudinary_public_id,
+  }: UpdateActivityValues = location.state;
   const { mutate, isLoading } = useUpdateActivity();
 
   return (
@@ -19,10 +37,11 @@ export const UpdateActivity: React.FC = () => {
         mutationLoading={isLoading}
         activityId={id}
         activityTitle={title}
-        activityLocation={location}
+        activityLocation={activityLocation}
         activityImageUrl={image_url}
         activityPrice={price}
         activityDescription={description}
+        activityCloudinaryPublicId={cloudinary_public_id}
       />
     </>
   );
