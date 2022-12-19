@@ -29,6 +29,7 @@ export const ActivityCard: React.FC<Activity> = ({
         price,
         description,
         createdBy,
+        id,
       }}
     >
       <div

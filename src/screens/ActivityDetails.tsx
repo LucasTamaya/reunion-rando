@@ -1,9 +1,10 @@
 import { useLocation } from 'react-router-dom';
 import { BsPersonCircle } from 'react-icons/bs';
 
-import { Nav } from '../common/nav/Nav';
-import { Button } from '../common/Button';
 import { Activity } from '@/types';
+import { Nav } from '@/components/common/nav/Nav';
+import { Button } from '@/components/common/Button';
+import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const ActivityDetails: React.FC = () => {
   // Retrieve and destructure the activity details from the location state
@@ -14,6 +15,7 @@ export const ActivityDetails: React.FC = () => {
     description,
     price,
     createdBy,
+    id,
     location: hikeLocation,
   }: Activity = location.state;
   const { lastname, firstname, email, avatar } = createdBy;
@@ -21,6 +23,11 @@ export const ActivityDetails: React.FC = () => {
 
   return (
     <>
+      <HelmetSeo
+        title="RunRando | Détails de l'activité"
+        description="Visualisez tous les détails de votre activité en un coup d'œil."
+        path={`/activites/${id}`}
+      />
       <Nav />
       <h1 className="text-main-green text-2xl sm:text-6xl text-center font-semibold my-10 sm:my-16">
         {title}

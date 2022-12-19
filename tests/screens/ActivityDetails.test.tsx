@@ -2,16 +2,25 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import * as ReactRouter from 'react-router-dom';
 
-import { ActivityDetails } from '@/components/activity/ActivityDetails';
+import { ActivityDetails } from '@/screens/ActivityDetails';
 import { Activity } from '@/types';
+import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
 
 vi.mock('react-router-dom', () => ({
   useLocation: vi.fn(),
   useNavigate: vi.fn(),
 }));
 
-describe('ActivityDetails Component', () => {
-  it('should renders the component correctly with a user avatar', () => {
+const MockedComponent: React.FC = () => {
+  return (
+    <HelmetSeoWrapper>
+      <ActivityDetails />
+    </HelmetSeoWrapper>
+  );
+};
+
+describe('ActivityDetails Screen', () => {
+  it('should renders the screen correctly with a user avatar', () => {
     // Mock location state with activityDetails data and a user avatar
     vi.spyOn(ReactRouter, 'useLocation').mockReturnValue({
       state: {
@@ -36,7 +45,7 @@ describe('ActivityDetails Component', () => {
       search: '',
     });
 
-    render(<ActivityDetails />);
+    render(<MockedComponent />);
 
     const title = screen.getByRole('heading', { name: /randonnée à mafate/i });
     const hikeImage = screen.getByAltText(/randonnée/i);
@@ -58,7 +67,7 @@ describe('ActivityDetails Component', () => {
     expect(mailToLink).toHaveAttribute('href', 'mailto:john.doe@gmail.com');
   });
 
-  it('should renders the component correctly with a user avatar', () => {
+  it('should renders the screen correctly with a user avatar', () => {
     // Mock location state with activityDetails data and an empty user avatar
     vi.spyOn(ReactRouter, 'useLocation').mockReturnValue({
       state: {
@@ -83,7 +92,7 @@ describe('ActivityDetails Component', () => {
       search: '',
     });
 
-    render(<ActivityDetails />);
+    render(<MockedComponent />);
 
     const title = screen.getByRole('heading', { name: /randonnée à mafate/i });
     const hikeImage = screen.getByAltText(/randonnée/i);

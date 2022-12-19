@@ -9,7 +9,7 @@ import { DashboardPrestataire } from './screens/DashboardPrestataire';
 import { Unauthorized } from './screens/Unauthorized';
 import { CurrentActivities } from './screens/CurrentActivities';
 import { AddNewActivity } from './screens/AddNewActivity';
-import { ActivityDetails } from './components/activity/ActivityDetails';
+import { ActivityDetails } from './screens/ActivityDetails';
 import { ExpertsField } from './screens/ExpertsField';
 import { UserProfile } from './screens/UserProfile';
 import { ManageActivities } from './screens/ManageActivities';
