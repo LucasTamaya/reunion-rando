@@ -6,11 +6,14 @@ import { renderWithClient } from '@tests/config/mswUtils';
 import { RouterWrapper } from '@tests/helpers/RouterWrapper';
 import { screen } from '@testing-library/react';
 import { server } from '@tests/config/server';
+import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
 
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <ManageActivities />
+      <HelmetSeoWrapper>
+        <ManageActivities />
+      </HelmetSeoWrapper>
     </RouterWrapper>
   );
 };

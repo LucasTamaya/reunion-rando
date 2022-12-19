@@ -6,12 +6,18 @@ import { ManageActivityCard } from '@/components/activity/ManageActivityCard';
 import { Nav } from '@/components/common/nav/Nav';
 import { useProviderActivities } from '@/hooks/activity/useProviderActivities';
 import { Button } from '@/components/common/Button';
+import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const ManageActivities: React.FC = () => {
   const { isLoading, data } = useProviderActivities();
 
   return (
-    <div>
+    <>
+      <HelmetSeo
+        title="RunRando - Gérer mes activités"
+        description="Visualisez toutes vos activités en un coup d'œil, modifiez-les ou supprimez-les facilement, et créez de nouvelles activités en quelques cliques."
+        path="/gerer-mes-activites"
+      />
       <Nav />
       <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Gérer mes activités
@@ -41,6 +47,6 @@ export const ManageActivities: React.FC = () => {
         </div>
       ) : null}
       <Toaster />
-    </div>
+    </>
   );
 };
