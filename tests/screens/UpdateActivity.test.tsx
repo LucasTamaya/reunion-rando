@@ -6,6 +6,7 @@ import * as ReactRouter from 'react-router-dom';
 import { renderWithClient } from '@tests/config/mswUtils';
 import { UpdateActivity } from '@/screens/UpdateActivity';
 import { server } from '@tests/config/server';
+import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
 
 vi.mock('react-router-dom', () => ({
   useLocation: vi.fn(),
@@ -27,9 +28,17 @@ vi.spyOn(ReactRouter, 'useLocation').mockReturnValue({
   search: '',
 });
 
+const MockedComponent: React.FC = () => {
+  return (
+    <HelmetSeoWrapper>
+      <UpdateActivity />
+    </HelmetSeoWrapper>
+  );
+};
+
 // Simulates the user updating the activity
 beforeEach(async () => {
-  renderWithClient(<UpdateActivity />);
+  renderWithClient(<MockedComponent />);
 
   fireEvent.change(
     await screen.findByRole('textbox', {
