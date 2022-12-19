@@ -14,7 +14,7 @@ export const CurrentActivities: React.FC = () => {
       <HelmetSeo
         title="RunRando - Activités du moment"
         description="Découvrez les activités du moment et réservez votre prochaine sortie en quelques clics !"
-        path=""
+        path="/activites-du-moment"
       />
       <Nav />
       <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">

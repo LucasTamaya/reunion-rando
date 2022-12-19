@@ -1,4 +1,4 @@
-import { UserProfileDataValues } from '../../src/types/index';
+import { UserProfileDataValues } from '@/types';
 
 export const mockedActivitiesData = {
   activities: [
