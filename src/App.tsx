@@ -21,11 +21,11 @@ export const App: React.FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="/connexion" element={<Login />} />
       <Route path="/inscription" element={<Register />} />
-      <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="/activites-du-moment" element={<CurrentActivities />} />
       <Route path="/activites/:id" element={<ActivityDetails />} />
       <Route path="/nos-experts-du-terrain" element={<ExpertsField />} />
       <Route path="/profile" element={<UserProfile />} />
+      <Route path="/unauthorized" element={<Unauthorized />} />
       <Route element={<ProtectedRoutes allowedRole="particulier" />}>
         <Route
           path="/dashboard/particulier"
