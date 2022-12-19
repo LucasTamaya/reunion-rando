@@ -1,4 +1,5 @@
 import { MdDelete, MdEdit } from 'react-icons/md';
+import { BsImage } from 'react-icons/bs';
 import { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -28,7 +29,17 @@ export const ManageActivityCard: React.FC<Activity> = ({
 
   return (
     <div>
-      <img src={image_url} alt="activité" className="rounded-tl rounded-tr" />
+      {image_url ? (
+        <img src={image_url} alt="activité" className="rounded-tl rounded-tr" />
+      ) : (
+        <div
+          className="w-full h-80 flex justify-center items-center rounded-tl rounded-tr border"
+          data-testid="emptyImageIcon"
+        >
+          <BsImage className="text-gray-700" size={100} />
+        </div>
+      )}
+
       <div className="flex items-center justify-between p-5 border border-t-0 rounded-bl rounded-br shadow-lg">
         <div>
           <h2 className="text-lg sm:text-xl text-main-grey font-semibold">

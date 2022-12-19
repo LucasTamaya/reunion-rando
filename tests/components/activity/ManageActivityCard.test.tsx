@@ -5,7 +5,9 @@ import { ManageActivityCard } from '@/components/activity/ManageActivityCard';
 import { RouterWrapper } from '@tests/helpers/RouterWrapper';
 import { renderWithClient } from '@tests/config/mswUtils';
 
-const MockedComponent = () => {
+const imageUrl = 'image.jpg';
+
+const MockedComponent: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   return (
     <RouterWrapper>
       <ManageActivityCard
@@ -15,7 +17,7 @@ const MockedComponent = () => {
         price={40}
         id="1"
         userId="1"
-        image_url="mafate.jpg"
+        image_url={imageUrl}
         cloudinary_public_id="1"
         createdBy={{
           avatar: 'avatar.jpg',
@@ -30,7 +32,7 @@ const MockedComponent = () => {
 
 describe('ManageActivityCard Component', () => {
   it('should renders the component correctly', () => {
-    renderWithClient(<MockedComponent />);
+    renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const image = screen.getByRole('img', {
       name: /activité/i,
@@ -49,8 +51,14 @@ describe('ManageActivityCard Component', () => {
     expect(editIcon).toBeInTheDocument();
   });
 
+  it('should renders an empty image icon if there is no image_url', () => {
+    renderWithClient(<MockedComponent imageUrl="" />);
+
+    expect(screen.getByTestId('emptyImageIcon')).toBeInTheDocument();
+  });
+
   it('should opens the DeleteModal component if the user clicks on the trashcan icon', () => {
-    renderWithClient(<MockedComponent />);
+    renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const trashcanIcon = screen.getByTestId('trashcanIcon');
     fireEvent.click(trashcanIcon);
@@ -71,7 +79,7 @@ describe('ManageActivityCard Component', () => {
   });
 
   it('should redirects the user to UpdateActivity screen if he clicks on the edit icon', () => {
-    renderWithClient(<MockedComponent />);
+    renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const editIcon = screen.getByTestId('editIcon');
     fireEvent.click(editIcon);
