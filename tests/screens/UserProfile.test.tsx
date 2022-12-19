@@ -6,6 +6,7 @@ import { server } from '@tests/config/server';
 import { renderWithClient } from '../config/mswUtils';
 import { fireEvent, screen } from '@testing-library/react';
 import { RouterWrapper } from '@tests/helpers/RouterWrapper';
+import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
 
 const simulatesUserUpdatingHisData = async () => {
   fireEvent.change(await screen.findByTestId('lastname'), {
@@ -35,7 +36,9 @@ const simulatesUserUpdatingHisData = async () => {
 const MockedComponent = () => {
   return (
     <RouterWrapper>
-      <UserProfile />
+      <HelmetSeoWrapper>
+        <UserProfile />
+      </HelmetSeoWrapper>
     </RouterWrapper>
   );
 };

@@ -11,6 +11,7 @@ import { updateUserDataSchema } from '../validationSchema/index';
 import { UpdateUserDataValues } from '@/types';
 import { useUpdateUserData } from '@/hooks/user/useUpdateUserData';
 import { InputFile } from '@/components/common/input/InputFile';
+import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const UserProfile: React.FC = () => {
   // Hook to get user data
@@ -44,7 +45,12 @@ export const UserProfile: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
+      <HelmetSeo
+        title="RunRando - Profile"
+        description="Ne manquez pas cette occasion de personnaliser votre profil et de le rendre encore plus attrayant pour les utilisateurs !"
+        path="/profile"
+      />
       <Nav />
       <h1 className="text-6xl text-main-green text-center font-semibold my-16">
         Profile
@@ -93,6 +99,6 @@ export const UserProfile: React.FC = () => {
         </div>
       ) : null}
       <Toaster />
-    </div>
+    </>
   );
 };
