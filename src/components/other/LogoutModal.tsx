@@ -12,7 +12,7 @@ export const LogoutModal: React.FC<Props> = ({
   isLoading,
 }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-screen flex justify-center items-center bg-black/50">
+    <div className="fixed top-0 left-0 w-full h-screen flex justify-center items-center bg-black/50 z-10">
       <div className="bg-white p-8 rounded mx-5">
         <h2 className="text-main-grey text-xl sm:text-2xl text-center font-semibold mb-8">
           Êtes-vous sûr de vouloir vous déconnecter ?
