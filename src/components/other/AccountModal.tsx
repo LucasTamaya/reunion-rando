@@ -10,23 +10,27 @@ export const AccountModal: React.FC = () => {
   const { mutate, isLoading } = useLogout();
 
   return (
-    <div className="relative">
+    <>
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute right-0 top-16 w-72 rounded p-7 bg-main-grey"
+          className="absolute right-0 top-20 w-72 rounded p-3 bg-gray-700"
         >
-          <ul className="flex flex-col gap-y-5">
-            <li className="text-white font-semibold">
-              <Link to="/mes-sorties">Mes sorties</Link>
+          <ul className="flex flex-col gap-y-2">
+            <li className="text-white font-semibold p-2 rounded transition hover:bg-slate-500">
+              <Link to="/mes-sorties" className="block w-full">
+                Mes sorties
+              </Link>
             </li>
-            <li className="text-white font-semibold">
-              <Link to="/profile">Modifier mes informations</Link>
+            <li className="text-white font-semibold p-2 rounded transition hover:bg-slate-500">
+              <Link to="/profile" className="block w-full">
+                Modifier mes informations
+              </Link>
             </li>
             <li
-              className="text-white font-semibold cursor-pointer"
+              className="text-white font-semibold cursor-pointer w-full p-2 rounded transition hover:bg-slate-500"
               onClick={() => setShowLogoutModal(true)}
             >
               Déconnexion
@@ -41,6 +45,6 @@ export const AccountModal: React.FC = () => {
           isLoading={isLoading}
         />
       ) : null}
-    </div>
+    </>
   );
 };

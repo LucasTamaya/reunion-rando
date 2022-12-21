@@ -12,7 +12,7 @@ export const BigScreenNav: React.FC = () => {
 
   return (
     <header className="bg-white shadow-md py-8">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
+      <nav className="relative max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/">
           <img src="/images/logo.png" alt="logo" width={100} height={100} />
         </Link>
@@ -32,8 +32,8 @@ export const BigScreenNav: React.FC = () => {
             </li>
           )}
         </ul>
+        {showAccountModal ? <AccountModal /> : null}
       </nav>
-      {showAccountModal ? <AccountModal /> : null}
     </header>
   );
 };
