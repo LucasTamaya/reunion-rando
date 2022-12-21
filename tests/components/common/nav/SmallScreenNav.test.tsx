@@ -21,6 +21,16 @@ describe('SmallScreenNav component', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src', '/images/logo.png');
   });
 
+  it('should render only the login link when the user is not logged in', () => {
+    renderWithClient(<MockedComponent />);
+
+    const loginLink = screen.getByRole('link', { name: /connexion/i });
+    const numberOfNavLinks = screen.getAllByRole('listitem');
+
+    expect(loginLink).toBeInTheDocument();
+    expect(numberOfNavLinks).toHaveLength(1);
+  });
+
   it('should render the individual user navigation links', () => {
     localStorage.setItem('role', 'particulier');
     renderWithClient(<MockedComponent />);

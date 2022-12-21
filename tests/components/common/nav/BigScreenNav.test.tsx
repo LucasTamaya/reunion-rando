@@ -20,9 +20,19 @@ describe('BigScreenNav component', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src', '/images/logo.png');
   });
 
-  it('should render the individual user navigation links', () => {
+  it('should render only the login link when the user is not logged in', () => {
     render(<MockedComponent />);
+
+    const loginLink = screen.getByRole('link', { name: /connexion/i });
+    const numberOfNavLinks = screen.getAllByRole('listitem');
+
+    expect(loginLink).toBeInTheDocument();
+    expect(numberOfNavLinks).toHaveLength(1);
+  });
+
+  it('should render the individual user navigation links', () => {
     localStorage.setItem('role', 'particulier');
+    render(<MockedComponent />);
 
     const linkOne = screen.getByRole('link', {
       name: /logo/i,
@@ -66,18 +76,7 @@ describe('BigScreenNav component', () => {
     expect(linkFour).toBeInTheDocument();
   });
 
-  it('should render the login link when the user is not logged in', () => {
-    //  clear the localStorage to make sure the user is not logged in
-    localStorage.clear();
-    render(<MockedComponent />);
-
-    const loginLink = screen.getByRole('link', { name: /connexion/i });
-
-    expect(loginLink).toBeInTheDocument();
-  });
-
   it('should render the "Mon compte" link when the user is logged in', () => {
-    localStorage.setItem('role', 'prestataire');
     render(<MockedComponent />);
 
     expect(screen.getByText(/mon compte/i)).toBeInTheDocument();

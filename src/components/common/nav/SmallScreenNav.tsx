@@ -6,6 +6,7 @@ import { useLogout } from '@/hooks/auth/useLogout';
 import { CommonNavLinks } from './links/CommonNavLinks';
 import { ProviderUserNavLinks } from './links/ProviderUserNavLinks';
 import { IndividualUserNavLinks } from './links/IndividualUserNavLinks';
+import { UserRoles } from '@/types';
 
 const HamburgerMenuIcon: React.FC = () => {
   return (
@@ -39,7 +40,7 @@ export const SmallScreenNav: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(false);
   const { mutate, isLoading } = useLogout();
-  const userRole = localStorage.getItem('role');
+  const userRole = localStorage.getItem('role') as UserRoles;
 
   const handleLogout = () => {
     mutate();
@@ -76,11 +77,8 @@ export const SmallScreenNav: React.FC = () => {
               <CrossIcon />
             </div>
             <ul className="flex flex-col items-center justify-between gap-y-10 min-h-[250px]">
-              {userRole === 'prestataire' ? (
-                <ProviderUserNavLinks />
-              ) : (
-                <IndividualUserNavLinks />
-              )}
+              {userRole === 'prestataire' ? <ProviderUserNavLinks /> : null}
+              {userRole === 'particulier' ? <IndividualUserNavLinks /> : null}
               <CommonNavLinks setShowLogoutModal={setShowLogoutModal} />
             </ul>
             {showLogoutModal ? (

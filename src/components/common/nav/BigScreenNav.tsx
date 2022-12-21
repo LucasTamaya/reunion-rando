@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { AccountModal } from '../../other/AccountModal';
 import { IndividualUserNavLinks } from './links/IndividualUserNavLinks';
 import { ProviderUserNavLinks } from './links/ProviderUserNavLinks';
+import { UserRoles } from '@/types';
 
 export const BigScreenNav: React.FC = () => {
   const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
-  const userRole = localStorage.getItem('role');
+  const userRole = localStorage.getItem('role') as UserRoles;
 
   return (
     <header className="bg-white shadow-md py-8">
@@ -16,11 +17,8 @@ export const BigScreenNav: React.FC = () => {
           <img src="/images/logo.png" alt="logo" width={100} height={100} />
         </Link>
         <ul className="flex items-center gap-x-10">
-          {userRole === 'prestataire' ? (
-            <ProviderUserNavLinks />
-          ) : (
-            <IndividualUserNavLinks />
-          )}
+          {userRole === 'prestataire' ? <ProviderUserNavLinks /> : null}
+          {userRole === 'particulier' ? <IndividualUserNavLinks /> : null}
           {userRole ? (
             <li
               className="text-lg text-main-green font-semibold cursor-pointer"

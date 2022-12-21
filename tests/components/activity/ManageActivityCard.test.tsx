@@ -31,7 +31,7 @@ const MockedComponent: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
 };
 
 describe('ManageActivityCard Component', () => {
-  it('should renders the component correctly', () => {
+  it('should render the component correctly', () => {
     renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const image = screen.getByRole('img', {
@@ -51,13 +51,13 @@ describe('ManageActivityCard Component', () => {
     expect(editIcon).toBeInTheDocument();
   });
 
-  it('should renders an empty image icon if there is no image_url', () => {
+  it('should render an empty image icon if there is no image_url', () => {
     renderWithClient(<MockedComponent imageUrl="" />);
 
     expect(screen.getByTestId('emptyImageIcon')).toBeInTheDocument();
   });
 
-  it('should opens the DeleteModal component if the user clicks on the trashcan icon', () => {
+  it('should open the DeleteModal component if the user clicks on the trashcan icon', () => {
     renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const trashcanIcon = screen.getByTestId('trashcanIcon');
@@ -78,7 +78,7 @@ describe('ManageActivityCard Component', () => {
     expect(deleteModalDeleteBtn).toBeInTheDocument();
   });
 
-  it('should redirects the user to UpdateActivity screen if he clicks on the edit icon', () => {
+  it('should redirect the user to UpdateActivity screen if he clicks on the edit icon', () => {
     renderWithClient(<MockedComponent imageUrl={imageUrl} />);
 
     const editIcon = screen.getByTestId('editIcon');
