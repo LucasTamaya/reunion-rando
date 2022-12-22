@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import * as ReactRouter from 'react-router-dom';
 
 import { ActivityDetails } from '@/screens/ActivityDetails';
 import { Activity } from '@/types';
 import { HelmetSeoWrapper } from '@tests/helpers/HelmetSeoWrapper';
+import { renderWithClient } from '@tests/config/mswUtils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: vi.fn(),
@@ -37,7 +38,7 @@ describe('ActivityDetails Screen', () => {
         },
         cloudinary_public_id: '',
         id: '',
-        userId: '',
+        createdById: '',
       } as Activity,
       pathname: '',
       key: 'key',
@@ -45,7 +46,7 @@ describe('ActivityDetails Screen', () => {
       search: '',
     });
 
-    render(<MockedComponent />);
+    renderWithClient(<MockedComponent />);
 
     const title = screen.getByRole('heading', { name: /randonnée à mafate/i });
     const hikeImage = screen.getByAltText(/randonnée/i);
@@ -84,7 +85,7 @@ describe('ActivityDetails Screen', () => {
         },
         cloudinary_public_id: '',
         id: '',
-        userId: '',
+        createdById: '',
       } as Activity,
       pathname: '',
       key: 'key',
@@ -92,7 +93,7 @@ describe('ActivityDetails Screen', () => {
       search: '',
     });
 
-    render(<MockedComponent />);
+    renderWithClient(<MockedComponent />);
 
     const title = screen.getByRole('heading', { name: /randonnée à mafate/i });
     const hikeImage = screen.getByAltText(/randonnée/i);

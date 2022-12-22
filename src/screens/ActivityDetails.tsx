@@ -1,12 +1,15 @@
 import { useLocation } from 'react-router-dom';
 import { BsPersonCircle } from 'react-icons/bs';
+import { Toaster } from 'react-hot-toast';
 
 import { Activity } from '@/types';
 import { Nav } from '@/components/common/nav/Nav';
 import { Button } from '@/components/common/Button';
+import { useSaveActivity } from '@/hooks/activity/useSaveActivity';
 import HelmetSeo from '@/components/common/HelmetSeo';
 
 export const ActivityDetails: React.FC = () => {
+  const { mutate, isLoading } = useSaveActivity();
   // Retrieve and destructure the activity details from the location state
   const location = useLocation();
   const {
@@ -18,6 +21,7 @@ export const ActivityDetails: React.FC = () => {
     id,
     location: hikeLocation,
   }: Activity = location.state;
+
   const { lastname, firstname, email, avatar } = createdBy;
   const AVATAR_URL = avatar ? `url("${avatar}")` : '';
 
@@ -66,11 +70,18 @@ export const ActivityDetails: React.FC = () => {
             Localisation
           </h2>
           <p className="text-base sm:text-lg mb-10">{hikeLocation}</p>
-          <a href={`mailto:${email}`} className="w-full">
+          <a href={`mailto:${email}`} className="block w-full mb-5">
             <Button text="Contacter le prestataire" variant="primary" />
           </a>
+          <Button
+            text="Ajouter à mes favoris"
+            variant="secondary"
+            isLoading={isLoading}
+            handleClick={() => mutate(id)}
+          />
         </div>
       </div>
+      <Toaster />
     </>
   );
 };

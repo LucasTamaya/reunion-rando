@@ -52,3 +52,14 @@ export const fetchUpdateActivity = async (activityData: FormData) => {
 
   return data;
 };
+
+export const fetchSaveActivity = async (activityId: string) => {
+  const userId = localStorage.getItem('userId');
+
+  const { data } = await axiosInstance.patch(
+    `${SERVER_BASE_URL}/activity/${activityId}/save`,
+    { userId }
+  );
+
+  return data;
+};

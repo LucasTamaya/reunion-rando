@@ -50,7 +50,7 @@ export interface Activity {
   location: string;
   price: number;
   title: string;
-  userId: string;
+  createdById: string;
   image_url: string;
   cloudinary_public_id: string;
 }

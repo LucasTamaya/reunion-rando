@@ -57,7 +57,7 @@ export const ActivityForm: React.FC<Props> = ({
   const createActivityFormData = (activityData: NewActivityValues) => {
     const { title, location, description, file, price, cloudinaryPublicId } =
       activityData;
-    const userId = localStorage.getItem('userId')!;
+    const createdById = localStorage.getItem('userId')!;
     const formData = new FormData();
 
     if (activityId) formData.append('activityId', activityId);
@@ -68,7 +68,7 @@ export const ActivityForm: React.FC<Props> = ({
     formData.append('file', file);
     formData.append('price', price.toString());
     formData.append('cloudinaryPublicId', cloudinaryPublicId);
-    formData.append('userId', userId);
+    formData.append('createdById', createdById);
 
     return formData;
   };
