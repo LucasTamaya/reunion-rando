@@ -57,11 +57,11 @@ describe('DeleteModal Component', () => {
     expect(mockedHandleDelete).toHaveBeenCalledTimes(1);
   });
 
-  it('should renders a loader if isLoading is true', () => {
+  it('should renders a loading spinner if isLoading is true', () => {
     render(<MockedComponent isLoading={true} />);
 
-    const loader = screen.getByTestId('loader');
+    const loadingSpinner = screen.getByTestId('loadingSpinner');
 
-    expect(loader).toBeInTheDocument();
+    expect(loadingSpinner).toBeInTheDocument();
   });
 });

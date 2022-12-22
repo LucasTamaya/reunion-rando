@@ -51,6 +51,14 @@ export const handlers = [
   rest.patch('*/user/2', (_, res, ctx) => {
     return res(ctx.status(200));
   }),
+
+  rest.get('*/users/2/saved-activities', (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockedActivitiesData));
+  }),
+
+  rest.patch('*/activity/6815/unsave', (_, res, ctx) => {
+    return res(ctx.status(200));
+  }),
 ];
 
 const createTestQueryClient = () =>

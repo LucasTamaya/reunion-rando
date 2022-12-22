@@ -70,7 +70,7 @@ describe('LogoutModal Component', () => {
       />
     );
 
-    const loadingSpinner = screen.getByTestId('loader');
+    const loadingSpinner = screen.getByTestId('loadingSpinner');
 
     expect(loadingSpinner).toBeInTheDocument();
   });

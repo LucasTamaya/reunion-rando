@@ -31,7 +31,7 @@ export const Button: React.FC<Props> = ({
           size={25}
           speedMultiplier={0.9}
           color="#fff"
-          data-testid="loader"
+          data-testid="loadingSpinner"
         />
       ) : (
         <>{text}</>

@@ -15,7 +15,7 @@ describe('Button Component', () => {
   it('should renders the loading spinner when isLoading is true', () => {
     render(<Button text="Envoyer" variant="primary" isLoading={true} />);
 
-    const loadingSpinner = screen.getByTestId('loader');
+    const loadingSpinner = screen.getByTestId('loadingSpinner');
 
     expect(loadingSpinner).toBeInTheDocument();
   });
