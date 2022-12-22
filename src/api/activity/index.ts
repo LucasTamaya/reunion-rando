@@ -73,3 +73,14 @@ export const fetchSavedActivities = async () => {
 
   return data.activities;
 };
+
+export const fetchUnsaveActivity = async (activityId: string) => {
+  const userId = localStorage.getItem('userId');
+
+  const { data } = await axiosInstance.patch<{ activityId: string }>(
+    `${SERVER_BASE_URL}/activity/${activityId}/unsave`,
+    { userId }
+  );
+
+  return data.activityId;
+};

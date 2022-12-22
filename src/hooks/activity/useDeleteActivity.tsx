@@ -6,7 +6,7 @@ import {
 import toast from 'react-hot-toast';
 
 import { fetchDeleteActivity } from '@/api/activity';
-import { Activity } from '@/types';
+import { refreshActivitiesData } from '@/helpers/refreshActivitiesData';
 
 interface DeleteActivityVariables {
   activityId: string;
@@ -15,18 +15,7 @@ interface DeleteActivityVariables {
 
 const handleSuccess = (activityId: string, queryClient: QueryClient) => {
   toast.success('Activité supprimée avec succès !');
-  refreshData(activityId, queryClient);
-};
-
-const refreshData = (activityId: string, queryClient: QueryClient) => {
-  // access the previous data of the query that has the key 'providerActivities'
-  // and filter the array to delete the selected activity
-  queryClient.setQueryData(['providerActivities'], (prev: any) => {
-    const updatedActivities = prev.filter(
-      (activity: Activity) => activity.id !== activityId
-    );
-    return updatedActivities;
-  });
+  refreshActivitiesData(activityId, 'providerActivities', queryClient);
 };
 
 export const useDeleteActivity = () => {
