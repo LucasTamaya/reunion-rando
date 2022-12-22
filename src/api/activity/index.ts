@@ -63,3 +63,13 @@ export const fetchSaveActivity = async (activityId: string) => {
 
   return data;
 };
+
+export const fetchSavedActivities = async () => {
+  const userId = localStorage.getItem('userId');
+
+  const { data } = await axiosInstance.get<Activities>(
+    `${SERVER_BASE_URL}/users/${userId}/saved-activities`
+  );
+
+  return data.activities;
+};

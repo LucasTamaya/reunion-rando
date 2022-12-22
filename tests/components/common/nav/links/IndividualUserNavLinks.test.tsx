@@ -23,7 +23,7 @@ describe('IndividualUserNavLinks Component', () => {
       name: /nos experts du terrain/i,
     });
     const linkThree = screen.getByRole('link', {
-      name: /programmer ma sortie/i,
+      name: /mes favoris/i,
     });
 
     expect(linkOne).toBeInTheDocument();
@@ -31,6 +31,6 @@ describe('IndividualUserNavLinks Component', () => {
     expect(linkTwo).toBeInTheDocument();
     expect(linkTwo).toHaveAttribute('href', '/nos-experts-du-terrain');
     expect(linkThree).toBeInTheDocument();
-    expect(linkThree).toHaveAttribute('href', '/programmer-ma-sortie');
+    expect(linkThree).toHaveAttribute('href', '/mes-favoris');
   });
 });

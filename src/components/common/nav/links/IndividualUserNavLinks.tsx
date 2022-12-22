@@ -10,7 +10,7 @@ export const IndividualUserNavLinks: React.FC = () => {
         <Link to="/nos-experts-du-terrain">Nos experts du terrain</Link>
       </li>
       <li className="text-lg text-gray-700 font-semibold">
-        <Link to="/programmer-ma-sortie">Programmer ma sortie</Link>
+        <Link to="/mes-favoris">Mes favoris</Link>
       </li>
     </>
   );

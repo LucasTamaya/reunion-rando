@@ -44,7 +44,7 @@ describe('BigScreenNav component', () => {
       name: /nos experts du terrain/i,
     });
     const linkFour = screen.getByRole('link', {
-      name: /programmer ma sortie/i,
+      name: /mes favoris/i,
     });
 
     expect(linkOne).toBeInTheDocument();

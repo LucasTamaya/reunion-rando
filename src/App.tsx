@@ -12,6 +12,7 @@ import { ExpertsField } from './screens/ExpertsField';
 import { UserProfile } from './screens/UserProfile';
 import { ManageActivities } from './screens/ManageActivities';
 import { UpdateActivity } from './screens/UpdateActivity';
+import { Favorite } from './screens/Favorite';
 
 export const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
         <Route path="/activites-du-moment" element={<CurrentActivities />} />
         <Route path="/activites/:id" element={<ActivityDetails />} />
         <Route path="/nos-experts-du-terrain" element={<ExpertsField />} />
+        <Route path="/mes-favoris" element={<Favorite />} />
         <Route path="/profile" element={<UserProfile />} />
       </Route>
       <Route element={<ProtectedRoutes allowedRole="prestataire" />}>
