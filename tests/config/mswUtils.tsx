@@ -59,6 +59,10 @@ export const handlers = [
   rest.patch('*/activity/6815/unsave', (_, res, ctx) => {
     return res(ctx.status(200));
   }),
+
+  rest.patch('*/activity/2/save', (_, res, ctx) => {
+    return res(ctx.status(200));
+  }),
 ];
 
 const createTestQueryClient = () =>

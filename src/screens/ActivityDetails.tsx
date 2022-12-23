@@ -60,7 +60,7 @@ export const ActivityDetails: React.FC = () => {
               <BsPersonCircle
                 size={96}
                 color="grey"
-                data-testid="emptyAvatarIcon"
+                data-testid="avatarPlaceholderIcon"
               />
             )}
           </div>
