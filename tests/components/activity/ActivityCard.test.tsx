@@ -15,7 +15,7 @@ const mockedActivityCardProps = {
   price: 40,
   description: 'Venez découvrir Mafate avec moi',
   id: '1',
-  userId: '1',
+  createdById: '1',
   cloudinary_public_id: '1',
 };
 

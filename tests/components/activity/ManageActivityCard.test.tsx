@@ -16,7 +16,7 @@ const MockedComponent: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
         description="Superbe marche à Mafate"
         price={40}
         id="1"
-        userId="1"
+        createdById="1"
         image_url={imageUrl}
         cloudinary_public_id="1"
         createdBy={{
