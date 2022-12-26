@@ -32,7 +32,7 @@ export const ExpertsField: React.FC = () => {
       ) : null}
 
       {data ? (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-4 gap-10 px-5 pb-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-10 px-5 pb-5">
           {data.map(({ ...props }) => (
             <UserProviderCard {...props} key={props.id} />
           ))}
