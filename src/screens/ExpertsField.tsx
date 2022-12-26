@@ -16,7 +16,7 @@ export const ExpertsField: React.FC = () => {
         path="/nos-experts-du-terrain"
       />
       <Nav />
-      <h1 className="text-6xl text-main-green text-center font-semibold my-16">
+      <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Nos experts du terrain
       </h1>
 
@@ -32,7 +32,7 @@ export const ExpertsField: React.FC = () => {
       ) : null}
 
       {data ? (
-        <div className="max-w-7xl mx-auto grid grid-cols-4 gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-4 gap-10 px-5 pb-5">
           {data.map(({ ...props }) => (
             <UserProviderCard {...props} key={props.id} />
           ))}
