@@ -66,7 +66,7 @@ export const SmallScreenNav: React.FC = () => {
           <div
             className={
               showNav
-                ? 'absolute top-0 left-0 w-full h-screen bg-white z-10 flex flex-col justify-evenly items-center'
+                ? 'fixed top-0 left-0 w-full h-screen bg-white z-10 flex flex-col justify-evenly items-center'
                 : 'hidden'
             }
           >
