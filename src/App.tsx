@@ -21,17 +21,22 @@ export const App: React.FC = () => {
       <Route path="/connexion" element={<Login />} />
       <Route path="/inscription" element={<Register />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
-      <Route element={<ProtectedRoutes allowedRole="particulier" />}>
+      <Route element={<ProtectedRoutes allowedRoles={['particulier']} />}>
         <Route path="/activites-du-moment" element={<CurrentActivities />} />
         <Route path="/activites/:id" element={<ActivityDetails />} />
         <Route path="/nos-experts-du-terrain" element={<ExpertsField />} />
         <Route path="/mes-favoris" element={<Favorite />} />
-        <Route path="/profile" element={<UserProfile />} />
       </Route>
-      <Route element={<ProtectedRoutes allowedRole="prestataire" />}>
+      <Route element={<ProtectedRoutes allowedRoles={['prestataire']} />}>
         <Route path="/nouvelle-activite" element={<AddNewActivity />} />
         <Route path="/gerer-mes-activites" element={<ManageActivities />} />
         <Route path="/modification-activite/:id" element={<UpdateActivity />} />
+      </Route>
+      <Route
+        element={
+          <ProtectedRoutes allowedRoles={['prestataire', 'particulier']} />
+        }
+      >
         <Route path="/profile" element={<UserProfile />} />
       </Route>
     </Routes>

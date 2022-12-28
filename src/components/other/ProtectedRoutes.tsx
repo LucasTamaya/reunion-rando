@@ -3,10 +3,12 @@ import { ClipLoader } from 'react-spinners';
 
 import { useUserRole } from '@/hooks/user/useUserRole';
 
-type AllowedRoles = 'particulier' | 'prestataire';
+type Roles =
+  | ['prestataire' | 'particulier' | undefined]
+  | ['prestataire', 'particulier' | undefined];
 
-export const ProtectedRoutes: React.FC<{ allowedRole: AllowedRoles }> = ({
-  allowedRole,
+export const ProtectedRoutes: React.FC<{ allowedRoles: Roles }> = ({
+  allowedRoles,
 }) => {
   const { isLoading, data: user } = useUserRole();
   const location = useLocation();
@@ -19,7 +21,7 @@ export const ProtectedRoutes: React.FC<{ allowedRole: AllowedRoles }> = ({
     );
   }
 
-  return user?.role === allowedRole ? (
+  return allowedRoles.includes(user?.role) ? (
     <Outlet />
   ) : (
     <Navigate to="/unauthorized" state={{ from: location }} replace />
