@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { LogoutModal } from '@/components/other/LogoutModal';
@@ -39,13 +39,13 @@ const CrossIcon: React.FC = () => {
 export const SmallScreenNav: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(false);
-  const { mutate, isLoading } = useLogout();
+  const { mutate, isLoading, isSuccess } = useLogout();
   const userRole = localStorage.getItem('role') as UserRoles;
 
-  const handleLogout = () => {
-    mutate();
+  useEffect(() => {
     setShowLogoutModal(false);
-  };
+    setShowNav(false);
+  }, [isSuccess]);
 
   return (
     <div
@@ -84,7 +84,7 @@ export const SmallScreenNav: React.FC = () => {
             {showLogoutModal ? (
               <LogoutModal
                 handleCancel={setShowLogoutModal}
-                handleLogout={handleLogout}
+                handleLogout={mutate}
                 isLoading={isLoading}
               />
             ) : null}

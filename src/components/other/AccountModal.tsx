@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,16 @@ import { LogoutModal } from './LogoutModal';
 
 export const AccountModal: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
-  const { mutate, isLoading } = useLogout();
+  const { mutate, isLoading, isSuccess } = useLogout();
+
+  useEffect(() => {
+    setShowLogoutModal(false);
+    // when the user is on the Home screen and disconnects, the nav doesn't update
+    // so we reload the page to make sure the nav links are updated
+    if (isSuccess && window.location.pathname === '/') {
+      window.location.reload();
+    }
+  }, [isSuccess]);
 
   return (
     <>
