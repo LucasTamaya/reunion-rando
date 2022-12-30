@@ -52,7 +52,7 @@ export const UserProfile: React.FC = () => {
         path="/profile"
       />
       <Nav />
-      <h1 className="text-6xl text-main-green text-center font-semibold my-16">
+      <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Profile
       </h1>
 
@@ -63,7 +63,7 @@ export const UserProfile: React.FC = () => {
       ) : null}
 
       {data ? (
-        <div className="flex flex-col gap-y-5 justify-center items-center max-w-lg mx-auto">
+        <div className="flex flex-col gap-y-5 justify-center items-center max-w-lg mx-auto px-5 py-5">
           <Formik
             initialValues={initialValues}
             validationSchema={updateUserDataSchema}
@@ -74,7 +74,7 @@ export const UserProfile: React.FC = () => {
                 <img
                   src={data.avatar}
                   alt="avatar utilisateur"
-                  className="w-[120px] h-[120px] rounded-full mx-auto"
+                  className="w-[120px] h-[120px] rounded-full object-cover mx-auto"
                 />
               ) : (
                 <>
