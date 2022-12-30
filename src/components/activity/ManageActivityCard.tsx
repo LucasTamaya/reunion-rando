@@ -28,9 +28,13 @@ export const ManageActivityCard: React.FC<Activity> = ({
   };
 
   return (
-    <div>
+    <div className="lg:transition lg:hover:scale-105">
       {image_url ? (
-        <img src={image_url} alt="activité" className="rounded-tl rounded-tr" />
+        <img
+          src={image_url}
+          alt="activité"
+          className="w-full h-96 object-cover rounded-tl rounded-tr"
+        />
       ) : (
         <div
           className="w-full h-80 flex justify-center items-center rounded-tl rounded-tr border"
