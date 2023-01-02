@@ -17,6 +17,7 @@ export const Login: React.FC = () => {
   };
 
   const initialValues: LoginValues = { email: '', password: '' };
+
   return (
     <>
       <HelmetSeo

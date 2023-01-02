@@ -30,6 +30,7 @@ export const Input: React.FC<Props> = ({ label, ...props }) => {
         {...field}
         {...props}
       />
+
       {meta.touched && meta.error ? (
         <InputErrorMessage error={meta.error} />
       ) : null}

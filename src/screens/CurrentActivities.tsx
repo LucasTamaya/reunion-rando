@@ -1,10 +1,10 @@
-import { ClipLoader } from 'react-spinners';
 import { Toaster } from 'react-hot-toast';
 
 import { ActivityCard } from '@/components/activity/ActivityCard';
 import { Nav } from '@/components/common/nav/Nav';
 import { useActivities } from '@/hooks/activity/useActivities';
 import HelmetSeo from '@/components/common/HelmetSeo';
+import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 
 export const CurrentActivities: React.FC = () => {
   const { isLoading, data } = useActivities();
@@ -20,12 +20,18 @@ export const CurrentActivities: React.FC = () => {
       <h1 className="text-2xl sm:text-6xl text-main-green text-center font-semibold my-10 sm:my-16">
         Activités du moment
       </h1>
-      {isLoading ? (
-        <div className="w-full flex justify-center items-center">
-          <ClipLoader size={25} speedMultiplier={0.9} color="#128B2D" />
+
+      {isLoading ? <LoadingSpinner /> : null}
+
+      {data && data.length === 0 ? (
+        <div className="max-w-xl mx-auto px-5">
+          <h2 className="text-center text-main-grey text-lg sm:text-2xl mb-10">
+            Aucune activité disponible pour le moment
+          </h2>
         </div>
       ) : null}
-      {data ? (
+
+      {data && data.length > 0 ? (
         <div className="w-full h-fit max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto px-5 pb-5">
           {data.map(({ ...props }) => (
             <ActivityCard key={props.id} {...props} />
